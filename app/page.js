@@ -1,5 +1,4 @@
 import FunFactCounter from "@/components/FunFactCounter";
-import Pricing from "@/components/Pricing";
 import { TestimonialSlider1 } from "@/components/TestimonialSlider";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
@@ -808,8 +807,6 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Pricing Section Start */}
-      <Pricing />
       {/* Testimonial Section Start */}
       <section className="testimonial-section fix section-padding pt-0">
         <div className="container">
