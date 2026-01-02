@@ -6,7 +6,13 @@ import Link from "next/link";
 const page = () => {
   return (
     <NextLayout header={1}>
-      <section className="hero-section hero-1 bg-cover fix">
+      <section
+        className="hero-section hero-1 bg-cover fix"
+        style={{
+          background:
+            "linear-gradient(135deg, #101828 0%, #101828 40%, #FAC014 100%)",
+        }}
+      >
         <div className="container">
           <div className="row g-4 justify-content-between">
             <div className="col-lg-6">
