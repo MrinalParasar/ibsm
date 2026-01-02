@@ -22,7 +22,8 @@
         margin-left: 10px;
     }
 
-    &::before,&::after {
+    &::before,
+    &::after {
         position: absolute;
         top: 50%;
         content: "";
@@ -50,10 +51,10 @@
             animation: criss-cross-left 0.8s both;
             animation-direction: alternate;
         }
-    
+
         &::after {
             animation: criss-cross-right 0.8s both;
-              animation-direction: alternate;
+            animation-direction: alternate;
         }
     }
 
@@ -69,7 +70,8 @@
     &.hover-white {
         @include transition;
 
-        &::before,&::after {
+        &::before,
+        &::after {
             background-color: $white;
         }
 
@@ -81,7 +83,8 @@
     &.bg-2 {
         background: $theme-color-2;
 
-        &::before,&::after {
+        &::before,
+        &::after {
             background: $header-color;
         }
 
@@ -90,11 +93,11 @@
         }
     }
 
-    @include breakpoint (max-md){
+    @include breakpoint (max-md) {
         padding: 20px 32px;
     }
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         padding: 18px 30px;
         font-size: 14px;
     }
@@ -104,7 +107,8 @@
         border: 1px solid $white;
         color: $white;
 
-        &::before,&::after {
+        &::before,
+        &::after {
             background-color: $white;
         }
 

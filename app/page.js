@@ -18,7 +18,10 @@ const page = () => {
             <div className="col-lg-6">
               <div className="hero-content">
                 <h1 className="text-white wow fadeInUp" data-wow-delay=".2s">
-                  Your <span style={{ color: "#FAC014" }}>Safety & Security</span> <br /> Our Responsibility
+                  Your <br />
+                  <span style={{ backgroundColor: "#FAC014", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block", marginBottom: "10px" }}>Safety</span> <br />
+                  <span style={{ backgroundColor: "#FAC014", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block" }}>& Security</span> <br />
+                  Our Responsibility
                 </h1>
                 <p className="text-white wow fadeInUp" data-wow-delay=".4s">
                   Welcome to IBSM Global Security Solutions, your trusted partner in
@@ -28,6 +31,7 @@ const page = () => {
                   <Link
                     href="/"
                     className="theme-btn hover-white wow fadeInUp"
+                    style={{ backgroundColor: "#FAC014", color: "#000", border: "none" }}
                     data-wow-delay=".4s"
                   >
                     Get Started Now <i className="far fa-arrow-right" />
@@ -35,6 +39,7 @@ const page = () => {
                   <Link
                     href="service"
                     className="btn-link wow fadeInUp"
+                    style={{ color: "#FAC014", textDecoration: "none", border: "1px solid #FAC014", padding: "12px 25px", borderRadius: "14px", display: "inline-block" }}
                     data-wow-delay=".6s"
                   >
                     View Services <i className="far fa-arrow-right" />
