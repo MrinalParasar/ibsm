@@ -8342,13 +8342,15 @@ input.main-search-input::placeholder {
   overflow: hidden;
   white-space: nowrap;
   margin-bottom: 50px;
+  height: 85px;
 }
 
 .text-slider {
-  font-size: 150px;
+  font-size: 70px;
   display: inline-block;
+  vertical-align: middle;
   height: auto;
-  line-height: 1;
+  line-height: normal;
   font-weight: 500;
   text-transform: capitalize;
   margin-right: 40px;
