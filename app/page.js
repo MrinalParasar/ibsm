@@ -31,7 +31,13 @@ const page = () => {
                   <Link
                     href="/"
                     className="theme-btn hover-white wow fadeInUp"
-                    style={{ backgroundColor: "#FAC014", color: "#000", border: "none" }}
+                    style={{
+                      background: "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)",
+                      color: "#000",
+                      border: "none",
+                      fontWeight: "700",
+                      boxShadow: "0 4px 15px rgba(250, 192, 20, 0.3)"
+                    }}
                     data-wow-delay=".4s"
                   >
                     Get Started Now <i className="far fa-arrow-right" />
@@ -415,57 +421,39 @@ const page = () => {
       {/* Cta Video Section Start */}
       <div
         className="cta-video-section fix bg-cover"
-        style={{ backgroundImage: 'url("/assets/img/cta/cta-video.jpg")' }}
+        style={{ backgroundImage: 'url("/assets/img/cta/security-banner.png")' }}
       >
         <div className="container">
-          <div className="cta-video-wrapper">
-            <div className="video-box">
-              <a
-                href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I"
-                className="video-buttton ripple video-popup"
-              >
-                <i className="fas fa-play" />
-              </a>
-            </div>
+          <div className="cta-video-wrapper" style={{ minHeight: "250px" }}>
+            {/* Video button removed for photo section */}
           </div>
         </div>
         <div className="marquee-wrapper text-slider">
           <div className="marquee-inner to-left">
             <ul className="marqee-list d-flex">
               <li className="marquee-item">
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Consulting </span>
+                <span className="text-slider">Security</span>
+                <span className="text-slider">Guards </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">Co</span>
-                <span className="text-slider">Machine </span>
+                <span className="text-slider">Bouncer</span>
+                <span className="text-slider">Services </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Learning </span>
+                <span className="text-slider">Escort</span>
+                <span className="text-slider">Guards </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">Web </span>
-                <span className="text-slider">Development</span>
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Consulting </span>
+                <span className="text-slider">Facility </span>
+                <span className="text-slider">Management</span>
+                <span className="text-slider">Security</span>
+                <span className="text-slider">Guards </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">Co</span>
-                <span className="text-slider">Machine </span>
+                <span className="text-slider">Bouncer</span>
+                <span className="text-slider">Services </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Learning </span>
+                <span className="text-slider">Escort</span>
+                <span className="text-slider">Guards </span>
                 <span className="text-slider style-border" />
-                <span className="text-slider">Web </span>
-                <span className="text-slider">Development</span>
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Consulting </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Co</span>
-                <span className="text-slider">Machine </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">IT</span>
-                <span className="text-slider">Learning </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Web </span>
-                <span className="text-slider">Development</span>
+                <span className="text-slider">Facility </span>
+                <span className="text-slider">Management</span>
               </li>
             </ul>
           </div>

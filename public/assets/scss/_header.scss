@@ -394,7 +394,7 @@
 }
 
 .header-1 {
-	background: #101828;
+	background: #000;
 
 	.container-fluid {
 		padding: 0 130px;
@@ -652,9 +652,9 @@
 	top: 0 !important;
 	left: 0;
 	width: 100%;
-	z-index: 100;
+	z-index: 100 !important;
 	transition: all 0.9s;
-	background-color: $white;
+	background-color: #000 !important;
 	box-shadow: $shadow;
 	-webkit-transition: all 0.9s;
 	transition: all 0.9s;
@@ -679,7 +679,7 @@
 					li {
 
 						a {
-							color: $header-color;
+							color: #fff !important;
 
 						}
 					}
@@ -714,7 +714,7 @@
 			}
 
 			.sidebar__toggle {
-				color: $black;
+				color: #fff !important;
 			}
 		}
 	}

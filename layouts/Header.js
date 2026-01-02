@@ -436,7 +436,7 @@ const Header1 = ({ single, menu }) => {
         <div className="container-fluid">
           <div className="mega-menu-wrapper">
             <div className="header-main">
-              <div className="sticky-logo">
+              <div className="sticky-logo" style={{ display: "flex", alignItems: "center" }}>
                 <Link href="/">
                   <div className="logo-1">
                     <Logo color="white" />
@@ -456,17 +456,6 @@ const Header1 = ({ single, menu }) => {
                 </div>
               </div>
               <div className="header-right d-flex justify-content-end align-items-center">
-                <div className="icon-items">
-                  <div className="icon">
-                    <i className="fas fa-phone-alt" />
-                  </div>
-                  <div className="content">
-                    <p>Make A Call</p>
-                    <h4>
-                      <a href="tel:+00012345688">+000 (123) 456 88</a>
-                    </h4>
-                  </div>
-                </div>
                 <div className="header__hamburger d-xl-block my-auto">
                   <div
                     className="sidebar__toggle"
