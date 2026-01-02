@@ -11,16 +11,15 @@ export const TestimonialSlider1 = () => {
         <SwiperSlide className="swiper-slide">
           <div className="testimonial-content">
             <p>
-              We denounce with right indignation dislike men who are so beguile
-              and demoralized by the charms of pleasure of the moment, so
-              blinded by desire cannot foresee
+              "The bouncer services provided by IBSM for our corporate event were top-notch.
+              The team was highly professional, disciplined, and managed the crowd seamlessly."
             </p>
             <div className="author-items">
               <div className="author-image">
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Lucas J. Swe / <span>CO Founder</span>
+                    Rajesh Khanna / <span>Event Manager</span>
                   </h5>
                 </div>
               </div>
@@ -31,16 +30,15 @@ export const TestimonialSlider1 = () => {
         <SwiperSlide className="swiper-slide">
           <div className="testimonial-content">
             <p>
-              We denounce with right indignation dislike men who are so beguile
-              and demoralized by the charms of pleasure of the moment, so
-              blinded by desire cannot foresee
+              "Relocating our high-value assets was stress-free thanks to their escort guards.
+              They managed the entire transit with great care and precision."
             </p>
             <div className="author-items">
               <div className="author-image">
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Lucas J. Swe / <span>CO Founder</span>
+                    Anjali Sharma / <span>Operations Head</span>
                   </h5>
                 </div>
               </div>
@@ -51,16 +49,15 @@ export const TestimonialSlider1 = () => {
         <SwiperSlide className="swiper-slide">
           <div className="testimonial-content">
             <p>
-              We denounce with right indignation dislike men who are so beguile
-              and demoralized by the charms of pleasure of the moment, so
-              blinded by desire cannot foresee
+              "We've been using their facility management services for over a year.
+              The staff is well-trained and the security management is very responsive to our needs."
             </p>
             <div className="author-items">
               <div className="author-image">
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Lucas J. Swe / <span>CO Founder</span>
+                    Vikram Malhotra / <span>Society Secretary</span>
                   </h5>
                 </div>
               </div>
@@ -71,16 +68,15 @@ export const TestimonialSlider1 = () => {
         <SwiperSlide className="swiper-slide">
           <div className="testimonial-content">
             <p>
-              We denounce with right indignation dislike men who are so beguile
-              and demoralized by the charms of pleasure of the moment, so
-              blinded by desire cannot foresee
+              "IBSM Global Security has provided unparalleled safety for our residential complex.
+              Their guards are always alert, professional, and very courteous."
             </p>
             <div className="author-items">
               <div className="author-image">
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Lucas J. Swe / <span>CO Founder</span>
+                    Priya Singh / <span>Business Owner</span>
                   </h5>
                 </div>
               </div>
