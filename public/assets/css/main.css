@@ -8345,18 +8345,27 @@ input.main-search-input::placeholder {
 }
 
 .text-slider {
-  font-size: 150px;
-  height: 150px;
+  font-size: 70px;
+  height: auto;
   line-height: 1;
   font-weight: 500;
   text-transform: capitalize;
-  margin-right: 20px;
+  margin-right: 30px;
+  padding: 5px 15px;
   color: rgb(255, 255, 255);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--white);
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--white);
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.text-slider:hover {
+  -webkit-text-fill-color: #000;
+  background-color: var(--theme);
+  -webkit-text-stroke-color: var(--theme);
+  cursor: pointer;
 }
 
 .text-slider.style-height {
