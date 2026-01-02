@@ -10,7 +10,7 @@ const page = () => {
         className="hero-section hero-1 bg-cover fix"
         style={{
           background:
-            "linear-gradient(135deg, #101828 0%, #101828 40%, #FAC014 100%)",
+            "linear-gradient(135deg, #000000 0%, #000000 50%, #FAC014 100%)",
         }}
       >
         <div className="container">
