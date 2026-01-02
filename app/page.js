@@ -38,11 +38,29 @@ const page = () => {
                   </Link>
                 </div>
                 <div
-                  className="hero-client d-flex align-items-center gap-4 mt-50 wow fadeInUp"
+                  className="hero-client d-flex align-items-center gap-2 mt-50 wow fadeInUp"
                   data-wow-delay=".8s"
                 >
-                  <img src="/assets/img/hero/client.png" alt="img" />
-                  <p className="text-white">
+                  <div className="d-flex align-items-center me-2">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <img
+                        key={i}
+                        src={`/assets/img/team/0${i}.jpg`}
+                        alt="client"
+                        style={{
+                          width: "45px",
+                          height: "45px",
+                          borderRadius: "50%",
+                          border: "2px solid #fff",
+                          marginLeft: i === 1 ? "0" : "-15px",
+                          objectFit: "cover",
+                          position: "relative",
+                          zIndex: 6 - i,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <p className="text-white mb-0">
                     Trusted by 1M+ people <br />
                     around the globe
                   </p>
