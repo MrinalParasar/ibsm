@@ -237,11 +237,11 @@ const page = () => {
                     className="experience-text wow fadeInUp"
                     data-wow-delay=".6s"
                   >
-                    <li>Since 2021</li>
+                    <li>25+ Years Of Experience</li>
                     <li>
                       <i className="fas fa-star" />
                     </li>
-                    <li>PSARA Licensed Company</li>
+                    <li>Awards Winning Company</li>
                   </ul>
                   <div className="row g-4 align-items-center">
                     <div className="col-md-6 wow fadeInUp" data-wow-delay=".2s">
@@ -269,11 +269,10 @@ const page = () => {
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                    Welcome to IBSM Global Security Solutions, your trusted partner in safeguarding
-                    what matters most. With tailored security solutions and a commitment to excellence,
-                    we deliver peace of mind and unparalleled protection for your home, business, or event.
-                    At IBSM Global Security Solutions, we are dedicated to providing top-notch security
-                    services tailored to meet the unique needs of our clients.
+                    At IBSM Global Security Solutions, we are dedicated to providing top-notch
+                    security services tailored to meet the unique needs of our clients. With a
+                    focus on professionalism, reliability, and excellence, we strive to ensure the
+                    safety and security of our clients' assets and personnel.
                   </p>
                   <div className="section-title mt-4">
                     <span className="sub-content wow fadeInUp">
@@ -282,26 +281,22 @@ const page = () => {
                   </div>
                   <p className="wow fadeInUp" data-wow-delay=".3s">
                     Founded on May 15, 2021, by Ajesh Kumar, IBSM Global Security Solutions is
-                    headquartered in Ghaziabad, Uttar Pradesh. Despite being a relatively young company,
-                    we have quickly established ourselves as a trusted name in the security industry.
-                    Our commitment to excellence, coupled with our dedication to serving our clients with
-                    integrity and professionalism, has been the cornerstone of our success. As we continue
-                    to grow and expand our operations, we remain steadfast in our mission to provide
-                    top-notch security solutions tailored to meet the unique needs of our clients in
-                    Ghaziabad and beyond.
+                    headquartered in Ghaziabad, Uttar Pradesh. Our commitment to excellence,
+                    coupled with our dedication to serving our clients with integrity and
+                    professionalism, has been the cornerstone of our success.
                   </p>
                   <ul className="about-list wow fadeInUp" data-wow-delay=".3s">
                     <li>
                       <i className="fas fa-check" />
-                      Highly trained security personnel with cutting-edge technology
+                      Connect with leads with zero hassle.
                     </li>
                     <li>
                       <i className="fas fa-check" />
-                      Integrated solutions: Security, Housekeeping & Manpower under one roof
+                      Take quick payments direct from meetings
                     </li>
                     <li>
                       <i className="fas fa-check" />
-                      PSARA licensed with comprehensive risk assessment capabilities
+                      Start finding leads that get coverts quickly
                     </li>
                   </ul>
                   <div
@@ -318,7 +313,7 @@ const page = () => {
                       <img src="/assets/img/about/author.jpg" alt="author-img" />
                       <div className="content">
                         <h5>
-                          Ajesh Kumar / <span>Founder & CEO</span>
+                          Lucas J. Swe / <span>CO Founder</span>
                         </h5>
                       </div>
                     </div>

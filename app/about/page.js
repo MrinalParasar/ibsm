@@ -20,25 +20,29 @@ const page = () => {
                   <div className="section-title">
                     <span className="sub-content wow fadeInUp">
                       <img src="/assets/img/bale.png" alt="img" />
-                      About Company
+                      About Us
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                      We Increase Your Website Lead and Grow Sales
+                      Your Safety, Our Responsibility
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                    Sed ut perspiciatis unde omnis iste natus error voluptatem
-                    accusantium doloremque laudantium, totam rem aperiam, eaque
-                    ipsa quae
+                    At IBSM Global Security Solutions, we are dedicated to
+                    providing top-notch security services tailored to meet the
+                    unique needs of our clients. With a focus on
+                    professionalism, reliability, and excellence, we strive to
+                    ensure the safety and security of our clients' assets and
+                    personnel.
                   </p>
                   <div className="icon-items wow fadeInUp" data-wow-delay=".3s">
                     <div className="dot" />
                     <div className="content">
-                      <h4>Superior Quality Of Work</h4>
+                      <h4>Welcome to IBSM Global Security Solutions</h4>
                       <p>
-                        Our attention to detail and quality is unmatched in the
-                        industry. <br /> We’re not just a resource provider but
-                        also a key
+                        Your trusted partner in safeguarding what matters most. With
+                        tailored security solutions and a commitment to excellence, we deliver
+                        peace of mind and unparalleled protection for your home, business, or
+                        event. Welcome to a safer, more secure environment with IBSM.
                       </p>
                     </div>
                   </div>
@@ -66,22 +70,27 @@ const page = () => {
               <div className="col-lg-6">
                 <div className="about-content">
                   <h4 className="wow fadeInUp" data-wow-delay=".3s">
-                    Flexible Scaling &amp; Support
+                    Our History
                   </h4>
                   <p className="mt-3 wow fadeInUp" data-wow-delay=".5s">
-                    In the early years, our dedicated team worked tirelessly to
-                    key Next milestones or achievements, such as product
-                    launches, partnerships or expansions these efforts laid the
-                    foundation
+                    Founded on May 15, 2021, by Ajesh Kumar, IBSM Global
+                    Security Solutions is headquartered in Ghaziabad, Uttar
+                    Pradesh. Despite being a relatively young company, we
+                    have quickly established ourselves as a trusted name in
+                    the security industry. Our commitment to excellence,
+                    coupled with our dedication to serving our clients with
+                    integrity and professionalism, has been the cornerstone of
+                    our success.
                   </p>
                   <div className="icon-items wow fadeInUp" data-wow-delay=".3s">
                     <div className="dot" />
                     <div className="content">
-                      <h4>Flexible Scaling &amp; Support</h4>
+                      <h4>Our Excellence</h4>
                       <p>
-                        Our attention to detail and quality is unmatched in the
-                        industry. <br /> We’re not just a resource provider but
-                        also a key
+                        At IBSM Global Security Solutions, excellence is not just a goal; it's our
+                        standard. We provide integrated solutions to our clients by combining Security,
+                        Housekeeping and Manpower services under one roof, thereby enabling our clients
+                        to avoid multiple vendors and deal only with us for all such non-core tasks.
                       </p>
                     </div>
                   </div>
@@ -90,7 +99,7 @@ const page = () => {
                     className="theme-btn mt-50 wow fadeInUp"
                     data-wow-delay=".5s"
                   >
-                    Learn More Us
+                    Learn More About Us
                     <i className="far fa-arrow-right" />
                   </Link>
                 </div>
@@ -109,51 +118,6 @@ const page = () => {
       </section>
       {/* Working Process Section Start */}
       <WorkingProcess2 />
-      {/* Brand Section Start */}
-      <section className="brand-section-2 mt-0 mb-0 fix section-padding pt-0">
-        <div className="container-fluid">
-          <div className="brand-wrapper-2">
-            <div className="radius-shape">
-              <img src="/assets/img/brand/radius-left.png" alt="shape-img" />
-            </div>
-            <div className="radius-shape-2">
-              <img src="/assets/img/brand/radius-right.png" alt="shape-img" />
-            </div>
-            <h5 className="wow fadeInUp" data-wow-delay=".3s">
-              We Have <span>1563+</span> Global Partners. Explore Our Global
-              Clients
-            </h5>
-            <div className="brand-items">
-              <div className="brand-image wow fadeInUp" data-wow-delay=".2s">
-                <img src="/assets/img/brand/linkedIn.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".4s">
-                <img src="/assets/img/brand/dropbox.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".6s">
-                <img src="/assets/img/brand/trello.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".8s">
-                <img src="/assets/img/brand/framer.png" alt="img" />
-              </div>
-            </div>
-            <div className="brand-items">
-              <div className="brand-image wow fadeInUp" data-wow-delay=".2s">
-                <img src="/assets/img/brand/grammarly.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".4s">
-                <img src="/assets/img/brand/amazon.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".6s">
-                <img src="/assets/img/brand/outbrain.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".8s">
-                <img src="/assets/img/brand/shopify.png" alt="img" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Testimonial Section Start */}
       <section className="testimonial-section-2 fix section-padding fix">
         <div className="bg-shape">
