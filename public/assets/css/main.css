@@ -8346,17 +8346,21 @@ input.main-search-input::placeholder {
 
 .text-slider {
   font-size: 150px;
-  height: 150px;
+  display: inline-block;
+  height: auto;
   line-height: 1;
   font-weight: 500;
   text-transform: capitalize;
-  margin-right: 20px;
+  margin-right: 40px;
+  padding: 5px 15px;
   color: rgb(255, 255, 255);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--white);
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--white);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .text-slider:hover {
