@@ -808,7 +808,7 @@ const page = () => {
         </div>
       </section>
       {/* Testimonial Section Start */}
-      <section className="testimonial-section fix section-padding pt-0">
+      <section className="testimonial-section fix section-padding">
         <div className="container">
           <div className="testimonial-wrapper">
             <div className="row g-4">
