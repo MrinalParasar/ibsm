@@ -15,7 +15,7 @@ const page = () => {
             <div className="col-lg-6">
               <div className="hero-content">
                 <h1 className="text-white wow fadeInUp" data-wow-delay=".2s">
-                  Your Safety & <br /> Security Our Responsibility
+                  Your <span style={{ color: "#FAC014" }}>Safety & Security</span> <br /> Our Responsibility
                 </h1>
                 <p className="text-white wow fadeInUp" data-wow-delay=".4s">
                   Welcome to IBSM Global Security Solutions, your trusted partner in
@@ -51,7 +51,7 @@ const page = () => {
                           width: "45px",
                           height: "45px",
                           borderRadius: "50%",
-                          border: "2px solid #fff",
+                          border: "2px solid #FAC014",
                           marginLeft: i === 1 ? "0" : "-15px",
                           objectFit: "cover",
                           position: "relative",
