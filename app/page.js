@@ -428,7 +428,7 @@ const page = () => {
             {/* Video button removed for photo section */}
           </div>
         </div>
-        <div className="marquee-wrapper text-slider">
+        <div className="marquee-wrapper">
           <div className="marquee-inner to-left">
             <ul className="marqee-list d-flex">
               <li className="marquee-item">
