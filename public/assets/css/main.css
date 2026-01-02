@@ -8398,18 +8398,22 @@ input.main-search-input::placeholder {
 
 .text-slider.style-border {
   position: relative;
-  padding-left: 85px;
+  padding-left: 60px;
+  margin-right: 20px;
 }
 
 .text-slider.style-border::before {
   position: absolute;
-  bottom: 30px;
-  left: 0;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   content: "";
-  width: 80px;
-  height: 14px;
-  background-color: transparent;
-  border: 1px solid var(--white);
+  width: 12px;
+  height: 12px;
+  background-color: var(--theme);
+  border-radius: 50%;
+  border: none;
 }
 
 .marquee-inner {
