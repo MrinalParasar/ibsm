@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "../components/Logo";
 
 const Footer = ({ footer }) => {
   switch (footer) {
@@ -30,7 +31,7 @@ const Footer1 = () => {
         <div className="discussed-items">
           <div className="footer-logo wow fadeInUp" data-wow-delay=".3s">
             <Link href="/">
-              <img src="assets/img/logo/white-logo.svg" alt="logo-img" />
+              <Logo color="white" />
             </Link>
           </div>
           <div className="discussed-content wow fadeInUp" data-wow-delay=".5s">
@@ -237,7 +238,7 @@ const Footer2 = () => {
               <div className="single-footer-widget">
                 <div className="widget-head">
                   <Link href="/">
-                    <img src="assets/img/logo/white-logo.svg" alt="logo-img" />
+                    <Logo color="white" />
                   </Link>
                 </div>
                 <div className="footer-content">
@@ -417,7 +418,7 @@ const Footer3 = () => {
               <div className="single-footer-widget">
                 <div className="widget-head">
                   <Link href="/">
-                    <img src="assets/img/logo/white-logo.svg" alt="logo-img" />
+                    <Logo color="white" />
                   </Link>
                 </div>
                 <div className="footer-content">
@@ -577,7 +578,7 @@ const Footer4 = () => {
               <div className="single-footer-widget">
                 <div className="widget-head">
                   <Link href="/">
-                    <img src="assets/img/logo/white-logo.svg" alt="logo-img" />
+                    <Logo color="white" />
                   </Link>
                 </div>
                 <div className="footer-content">
@@ -731,7 +732,7 @@ const Footer6 = () => {
         <div className="discussed-items">
           <div className="footer-logo wow fadeInUp" data-wow-delay=".3s">
             <Link href="/">
-              <img src="assets/img/logo/white-logo.svg" alt="logo-img" />
+              <Logo color="white" />
             </Link>
           </div>
           <div className="discussed-content wow fadeInUp" data-wow-delay=".5s">

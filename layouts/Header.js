@@ -2,6 +2,7 @@
 import { nextUtility } from "@/utility";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
+import Logo from "../components/Logo";
 const Header = ({ header, single }) => {
   useEffect(() => {
     nextUtility.stickyNav();
@@ -338,7 +339,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
               <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
                   <Link href="/">
-                    <img src="assets/img/logo/black-logo.svg" alt="logo-img" />
+                    <Logo color="black" />
                   </Link>
                 </div>
                 <div className="offcanvas__close" onClick={() => close()}>
@@ -437,18 +438,14 @@ const Header1 = ({ single, menu }) => {
             <div className="header-main">
               <div className="sticky-logo">
                 <Link href="/">
-                  <img
-                    src="assets/img/logo/white-logo.svg"
-                    alt="logo-img"
-                    className="logo-1"
-                  />
+                  <div className="logo-1">
+                    <Logo color="white" />
+                  </div>
                 </Link>
                 <Link href="/">
-                  <img
-                    src="assets/img/logo/black-logo.svg"
-                    alt="logo-img"
-                    className="logo-2"
-                  />
+                  <div className="logo-2">
+                    <Logo color="#101828" />
+                  </div>
                 </Link>
               </div>
               <div className="header-left">
