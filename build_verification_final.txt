@@ -1,0 +1,51 @@
+
+> next-react@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.4
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/27) ...
+   Generating static pages (6/27) 
+   Generating static pages (13/27) 
+   Generating static pages (20/27) 
+ ✓ Generating static pages (27/27)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    416 B           141 kB
+├ ○ /_not-found                          136 B          87.2 kB
+├ ○ /about                               412 B           141 kB
+├ ○ /contact                             198 B           101 kB
+├ ○ /index-2                             151 B           142 kB
+├ ○ /index-3                             415 B           141 kB
+├ ○ /index-4                             197 B           134 kB
+├ ○ /index-5                             148 B           135 kB
+├ ○ /index-6                             447 B           134 kB
+├ ○ /index-five-page                     148 B           135 kB
+├ ○ /index-four-page                     197 B           134 kB
+├ ○ /index-one-page                      416 B           141 kB
+├ ○ /index-six-page                      447 B           134 kB
+├ ○ /index-three-page                    415 B           141 kB
+├ ○ /index-two-page                      150 B           142 kB
+├ ○ /news                                198 B           101 kB
+├ ○ /news-details                        198 B           101 kB
+├ ○ /pricing                             197 B           134 kB
+├ ○ /project                             198 B           101 kB
+├ ○ /project-details                     198 B           101 kB
+├ ○ /service                             402 B           108 kB
+├ ○ /service-details                     402 B           108 kB
+├ ○ /team                                197 B           134 kB
+└ ○ /team-details                        198 B           101 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/23-0ef737fe6c5f39f9.js        31.5 kB
+  ├ chunks/fd9d1056-fb887fb037a5528e.js  53.7 kB
+  └ other shared chunks (total)          1.91 kB
+
+
+○  (Static)  prerendered as static content
+
