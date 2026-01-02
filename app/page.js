@@ -432,25 +432,25 @@ const page = () => {
           <div className="marquee-inner to-left">
             <ul className="marqee-list d-flex">
               <li className="marquee-item">
-                <span className="text-slider">IBSM Global Security</span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Security Guards </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Bouncer Services </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Escort Guards </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Facility Management</span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">IBSM Global Security</span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Security Guards </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Bouncer Services </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Escort Guards </span>
-                <span className="text-slider style-border" />
-                <span className="text-slider">Facility Management</span>
+                <span className="text-slider" style={{ fontSize: "70px" }}>IBSM Global Security</span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Security Guards </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Bouncer Services </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Escort Guards </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Facility Management</span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>IBSM Global Security</span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Security Guards </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Bouncer Services </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Escort Guards </span>
+                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
+                <span className="text-slider" style={{ fontSize: "70px" }}>Facility Management</span>
               </li>
             </ul>
           </div>
