@@ -6,10 +6,7 @@ import Link from "next/link";
 const page = () => {
   return (
     <NextLayout header={1}>
-      <section
-        className="hero-section hero-1 bg-cover fix"
-        style={{ backgroundImage: 'url("/assets/img/hero/hero-bg.png")' }}
-      >
+      <section className="hero-section hero-1 bg-cover fix">
         <div className="container">
           <div className="row g-4 justify-content-between">
             <div className="col-lg-6">
