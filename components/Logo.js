@@ -1,17 +1,17 @@
 import Link from "next/link";
 
-const Logo = ({ color = "white", fontSize = "24px" }) => {
+const Logo = ({ color, fontSize = "24px" }) => {
     return (
         <div className="logo-text" style={{
             fontSize: fontSize,
             fontWeight: "800",
-            color: color,
+            color: color || "white",
             letterSpacing: "1px",
             textTransform: "uppercase",
             display: "inline-block",
             lineHeight: "1"
         }}>
-            IBSM <span style={{ fontWeight: "400" }}>Security</span>
+            <span style={{ color: "#FAC014" }}>IBSM</span> <span style={{ fontWeight: "400" }}>Security</span>
         </div>
     );
 };
