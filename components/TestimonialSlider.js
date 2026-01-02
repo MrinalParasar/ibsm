@@ -109,13 +109,13 @@ export const TestimonialSlider2 = ({ style = "style-1" }) => {
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Michael M. Griffin <span>/CO Founder</span>
+                    Rajesh Khanna <span>/Event Manager</span>
                   </h5>
                 </div>
               </div>
               <p>
-                We denounce with righteous indignation and dislike men who are
-                so beguiled demoralized by the charms of pleasure of the moment
+                "The bouncer services provided by IBSM for our corporate event were top-notch.
+                The team was highly professional and managed the crowd seamlessly."
               </p>
               <div className="star">
                 <i className="fas fa-star" />
@@ -137,13 +137,13 @@ export const TestimonialSlider2 = ({ style = "style-1" }) => {
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Robin T. Peckham<span>/ Developer</span>
+                    Anjali Sharma<span>/ Operations Head</span>
                   </h5>
                 </div>
               </div>
               <p>
-                We denounce with righteous indignation and dislike men who are
-                so beguiled demoralized by the charms of pleasure of the moment
+                "Relocating our high-value assets was stress-free thanks to their escort guards.
+                They managed the entire transit with great care and precision."
               </p>
               <div className="star">
                 <i className="fas fa-star" />
@@ -165,13 +165,13 @@ export const TestimonialSlider2 = ({ style = "style-1" }) => {
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Michael M. Griffin <span>/CO Founder</span>
+                    Vikram Malhotra <span>/Society Secretary</span>
                   </h5>
                 </div>
               </div>
               <p>
-                We denounce with righteous indignation and dislike men who are
-                so beguiled demoralized by the charms of pleasure of the moment
+                "We've been using their facility management services for over a year.
+                The staff is well-trained and the security management is very responsive."
               </p>
               <div className="star">
                 <i className="fas fa-star" />
@@ -193,13 +193,13 @@ export const TestimonialSlider2 = ({ style = "style-1" }) => {
                 <img src="assets/img/testimonial/client.png" alt="author-img" />
                 <div className="content">
                   <h5>
-                    Robin T. Peckham<span>/ Developer</span>
+                    Priya Singh<span>/ Business Owner</span>
                   </h5>
                 </div>
               </div>
               <p>
-                We denounce with righteous indignation and dislike men who are
-                so beguiled demoralized by the charms of pleasure of the moment
+                "IBSM Global Security has provided unparalleled safety for our residential complex.
+                Their guards are always alert and professional."
               </p>
               <div className="star">
                 <i className="fas fa-star" />

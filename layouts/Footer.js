@@ -127,6 +127,9 @@ const Footer1 = () => {
                       <a href="mailto:info@ibrainstormmedia.com" className="link">
                         info@ibrainstormmedia.com
                       </a>
+                      <a href="mailto:ajesh771@gmail.com" className="link">
+                        ajesh771@gmail.com
+                      </a>
                     </div>
                   </div>
                   <div className="contact-items">
@@ -135,7 +138,10 @@ const Footer1 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:8512036470">+91 8512036470</a>
+                        <a href="tel:8512036470">8512036470</a>
+                      </h4>
+                      <h4>
+                        <a href="tel:8750856069">8750856069</a>
                       </h4>
                     </div>
                   </div>
@@ -828,6 +834,9 @@ const Footer6 = () => {
                       <a href="mailto:info@ibrainstormmedia.com" className="link">
                         info@ibrainstormmedia.com
                       </a>
+                      <a href="mailto:ajesh771@gmail.com" className="link">
+                        ajesh771@gmail.com
+                      </a>
                     </div>
                   </div>
                   <div className="contact-items">
@@ -836,7 +845,10 @@ const Footer6 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:8512036470">+91 8512036470</a>
+                        <a href="tel:8512036470">8512036470</a>
+                      </h4>
+                      <h4>
+                        <a href="tel:8750856069">8750856069</a>
                       </h4>
                     </div>
                   </div>

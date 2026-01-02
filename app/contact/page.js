@@ -17,8 +17,8 @@ const page = () => {
                       Contact Us
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                      Don’t Hessite to Contact <br />
-                      Our Team Member
+                      Your Safety, Our Responsibility. <br />
+                      Get in Touch!
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
@@ -31,11 +31,12 @@ const page = () => {
                     data-wow-delay=".3s"
                   >
                     <li>
-                      <a href="mailto:info@example.com">info@example.com</a>
+                      <a href="mailto:info@ibrainstormmedia.com">info@ibrainstormmedia.com</a><br />
+                      <a href="mailto:ajesh771@gmail.com">ajesh771@gmail.com</a>
                     </li>
-                    <li>55 Main Street, 2nd block, Malborne, Australia</li>
+                    <li>Shop no.2 B-73 shalimar Garden extn.-1 Sahibabad, Ghaziabad, U.P. 201005</li>
                     <li>
-                      <a href="tel:+00012345688">+000 (123) 456 88</a>
+                      <a href="tel:8512036470">8512036470</a>, <a href="tel:8750856069">8750856069</a>
                     </li>
                   </ul>
                 </div>

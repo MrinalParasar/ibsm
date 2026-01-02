@@ -365,7 +365,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                     </div>
                     <div className="offcanvas__contact-text">
                       <a target="_blank" href="#">
-                        Main Street, Melbourne, Australia
+                        Shop no.2 B-73 shalimar Garden extn.-1 Sahibabad, Ghaziabad, U.P. 201005
                       </a>
                     </div>
                   </li>
@@ -374,7 +374,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="fal fa-envelope" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="mailto:info@example.com">info@example.com</a>
+                      <a href="mailto:info@ibrainstormmedia.com">info@ibrainstormmedia.com</a>
                     </div>
                   </li>
                   <li className="d-flex align-items-center">
@@ -383,7 +383,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                     </div>
                     <div className="offcanvas__contact-text">
                       <a target="_blank" href="#">
-                        Mod-friday, 09am -05pm
+                        Mon-Sat, 09am - 06pm
                       </a>
                     </div>
                   </li>
@@ -392,7 +392,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="far fa-phone" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="tel:+11002345909">+11002345909</a>
+                      <a href="tel:8512036470">+91 8512036470</a>
                     </div>
                   </li>
                 </ul>

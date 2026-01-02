@@ -116,6 +116,92 @@ const page = () => {
           <FunFactCounter style={2} />
         </div>
       </section>
+      {/* training-section-start */}
+      <section className="about-section fix section-padding pt-0">
+        <div className="container">
+          <div className="about-wrapper style-2">
+            <div className="row g-4 align-items-center flex-row-reverse">
+              <div className="col-lg-6">
+                <div className="about-content ms-0">
+                  <div className="section-title">
+                    <span className="sub-content wow fadeInUp">
+                      <img src="/assets/img/bale.png" alt="img" />
+                      Our Training
+                    </span>
+                    <h2 className="wow fadeInUp" data-wow-delay=".3s">
+                      Cornerstone of Excellence
+                    </h2>
+                  </div>
+                  <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
+                    At IBSM Global Security Solutions, we prioritize staff training
+                    as a cornerstone of our commitment to excellence. Our comprehensive
+                    training programs ensure that our personnel are equipped with the latest
+                    knowledge, skills, and techniques.
+                  </p>
+                  <ul className="about-list wow fadeInUp" data-wow-delay=".7s">
+                    <li>
+                      <i className="far fa-check" />
+                      Situational Awareness
+                    </li>
+                    <li>
+                      <i className="far fa-check" />
+                      Conflict Resolution
+                    </li>
+                    <li>
+                      <i className="far fa-check" />
+                      Emergency Response
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
+                <div className="about-image-3">
+                  <img src="/assets/img/about/05.jpg" alt="img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* psara-section-start */}
+      <section className="about-section fix section-padding pt-0">
+        <div className="container">
+          <div className="about-wrapper style-2">
+            <div className="row g-4 align-items-center">
+              <div className="col-lg-6">
+                <div className="about-content ms-0">
+                  <div className="section-title">
+                    <span className="sub-content wow fadeInUp">
+                      <img src="/assets/img/bale.png" alt="img" />
+                      PSARA License
+                    </span>
+                    <h2 className="wow fadeInUp" data-wow-delay=".3s">
+                      A PSARA Approved Company
+                    </h2>
+                  </div>
+                  <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
+                    IBSM Security is a PSARA-approved company offering premier
+                    security solutions. Our highly trained professionals provide
+                    reliable, top-notch protection for businesses and individuals.
+                  </p>
+                  <p className="mt-3 wow fadeInUp" data-wow-delay=".6s">
+                    A PSARA (Private Security Agency Regulation Act) license is a legal
+                    authorization required in India for companies operating in the business
+                    of providing private security services.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
+                <div className="about-image-3">
+                  <img src="/assets/img/about/06.jpg" alt="img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Working Process Section Start */}
       <WorkingProcess2 />
       {/* Testimonial Section Start */}
@@ -129,7 +215,7 @@ const page = () => {
               <img src="/assets/img/bale.png" alt="img" />
               Clients Feedback
             </span>
-            <h2>We’ve 1250+ Global Clients Say Us</h2>
+            <h2>What Our 325+ Satisfied Clients Say</h2>
           </div>
         </div>
         <TestimonialSlider2 />

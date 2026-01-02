@@ -485,9 +485,9 @@ const page = () => {
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Robert E. Whitmore</Link>
+                    <Link href="team-details">Ajesh Kumar</Link>
                   </h4>
-                  <p>Product Designer</p>
+                  <p>CEO & Founder</p>
                   <div className="social-profile">
                     <ul>
                       <li>
@@ -528,9 +528,9 @@ const page = () => {
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Johnny M. Smith</Link>
+                    <Link href="team-details">Sanjay Singh</Link>
                   </h4>
-                  <p>IT Consultant</p>
+                  <p>Operations Head</p>
                   <div className="social-profile">
                     <ul>
                       <li>
@@ -571,7 +571,7 @@ const page = () => {
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Angelo H. Tomlin</Link>
+                    <Link href="team-details">Vikram Rathore</Link>
                   </h4>
                   <p>Senior Manager</p>
                   <div className="social-profile">
@@ -614,9 +614,9 @@ const page = () => {
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Robert E. Whitmore</Link>
+                    <Link href="team-details">Priya Singh</Link>
                   </h4>
-                  <p>Web Designer</p>
+                  <p>HR Manager</p>
                   <div className="social-profile">
                     <ul>
                       <li>
@@ -657,9 +657,9 @@ const page = () => {
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Manuel G. Wilmer</Link>
+                    <Link href="team-details">Rajesh Sharma</Link>
                   </h4>
-                  <p>CEO &amp; Founder</p>
+                  <p>Security Consultant</p>
                   <div className="social-profile">
                     <ul>
                       <li>

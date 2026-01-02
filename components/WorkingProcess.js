@@ -129,10 +129,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".3s"
                 >
                   <div className="digit-box">01</div>
-                  <h4>Market Research</h4>
+                  <h4>Risk Assessment</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    IBSM Security sets benchmarks in security with comprehensive risk assessment
+                    tailored to your specific needs and premises.
                   </p>
                 </div>
                 <div
@@ -140,10 +140,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".5s"
                 >
                   <div className="digit-box">02</div>
-                  <h4>Process and Analysis</h4>
+                  <h4>Advanced Surveillance</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    We implement cutting-edge technology and advanced surveillance systems for
+                    unparalleled safety of clients and their assets.
                   </p>
                 </div>
                 <div
@@ -151,10 +151,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".7s"
                 >
                   <div className="digit-box">03</div>
-                  <h4>Successful Project</h4>
+                  <h4>Personnel Deployment</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    Our highly trained security personnel are equipped with the latest skills
+                    to ensure a safer, more secure environment.
                   </p>
                 </div>
               </div>
