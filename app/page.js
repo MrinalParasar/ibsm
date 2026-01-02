@@ -8,7 +8,7 @@ const page = () => {
     <NextLayout header={1}>
       <section
         className="hero-section hero-1 bg-cover fix"
-        style={{ backgroundImage: 'url("/assets/img/hero/01.jpg")' }}
+        style={{ backgroundImage: 'url("/assets/img/hero/hero-bg.png")' }}
       >
         <div className="container">
           <div className="row g-4 justify-content-between">
@@ -52,7 +52,7 @@ const page = () => {
             <div className="col-lg-5 wow fadeInUp" data-wow-delay=".4s">
               <div className="hero-contact-box">
                 <h4>Get Consultations</h4>
-                <p>Ready to Register Our Landsio Services</p>
+                <p>Ready to Register Our Security Services</p>
                 <form
                   action="#"
                   id="contact-form"
