@@ -85,16 +85,19 @@ const Footer1 = () => {
                 </div>
                 <ul className="list-items">
                   <li>
-                    <Link href="service-details">Popular Services</Link>
+                    <Link href="service">Services</Link>
                   </li>
                   <li>
-                    <Link href="team-details">Team Member</Link>
+                    <Link href="about">About Us</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="contact">Contact Us</Link>
                   </li>
                   <li>
-                    <Link href="pricing">Pricing Package</Link>
+                    <Link href="careers">Careers</Link>
+                  </li>
+                  <li>
+                    <Link href="news">Blog</Link>
                   </li>
                 </ul>
               </div>
@@ -279,16 +282,19 @@ const Footer2 = () => {
                 </div>
                 <ul className="list-items">
                   <li>
-                    <Link href="service-details">Popular Services</Link>
+                    <Link href="service">Services</Link>
                   </li>
                   <li>
-                    <Link href="team-details">Team Member</Link>
+                    <Link href="about">About Us</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="contact">Contact Us</Link>
                   </li>
                   <li>
-                    <Link href="pricing">Pricing Package</Link>
+                    <Link href="news">Blog</Link>
+                  </li>
+                  <li>
+                    <Link href="careers">Careers</Link>
                   </li>
                 </ul>
               </div>
@@ -346,13 +352,10 @@ const Footer2 = () => {
                 </div>
                 <ul className="list-items">
                   <li>
-                    <Link href="service-details">Terms &amp; Conditions</Link>
+                    <Link href="service">Services</Link>
                   </li>
                   <li>
                     <Link href="contact">Privacy Policy</Link>
-                  </li>
-                  <li>
-                    <Link href="pricing">Pricing Plan</Link>
                   </li>
                   <li>
                     <Link href="contact">Contact us</Link>
@@ -466,6 +469,9 @@ const Footer3 = () => {
                   </li>
                   <li>
                     <Link href="contact">Privacy &amp; Setting</Link>
+                  </li>
+                  <li>
+                    <Link href="careers">Careers</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -626,6 +632,9 @@ const Footer4 = () => {
                   </li>
                   <li>
                     <Link href="contact">Privacy &amp; Setting</Link>
+                  </li>
+                  <li>
+                    <Link href="careers">Careers</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -799,6 +808,9 @@ const Footer6 = () => {
                   </li>
                   <li>
                     <Link href="contact">Privacy &amp; Setting</Link>
+                  </li>
+                  <li>
+                    <Link href="careers">Careers</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>

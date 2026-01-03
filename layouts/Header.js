@@ -51,90 +51,11 @@ const Menu = ({ single, menu }) => {
                 Home
               </Link>
             </li>
-            <li className="has-dropdown active d-xl-none">
-              <Link href="/" className="border-none">
-                Home
-                <i className="fas fa-angle-down" />
-              </Link>
-              <ul className="submenu">
-                <li>
-                  <Link href="/">Home 01</Link>
-                </li>
-                <li>
-                  <Link href="index-2">Home 02</Link>
-                </li>
-                <li>
-                  <Link href="index-3">Home 03</Link>
-                </li>
-                <li>
-                  <Link href="index-4">Home 04</Link>
-                </li>
-                <li>
-                  <Link href="index-5">Home 05</Link>
-                </li>
-                <li>
-                  <Link href="index-6">Home 06</Link>
-                </li>
-              </ul>
-            </li>
             <li>
               <Link href="about">About</Link>
             </li>
             <li>
-              <Link href="service-details">
-                Services
-                <i className="fas fa-angle-down" />
-              </Link>
-              <ul className="submenu">
-                <li>
-                  <Link href="service">Services</Link>
-                </li>
-                <li>
-                  <Link href="service-details">Service Details</Link>
-                </li>
-              </ul>
-            </li>
-            <li className="has-dropdown">
-              <Link href="news">
-                Pages
-                <i className="fas fa-angle-down" />
-              </Link>
-              <ul className="submenu">
-                <li className="has-dropdown">
-                  <Link href="project-details">
-                    Projects
-                    <i className="fas fa-angle-down" />
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="project">Projects</Link>
-                    </li>
-                    <li>
-                      <Link href="project-details">Project Details</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-dropdown">
-                  <Link href="team-details">
-                    Team
-                    <i className="fas fa-angle-down" />
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="team">Team</Link>
-                    </li>
-                    <li>
-                      <Link href="team-details">Team Details</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="pricing">Pricing Table</Link>
-                </li>
-                <li>
-                  <Link href="404">404 Page</Link>
-                </li>
-              </ul>
+              <Link href="service">Services</Link>
             </li>
             <li>
               <Link href="news">
@@ -149,6 +70,9 @@ const Menu = ({ single, menu }) => {
                   <Link href="news-details">Blog Details</Link>
                 </li>
               </ul>
+            </li>
+            <li>
+              <Link href="careers">Careers</Link>
             </li>
             <li>
               <Link href="contact">Contact</Link>
@@ -210,100 +134,16 @@ const MobileMenu = ({ single, menu }) => {
                   <Link href="about">About</Link>
                 </li>
                 <li>
-                  <a href="#" onClick={() => activeMenuSet("Services")}>
-                    Services
-                    <i className="fas fa-angle-down" />
-                  </a>
-                  <ul className="submenu" style={activeLi("Services")}>
-                    <li>
-                      <Link href="service">Services</Link>
-                    </li>
-                    <li>
-                      <Link href="service-details">Service Details</Link>
-                    </li>
-                  </ul>
-                  <a
-                    className="mean-expand"
-                    href="#"
-                    onClick={() => activeMenuSet("Services")}
-                  >
-                    <i className="far fa-plus" />
-                  </a>
+                  <Link href="service">Services</Link>
                 </li>
                 <li className="has-dropdown">
-                  <a href="#" onClick={() => activeMenuSet("Pages")}>
-                    Pages
-                    <i className="fas fa-angle-down" />
-                  </a>
-                  <ul className="submenu" style={activeLi("Pages")}>
-                    <li className="has-dropdown">
-                      <a href="#" onClick={() => multiMenuSet("Projects")}>
-                        Projects
-                        <i className="fas fa-angle-down" />
-                      </a>
-                      <ul
-                        className="submenu"
-                        style={multiMenuActiveLi("Projects")}
-                      >
-                        <li>
-                          <Link href="project">Projects</Link>
-                        </li>
-                        <li>
-                          <Link href="project-details">Project Details</Link>
-                        </li>
-                      </ul>
-                      <a
-                        className="mean-expand"
-                        href="#"
-                        onClick={() => multiMenuSet("Projects")}
-                      >
-                        <i className="far fa-plus" />
-                      </a>
-                    </li>
-                    <li className="has-dropdown">
-                      <a href="#" onClick={() => multiMenuSet("Team")}>
-                        Team
-                        <i className="fas fa-angle-down" />
-                      </a>
-                      <ul className="submenu" style={multiMenuActiveLi("Team")}>
-                        <li>
-                          <Link href="team">Team</Link>
-                        </li>
-                        <li>
-                          <Link href="team-details">Team Details</Link>
-                        </li>
-                      </ul>
-                      <a
-                        className="mean-expand"
-                        href="#"
-                        onClick={() => multiMenuSet("Team")}
-                      >
-                        <i className="far fa-plus" />
-                      </a>
-                    </li>
-                    <li>
-                      <Link href="pricing">Pricing Table</Link>
-                    </li>
-                    <li>
-                      <Link href="404">404 Page</Link>
-                    </li>
-                  </ul>
-                  <a
-                    className="mean-expand"
-                    href="#"
-                    onClick={() => activeMenuSet("Pages")}
-                  >
-                    <i className="far fa-plus" />
-                  </a>
-                </li>
-                <li>
                   <a href="#" onClick={() => activeMenuSet("Blog")}>
                     Blog
                     <i className="fas fa-angle-down" />
                   </a>
                   <ul className="submenu" style={activeLi("Blog")}>
                     <li>
-                      <Link href="news">Blog </Link>
+                      <Link href="news">Blog</Link>
                     </li>
                     <li>
                       <Link href="news-details">Blog Details</Link>
@@ -317,7 +157,10 @@ const MobileMenu = ({ single, menu }) => {
                     <i className="far fa-plus" />
                   </a>
                 </li>
-                <li className="mean-last">
+                <li>
+                  <Link href="careers">Careers</Link>
+                </li>
+                <li>
                   <Link href="contact">Contact</Link>
                 </li>
               </Fragment>
