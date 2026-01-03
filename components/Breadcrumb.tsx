@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-const Breadcrumb = ({ pageName = "About Company", pageTitle }) => {
+interface BreadcrumbProps {
+  pageName?: string;
+  pageTitle?: string;
+}
+
+const Breadcrumb = ({ pageName = "About Company", pageTitle }: BreadcrumbProps) => {
   return (
     <div
       className="breadcrumb-wrapper section-padding bg-cover"

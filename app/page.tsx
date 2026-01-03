@@ -713,7 +713,7 @@ const page = () => {
               Learn Our Company Statistics
             </h2>
           </div>
-          <FunFactCounter />
+          <FunFactCounter style={undefined} />
         </div>
       </section>
       {/* Popular Case Study Section Start */}

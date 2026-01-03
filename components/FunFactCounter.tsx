@@ -1,5 +1,10 @@
 import Counter from "./Counter";
-const FunFactCounter = ({ style }) => {
+
+interface FunFactCounterProps {
+  style?: number;
+}
+
+const FunFactCounter = ({ style }: FunFactCounterProps) => {
   return (
     <div className="row">
       <div
@@ -9,7 +14,7 @@ const FunFactCounter = ({ style }) => {
         <div className={`funfact-box-items style-${style}`}>
           <h2>
             <span className="count">
-              <Counter end={325} />
+              <Counter end={325} decimals={0} />
             </span>
             +
           </h2>
@@ -24,7 +29,7 @@ const FunFactCounter = ({ style }) => {
         <div className={`funfact-box-items active`}>
           <h2>
             <span className="count">
-              <Counter end={96} />
+              <Counter end={96} decimals={0} />
             </span>
             %
           </h2>
@@ -39,7 +44,7 @@ const FunFactCounter = ({ style }) => {
         <div className={`funfact-box-items style-${style}`}>
           <h2>
             <span className="count">
-              <Counter end={2700} />
+              <Counter end={2700} decimals={0} />
             </span>
             +
           </h2>
@@ -54,7 +59,7 @@ const FunFactCounter = ({ style }) => {
         <div className={`funfact-box-items style-${style}`}>
           <h2>
             <span className="count">
-              <Counter end={325} />
+              <Counter end={325} decimals={0} />
             </span>
             +
           </h2>

@@ -1,6 +1,10 @@
 import Counter from "./Counter";
 
-const GrowBusiness = ({ paddingTop = 0 }) => {
+interface GrowBusinessProps {
+  paddingTop?: number;
+}
+
+const GrowBusiness = ({ paddingTop = 0 }: GrowBusinessProps) => {
   return (
     <section
       className={`grow-business-section fix section-padding pt-${paddingTop}`}
@@ -46,7 +50,7 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={85} />
+                        <Counter end={85} decimals={0} />
                       </span>
                       %
                     </h2>
@@ -58,7 +62,7 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={15} />
+                        <Counter end={15} decimals={0} />
                       </span>
                       %
                     </h2>
@@ -70,7 +74,7 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={93} />
+                        <Counter end={93} decimals={0} />
                       </span>
                       %
                     </h2>
@@ -87,7 +91,11 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
 };
 export default GrowBusiness;
 
-export const GrowBusiness2 = ({ bg }) => {
+interface GrowBusiness2Props {
+  bg?: string;
+}
+
+export const GrowBusiness2 = ({ bg }: GrowBusiness2Props) => {
   return (
     <section className={`grow-business-section fix section-padding ${bg}`}>
       <div className="container">
