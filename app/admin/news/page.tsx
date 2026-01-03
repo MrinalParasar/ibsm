@@ -1107,7 +1107,7 @@ function NewsModal({
                     if (files && files.length > 0) {
                       const uploadedUrls = await handleGalleryImagesUpload(files);
                       if (uploadedUrls.length > 0) {
-                        const existingUrls = formData.galleryImages.split("\n").filter(url => url.trim());
+                        const existingUrls = formData.galleryImages.split("\n").filter((url: string) => url.trim());
                         setFormData({ ...formData, galleryImages: [...existingUrls, ...uploadedUrls].join("\n") });
                       }
                     }
@@ -1172,7 +1172,7 @@ function NewsModal({
                     if (files && files.length > 0) {
                       const uploadedUrls = await handleGalleryImagesUpload(files);
                       if (uploadedUrls.length > 0) {
-                        const existingUrls = formData.sliderImages.split("\n").filter(url => url.trim());
+                        const existingUrls = formData.sliderImages.split("\n").filter((url: string) => url.trim());
                         setFormData({ ...formData, sliderImages: [...existingUrls, ...uploadedUrls].join("\n") });
                       }
                     }

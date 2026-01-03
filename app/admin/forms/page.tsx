@@ -170,7 +170,6 @@ export default function AdminFormsPage() {
               style={{
                 padding: "10px 20px",
                 borderRadius: "8px",
-                border: "none",
                 background: viewMode === 'table' 
                   ? "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)" 
                   : "#121416",
@@ -188,7 +187,6 @@ export default function AdminFormsPage() {
               style={{
                 padding: "10px 20px",
                 borderRadius: "8px",
-                border: "none",
                 background: viewMode === 'cards' 
                   ? "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)" 
                   : "#121416",
@@ -244,7 +242,6 @@ export default function AdminFormsPage() {
             style={{
               padding: "10px 20px",
               borderRadius: "8px",
-              border: "none",
               background: selectedSource === 'all' 
                 ? "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)" 
                 : "#121416",
@@ -263,7 +260,6 @@ export default function AdminFormsPage() {
               style={{
                 padding: "10px 20px",
                 borderRadius: "8px",
-                border: "none",
                 background: selectedSource === item.source 
                   ? "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)" 
                   : "#121416",
