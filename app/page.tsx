@@ -1,8 +1,51 @@
+"use client";
+
+import { useState } from "react";
 import FunFactCounter from "@/components/FunFactCounter";
 import { TestimonialSlider1 } from "@/components/TestimonialSlider";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+
 const page = () => {
+  const [heroFormData, setHeroFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    agreedToTerms: false,
+  });
+  const [heroFormStatus, setHeroFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+
+  const handleHeroFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setHeroFormStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formSource: "hero-consultation",
+          name: heroFormData.name,
+          email: heroFormData.email,
+          phone: heroFormData.phone,
+          agreedToTerms: heroFormData.agreedToTerms,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setHeroFormStatus({ type: 'success', message: 'Thank you! We will contact you soon.' });
+        setHeroFormData({ name: "", email: "", phone: "", agreedToTerms: false });
+      } else {
+        setHeroFormStatus({ type: 'error', message: data.error || 'Failed to submit form' });
+      }
+    } catch (error) {
+      setHeroFormStatus({ type: 'error', message: 'An error occurred. Please try again.' });
+    }
+  };
   return (
     <NextLayout header={1}>
       <section
@@ -85,39 +128,62 @@ const page = () => {
                 <h4>Get Consultations</h4>
                 <p>Ready to Register Our Security Services</p>
                 <form
-                  action="#"
-                  id="contact-form"
-                  method="POST"
+                  onSubmit={handleHeroFormSubmit}
                   className="contact-form-item"
                 >
+                  {heroFormStatus.type && (
+                    <div
+                      style={{
+                        padding: "12px",
+                        borderRadius: "8px",
+                        marginBottom: "20px",
+                        background: heroFormStatus.type === 'success' 
+                          ? "rgba(76, 175, 80, 0.1)" 
+                          : "rgba(255, 0, 0, 0.1)",
+                        border: `1px solid ${heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336'}`,
+                        color: heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336',
+                        fontSize: "14px",
+                      }}
+                    >
+                      {heroFormStatus.message}
+                    </div>
+                  )}
                   <div className="row g-4">
                     <div className="col-lg-12">
                       <div className="form-clt">
                         <input
                           type="text"
                           name="name"
-                          id="name"
+                          id="hero-name"
                           placeholder="Your Name"
+                          value={heroFormData.name}
+                          onChange={(e) => setHeroFormData({ ...heroFormData, name: e.target.value })}
+                          required
                         />
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="form-clt">
                         <input
-                          type="text"
+                          type="email"
                           name="email"
-                          id="email"
+                          id="hero-email"
                           placeholder="Email Address"
+                          value={heroFormData.email}
+                          onChange={(e) => setHeroFormData({ ...heroFormData, email: e.target.value })}
+                          required
                         />
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="form-clt">
                         <input
-                          type="text"
+                          type="tel"
                           name="phone"
-                          id="phone"
+                          id="hero-phone"
                           placeholder="Phone Number"
+                          value={heroFormData.phone}
+                          onChange={(e) => setHeroFormData({ ...heroFormData, phone: e.target.value })}
                         />
                       </div>
                     </div>
@@ -127,10 +193,13 @@ const page = () => {
                           type="checkbox"
                           className="form-check-input"
                           name="save-for-next"
-                          id="saveForNext"
+                          id="hero-saveForNext"
+                          checked={heroFormData.agreedToTerms}
+                          onChange={(e) => setHeroFormData({ ...heroFormData, agreedToTerms: e.target.checked })}
+                          required
                         />
                         <p>
-                          I’ve Read and agreed to{" "}
+                          I've Read and agreed to{" "}
                           <Link href="/">Terms &amp; Conditions</Link>
                         </p>
                       </div>

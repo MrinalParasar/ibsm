@@ -1,6 +1,49 @@
+"use client";
+
+import { useState } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
 import NextLayout from "@/layouts/NextLayout";
+
 const page = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch("/api/forms/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formSource: "contact-page",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormStatus({ type: 'success', message: 'Thank you! We will contact you soon.' });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setFormStatus({ type: 'error', message: data.error || 'Failed to submit form' });
+      }
+    } catch (error) {
+      setFormStatus({ type: 'error', message: 'An error occurred. Please try again.' });
+    }
+  };
   return (
     <NextLayout>
       <Breadcrumb pageName="Contact Us" />
@@ -48,39 +91,62 @@ const page = () => {
                 >
                   <h3>Send Us Message</h3>
                   <form
-                    action="#"
-                    id="contact-form"
-                    method="POST"
+                    onSubmit={handleSubmit}
                     className="contact-form-items"
                   >
+                    {formStatus.type && (
+                      <div
+                        style={{
+                          padding: "12px",
+                          borderRadius: "8px",
+                          marginBottom: "20px",
+                          background: formStatus.type === 'success' 
+                            ? "rgba(76, 175, 80, 0.1)" 
+                            : "rgba(255, 0, 0, 0.1)",
+                          border: `1px solid ${formStatus.type === 'success' ? '#4CAF50' : '#f44336'}`,
+                          color: formStatus.type === 'success' ? '#4CAF50' : '#f44336',
+                          fontSize: "14px",
+                        }}
+                      >
+                        {formStatus.message}
+                      </div>
+                    )}
                     <div className="row g-4">
                       <div className="col-lg-6">
                         <div className="form-clt">
                           <input
                             type="text"
                             name="name"
-                            id="name"
+                            id="contact-name"
                             placeholder="Full Name"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            required
                           />
                         </div>
                       </div>
                       <div className="col-lg-6">
                         <div className="form-clt">
                           <input
-                            type="text"
+                            type="tel"
                             name="phone"
-                            id="phone"
+                            id="contact-phone"
                             placeholder="Phone"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           />
                         </div>
                       </div>
                       <div className="col-lg-12">
                         <div className="form-clt">
                           <input
-                            type="text"
+                            type="email"
                             name="email"
-                            id="email2"
+                            id="contact-email"
                             placeholder="Your Email"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            required
                           />
                         </div>
                       </div>
@@ -88,9 +154,12 @@ const page = () => {
                         <div className="form-clt">
                           <textarea
                             name="message"
-                            id="message"
+                            id="contact-message"
                             placeholder="Comments"
-                            defaultValue={""}
+                            value={formData.message}
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                            rows={5}
+                            required
                           />
                         </div>
                       </div>
