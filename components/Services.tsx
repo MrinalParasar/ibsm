@@ -12,7 +12,6 @@ const Services = () => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content bg-color-3 wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             Popular Services
           </span>
           <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">
@@ -152,7 +151,6 @@ export const Service2 = ({ paddingTop = 0, title = "Popular Services" }) => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             {title}
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">

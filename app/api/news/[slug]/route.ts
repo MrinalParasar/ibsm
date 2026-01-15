@@ -7,7 +7,26 @@ export async function GET(
 ) {
   try {
     const { slug } = await params;
-    const news = await getNewsBySlug(slug);
+    let news = await getNewsBySlug(slug);
+
+    if (!news) {
+      // Fallback to hardcoded news if not found in DB
+      const { hardcodedNews } = await import('@/lib/data/hardcoded-news');
+      const found = hardcodedNews.find(item => item.slug === slug);
+      if (found) {
+        // Cast to News type (convert string dates to Date objects if needed, though frontend handles strings usually)
+        // The News interface expects Date objects for dates
+        news = {
+          ...found,
+          publishDate: new Date(found.publishDate),
+          // Add other required fields if missing from hardcoded
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          status: 'published'
+        } as any;
+      }
+    }
+
     if (!news) {
       return NextResponse.json(
         { error: 'News not found' },

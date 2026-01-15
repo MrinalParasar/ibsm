@@ -5,7 +5,7 @@ import { getNewsPaginated, createNews, getAllCategories, getAllTags } from '@/mo
 export async function GET(request: NextRequest) {
   try {
     const payload = await authenticateAdmin(request);
-    
+
     if (!payload) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ tags }, { status: 200 });
     }
 
-    const result = await getNewsPaginated(page, limit, category);
+    const result = await getNewsPaginated(page, limit, category, true);
     return NextResponse.json(result, { status: 200 });
   } catch (error: any) {
     console.error('Get news error:', error);
@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const payload = await authenticateAdmin(request);
-    
+
     if (!payload) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -59,6 +59,7 @@ export async function POST(request: NextRequest) {
       excerpt,
       content,
       featuredImage,
+      featuredImageAlt,
       postType,
       videoUrl,
       audioEmbed,
@@ -71,6 +72,8 @@ export async function POST(request: NextRequest) {
       commentsCount,
       tags,
       isPopularFeed,
+      isFeatured,
+      isService, // Added field
     } = body;
 
     // Validate required fields
@@ -91,6 +94,7 @@ export async function POST(request: NextRequest) {
       excerpt,
       content,
       featuredImage: featuredImage || '',
+      featuredImageAlt: featuredImageAlt || '',
       postType,
       videoUrl,
       audioEmbed,
@@ -102,7 +106,10 @@ export async function POST(request: NextRequest) {
       publishDate: publishDate ? new Date(publishDate) : new Date(),
       commentsCount: commentsCount || 0,
       tags: tags || [],
+
       isPopularFeed: isPopularFeed || false,
+      isFeatured: isFeatured || false,
+      status: body.status || 'published', // Default to published for backward compatibility if needed, or draft
     });
 
     return NextResponse.json(
@@ -111,7 +118,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error: any) {
     console.error('Create news error:', error);
-    
+
     if (error.message === 'News with this slug already exists') {
       return NextResponse.json(
         { error: error.message },

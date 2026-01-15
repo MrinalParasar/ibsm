@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+import Pagination from "@/components/Pagination";
 
 interface News {
   _id: string;
@@ -16,8 +17,8 @@ interface News {
   postType: 'regular' | 'quote' | 'video' | 'audio' | 'gallery' | 'slider';
   videoUrl?: string;
   audioEmbed?: string;
-  galleryImages?: string[];
-  sliderImages?: string[];
+  galleryImages?: { url: string; alt: string; }[];
+  sliderImages?: { url: string; alt: string; }[];
   quoteText?: string;
   author: string;
   authorImage?: string;
@@ -105,8 +106,8 @@ const NewsPage = () => {
     const month = date.toLocaleDateString('en-US', { month: 'long' });
     const year = date.getFullYear();
     const suffix = day === 1 || day === 21 || day === 31 ? 'st' :
-                   day === 2 || day === 22 ? 'nd' :
-                   day === 3 || day === 23 ? 'rd' : 'th';
+      day === 2 || day === 22 ? 'nd' :
+        day === 3 || day === 23 ? 'rd' : 'th';
     return `${day}${suffix} ${month} ${year}`;
   };
 
@@ -168,13 +169,13 @@ const NewsPage = () => {
               </span>
             </div>
             <h2>
-              <Link href={`/news-details?slug=${newsItem.slug}`}>
+              <Link href={`/blog/${newsItem.slug}`}>
                 {newsItem.title}
               </Link>
             </h2>
             <p>{newsItem.excerpt}</p>
             <Link
-              href={`/news-details?slug=${newsItem.slug}`}
+              href={`/blog/${newsItem.slug}`}
               className="theme-btn mt-4 line-height"
             >
               <span>
@@ -210,13 +211,13 @@ const NewsPage = () => {
               </span>
             </div>
             <h2>
-              <Link href={`/news-details?slug=${newsItem.slug}`}>
+              <Link href={`/blog/${newsItem.slug}`}>
                 {newsItem.title}
               </Link>
             </h2>
             <p>{newsItem.excerpt}</p>
             <Link
-              href={`/news-details?slug=${newsItem.slug}`}
+              href={`/blog/${newsItem.slug}`}
               className="theme-btn mt-4 line-height"
             >
               <span>
@@ -233,14 +234,20 @@ const NewsPage = () => {
         <div key={newsItem._id} className="single-blog-post">
           <div className="swiper blog-post-slider">
             <div className="swiper-wrapper">
-              {newsItem.sliderImages.map((img, idx) => (
-                <div key={idx} className="swiper-slide">
-                  <div
-                    className="post-featured-thumb bg-cover"
-                    style={{ backgroundImage: `url(${img})` }}
-                  />
-                </div>
-              ))}
+              {newsItem.sliderImages.map((img: any, idx) => {
+                const imageUrl = typeof img === 'string' ? img : img.url;
+                const imageAlt = typeof img === 'string' ? newsItem.title : img.alt || newsItem.title;
+                return (
+                  <div key={idx} className="swiper-slide">
+                    <div
+                      className="post-featured-thumb bg-cover"
+                      style={{ backgroundImage: `url(${imageUrl})` }}
+                      role="img"
+                      aria-label={imageAlt}
+                    />
+                  </div>
+                );
+              })}
             </div>
             <div className="array-button">
               <button className="array-prev">
@@ -263,13 +270,13 @@ const NewsPage = () => {
               </span>
             </div>
             <h2>
-              <Link href={`/news-details?slug=${newsItem.slug}`}>
+              <Link href={`/blog/${newsItem.slug}`}>
                 {newsItem.title}
               </Link>
             </h2>
             <p>{newsItem.excerpt}</p>
             <Link
-              href={`/news-details?slug=${newsItem.slug}`}
+              href={`/blog/${newsItem.slug}`}
               className="theme-btn mt-4 line-height"
             >
               <span>
@@ -300,13 +307,13 @@ const NewsPage = () => {
             </span>
           </div>
           <h2>
-            <Link href={`/news-details?slug=${newsItem.slug}`}>
+            <Link href={`/blog/${newsItem.slug}`}>
               {newsItem.title}
             </Link>
           </h2>
           <p>{newsItem.excerpt}</p>
           <Link
-            href={`/news-details?slug=${newsItem.slug}`}
+            href={`/blog/${newsItem.slug}`}
             className="theme-btn mt-4 line-height"
           >
             <span>
@@ -321,7 +328,7 @@ const NewsPage = () => {
   return (
     <NextLayout>
       <Breadcrumb pageName="Blog Standard" />
-      <section className="blog-wrapper news-wrapper section-padding">
+      <section className="blog-wrapper news-wrapper section-padding" style={{ paddingTop: "0px" }}>
         <div className="container">
           <div className="news-area">
             <div className="row">
@@ -339,60 +346,11 @@ const NewsPage = () => {
                     news.map((newsItem, index) => renderNewsPost(newsItem, index))
                   )}
                 </div>
-                {totalPages > 1 && (
-                  <div className="page-nav-wrap mt-5 text-center">
-                    <ul>
-                      <li>
-                        <button
-                          className="page-numbers"
-                          onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-                          disabled={currentPage === 1}
-                          style={{ background: "none", border: "none", color: currentPage === 1 ? "#999" : "inherit", cursor: currentPage === 1 ? "not-allowed" : "pointer" }}
-                        >
-                          <i className="fal fa-long-arrow-left" />
-                        </button>
-                      </li>
-                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                        if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
-                          return (
-                            <li key={page}>
-                              <button
-                                className={`page-numbers ${currentPage === page ? 'current' : ''}`}
-                                onClick={() => setCurrentPage(page)}
-                                style={{
-                                  background: currentPage === page ? "#FAC014" : "transparent",
-                                  border: "none",
-                                  color: currentPage === page ? "#000" : "inherit",
-                                  cursor: "pointer",
-                                  padding: "8px 12px",
-                                }}
-                              >
-                                {page}
-                              </button>
-                            </li>
-                          );
-                        } else if (page === currentPage - 2 || page === currentPage + 2) {
-                          return (
-                            <li key={page}>
-                              <span className="page-numbers">..</span>
-                            </li>
-                          );
-                        }
-                        return null;
-                      })}
-                      <li>
-                        <button
-                          className="page-numbers"
-                          onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
-                          disabled={currentPage === totalPages}
-                          style={{ background: "none", border: "none", color: currentPage === totalPages ? "#999" : "inherit", cursor: currentPage === totalPages ? "not-allowed" : "pointer" }}
-                        >
-                          <i className="fal fa-long-arrow-right" />
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                )}
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                />
               </div>
               <div className="col-12 col-lg-4">
                 <div className="main-sidebar">
@@ -425,7 +383,7 @@ const NewsPage = () => {
                             />
                             <div className="post-content">
                               <h5>
-                                <Link href={`/news-details?slug=${feed.slug}`}>
+                                <Link href={`/blog/${feed.slug}`}>
                                   {feed.title}
                                 </Link>
                               </h5>

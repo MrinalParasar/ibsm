@@ -2,21 +2,21 @@
     Template Default Fonts & Fonts Styles
  ---------------------------------------------- */
 
- @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-$heading-font: 'Rubik', sans-serif;
-$body-font: 'Rubik', sans-serif;
+
+$heading-font: var(--font-figtree), sans-serif;
+$body-font: var(--font-figtree), sans-serif;
 
 //font-family: "Font Awesome 5 Pro";
 $fa: "Font Awesome 5 Pro";
 
 body {
-    font-family: $body-font;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 28px;
-    color: $text-color;
-    background-color: $white;
+	font-family: $body-font;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 28px;
+	color: $text-color;
+	background-color: $white;
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
@@ -29,17 +29,17 @@ ul {
 }
 
 button {
-    border: none;
-    background-color: transparent;
+	border: none;
+	background-color: transparent;
 	padding: 0;
 }
 
-input:focus{
+input:focus {
 	color: var(--white);
 	outline: none;
 }
 
-input{
+input {
 	color: $white;
 }
 
@@ -49,10 +49,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $heading-font;
-    margin: 0px;
+	font-family: $heading-font;
+	margin: 0px;
 	padding: 0;
-    color: $header-color;
+	color: $header-color;
 	text-transform: capitalize;
 	@include transition;
 }
@@ -68,15 +68,15 @@ h2 {
 	line-height: 120%;
 	font-weight: 500;
 
-	@include breakpoint(max-xl){
+	@include breakpoint(max-xl) {
 		font-size: 42px;
 	}
 
-	@include breakpoint(max-md){
+	@include breakpoint(max-md) {
 		font-size: 36px;
 	}
 
-	@include breakpoint(max-sm){
+	@include breakpoint(max-sm) {
 		font-size: 32px;
 	}
 }
@@ -85,7 +85,8 @@ h3 {
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 150%;
-	@include breakpoint(max-sm){
+
+	@include breakpoint(max-sm) {
 		font-size: 20px;
 	}
 }
@@ -109,17 +110,14 @@ h6 {
 }
 
 a {
-    text-decoration: none;
-    outline: none !important;
-    cursor: pointer;
-    color: $header-color ;
+	text-decoration: none;
+	outline: none !important;
+	cursor: pointer;
+	color: $header-color ;
 	@include transition;
 }
 
 p {
-    margin: 0px;
+	margin: 0px;
 	@include transition;
 }
-
-
-

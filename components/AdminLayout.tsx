@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AdminSidebar from "./AdminSidebar";
+import ThemeRegistry from "./ThemeRegistry/ThemeRegistry";
+import { AdminProvider } from "./AdminContext";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 interface AdminUser {
   id: string;
@@ -66,17 +69,18 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   if (loading) {
     return (
-      <div
-        style={{
+      <Box
+        sx={{
           minHeight: "100vh",
-          background: "linear-gradient(135deg, #000000 0%, #000000 50%, #101828 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          bgcolor: "background.default",
         }}
       >
-        <div style={{ color: "#FAC014", fontSize: "18px" }}>Loading...</div>
-      </div>
+        <CircularProgress color="primary" />
+        <Typography sx={{ ml: 2, color: 'primary.main' }}>Loading...</Typography>
+      </Box>
     );
   }
 
@@ -85,25 +89,23 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #000000 0%, #000000 50%, #101828 100%)",
-        display: "flex",
-      }}
-    >
-      <AdminSidebar user={user} onLogout={handleLogout} />
-      <div
-        style={{
-          marginLeft: "280px",
-          flex: 1,
-          padding: "30px",
-          overflowY: "auto",
-        }}
-      >
-        {children}
-      </div>
-    </div>
+    <AdminProvider>
+      <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: 'background.default' }}>
+        <AdminSidebar user={user} onLogout={handleLogout} />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            minHeight: '100vh',
+            width: '100%', // Ensure it takes remaining width
+            overflowX: 'hidden'
+          }}
+        >
+          {children}
+        </Box>
+      </Box>
+    </AdminProvider>
   );
 }
 

@@ -110,8 +110,8 @@ function NewsDetailsContent() {
     const month = date.toLocaleDateString('en-US', { month: 'long' });
     const year = date.getFullYear();
     const suffix = day === 1 || day === 21 || day === 31 ? 'st' :
-                   day === 2 || day === 22 ? 'nd' :
-                   day === 3 || day === 23 ? 'rd' : 'th';
+      day === 2 || day === 22 ? 'nd' :
+        day === 3 || day === 23 ? 'rd' : 'th';
     return `${day}${suffix} ${month} ${year}`;
   };
 
@@ -119,7 +119,7 @@ function NewsDetailsContent() {
     return (
       <NextLayout>
         <Breadcrumb pageName="Blog Standard" />
-        <section className="blog-wrapper news-wrapper section-padding">
+        <section className="blog-wrapper news-wrapper section-padding" style={{ paddingTop: "0px" }}>
           <div className="container">
             <div style={{ textAlign: "center", padding: "40px", color: "#696969" }}>
               Loading...
@@ -134,7 +134,7 @@ function NewsDetailsContent() {
     return (
       <NextLayout>
         <Breadcrumb pageName="Blog Standard" />
-        <section className="blog-wrapper news-wrapper section-padding">
+        <section className="blog-wrapper news-wrapper section-padding" style={{ paddingTop: "0px" }}>
           <div className="container">
             <div style={{ textAlign: "center", padding: "40px", color: "#696969" }}>
               News article not found.
@@ -150,7 +150,7 @@ function NewsDetailsContent() {
   return (
     <NextLayout>
       <Breadcrumb pageName="Blog Standard" />
-      <section className="blog-wrapper news-wrapper section-padding">
+      <section className="blog-wrapper news-wrapper section-padding" style={{ paddingTop: "0px" }}>
         <div className="container">
           <div className="news-area">
             <div className="row">
@@ -177,7 +177,7 @@ function NewsDetailsContent() {
                         <img
                           src={news.featuredImage}
                           alt={news.title}
-                        className="single-post-image"
+                          className="single-post-image"
                           style={{ width: "100%", marginTop: "20px", marginBottom: "20px" }}
                         />
                       )}
@@ -274,21 +274,21 @@ function NewsDetailsContent() {
                       ) : (
                         popularFeeds.map((feed) => (
                           <div key={feed._id} className="single-post-item">
-                        <div
-                          className="thumb bg-cover"
+                            <div
+                              className="thumb bg-cover"
                               style={{ backgroundImage: `url(${feed.featuredImage})` }}
-                        />
-                        <div className="post-content">
-                          <h5>
+                            />
+                            <div className="post-content">
+                              <h5>
                                 <Link href={`/news-details?slug=${feed.slug}`}>
                                   {feed.title}
-                            </Link>
-                          </h5>
-                          <div className="post-date">
-                            <i className="far fa-calendar-alt" />
+                                </Link>
+                              </h5>
+                              <div className="post-date">
+                                <i className="far fa-calendar-alt" />
                                 {formatDate(feed.publishDate)}
-                        </div>
-                      </div>
+                              </div>
+                            </div>
                           </div>
                         ))
                       )}
@@ -307,8 +307,8 @@ function NewsDetailsContent() {
                             <li key={cat.name}>
                               <Link href={`/news?category=${cat.name}`}>
                                 {cat.name} <span>{cat.count}</span>
-                          </Link>
-                        </li>
+                              </Link>
+                            </li>
                           ))
                         )}
                       </ul>

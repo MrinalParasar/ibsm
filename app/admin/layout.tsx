@@ -5,11 +5,17 @@ export const metadata: Metadata = {
   description: "Admin panel for managing IBSM Global Security Solutions",
 };
 
+import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <ThemeRegistry>
+      {children}
+    </ThemeRegistry>
+  );
 }
 

@@ -30,7 +30,6 @@ const GrowBusiness = ({ paddingTop = 0 }: GrowBusinessProps) => {
               <div className="grow-business-content">
                 <div className="section-title">
                   <span className="sub-content wow fadeInUp">
-                    <img src="assets/img/bale.png" alt="img" />
                     Grow your Business
                   </span>
                   <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -105,7 +104,6 @@ export const GrowBusiness2 = ({ bg }: GrowBusiness2Props) => {
               <div className="grow-content">
                 <div className="section-title">
                   <span className="sub-content wow fadeInUp">
-                    <img src="assets/img/bale.png" alt="img" />
                     Grow your Business
                   </span>
                   <h2 className="wow fadeInUp" data-wow-delay=".3s">

@@ -75,6 +75,12 @@
       margin-left: 0;
     }
 
+    @include breakpoint(max-md) {
+      .section-title {
+        text-align: center;
+      }
+    }
+
     .about-list {
       margin-top: 40px;
 
@@ -134,6 +140,8 @@
 
       @include breakpoint(max-md) {
         margin-top: 30px;
+        justify-content: flex-start;
+        text-align: left;
       }
 
       @include breakpoint(max-sm) {
@@ -229,7 +237,7 @@
           line-height: 30px;
           text-align: center;
           background-color: $white;
-          box-shadow: (0px 5px 30px rgba(92, 48, 253, 0.3));
+          box-shadow: (0px 5px 30px rgba(250, 192, 20, 0.3));
           border-radius: 50%;
           position: relative;
 
@@ -296,7 +304,7 @@
         color: $white;
         margin-top: 25px;
         margin-bottom: 5px;
-        border-top: 1px solid rgba(92, 48, 253, 0.1);
+        border-top: 1px solid rgba(250, 192, 20, 0.1);
         padding-top: 20px;
       }
 
@@ -311,6 +319,7 @@
   h2 {
     color: $white;
   }
+
   .grow-business-wrapper {
     &.style-2 {
       .grow-content {
@@ -341,7 +350,7 @@
       .grow-percent-items {
         padding: 40px 30px;
         background-color: $white;
-        box-shadow: (0px 10px 60px rgba(92, 48, 253, 0.2));
+        box-shadow: (0px 10px 60px rgba(250, 192, 20, 0.2));
         border-radius: 10px;
 
         @include breakpoint(max-xl) {
@@ -523,8 +532,8 @@
 .planning-wrapper {
   .planning-content {
     .planning-items {
-      background-color: rgba(92, 48, 253, 0.1);
-      border: 1.2px solid rgba(16, 24, 40, 0.1);
+      background-color: rgba(250, 192, 20, 0.1);
+      border: 1.2px solid rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       padding: 22px 30px;
       @include flex;
@@ -553,7 +562,7 @@
       }
 
       .number {
-        border: 1.2px solid rgba(16, 24, 40, 0.1);
+        border: 1.2px solid rgba(0, 0, 0, 0.1);
         background-color: transparent;
         width: 50px;
         height: 50px;
@@ -568,25 +577,25 @@
 
       &:hover {
         background-color: $white;
-        box-shadow: (0px 10px 60px rgba(92, 48, 253, 0.2));
+        box-shadow: (0px 10px 60px rgba(250, 192, 20, 0.2));
         border: 1.2 solid transparent;
 
         .number {
           background-color: $theme-color;
           color: $white;
-          box-shadow: (0px 5px 30px rgba(92, 48, 253, 0.5));
+          box-shadow: (0px 5px 30px rgba(250, 192, 20, 0.5));
         }
       }
 
       &.active {
         background-color: $white;
-        box-shadow: (0px 10px 60px rgba(92, 48, 253, 0.2));
+        box-shadow: (0px 10px 60px rgba(250, 192, 20, 0.2));
         border: 1.2 solid transparent;
 
         .number {
           background-color: $theme-color;
           color: $white;
-          box-shadow: (0px 5px 30px rgba(92, 48, 253, 0.5));
+          box-shadow: (0px 5px 30px rgba(250, 192, 20, 0.5));
         }
       }
     }
@@ -694,7 +703,7 @@
     }
 
     .experience-items {
-      background-color: #efeaff;
+      background-color: #FFF9E6;
       text-align: center;
       z-index: 9;
       position: absolute;
@@ -739,18 +748,19 @@
         color: $theme-color;
         margin-top: 25px;
         margin-bottom: 5px;
-        border-top: 1px solid rgba(92, 48, 253, 0.1);
+        border-top: 1px solid rgba(250, 192, 20, 0.1);
         padding-top: 20px;
       }
     }
   }
+
   .about-counter-area {
     margin-top: 40px;
     margin-bottom: 40px;
 
     .about-counter-items {
-      border: 1.2px solid rgba(16, 24, 40, 0.1);
-      background-color: rgba(92, 48, 253, 0.1);
+      border: 1.2px solid rgba(0, 0, 0, 0.1);
+      background-color: rgba(250, 192, 20, 0.1);
       border-radius: 10px;
       padding: 25px 40px;
       @include transition;

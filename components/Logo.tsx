@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 interface LogoProps {
-  color?: string;
-  fontSize?: string;
+    color?: string;
+    fontSize?: string;
 }
 
 const Logo = ({ color, fontSize = "24px" }: LogoProps) => {

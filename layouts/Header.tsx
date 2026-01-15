@@ -3,6 +3,7 @@ import { nextUtility } from "@/utility";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import Logo from "../components/Logo";
+import BlogMegaMenu from "../components/BlogMegaMenu";
 
 interface HeaderProps {
   header?: number;
@@ -50,11 +51,11 @@ const Menu = ({ single, menu }: MenuProps) => {
   const singleMenu: MenuItem[] = menu
     ? menu
     : [
-        { id: 1, href: "about", title: "About" },
-        { id: 2, href: "services", title: "Services" },
-        { id: 3, href: "team", title: "Team" },
-        { id: 4, href: "blog", title: "Blog" },
-      ];
+      { id: 1, href: "about", title: "About" },
+      { id: 2, href: "services", title: "Services" },
+      { id: 3, href: "team", title: "Team" },
+      { id: 4, href: "blog", title: "Blog" },
+    ];
   return (
     <Fragment>
       {single ? (
@@ -84,28 +85,17 @@ const Menu = ({ single, menu }: MenuProps) => {
             <li>
               <Link href="about">About</Link>
             </li>
-            <li>
-              <Link href="service">Services</Link>
-            </li>
-            <li>
+            <li className="has-dropdown">
               <Link href="news">
                 Blog
                 <i className="fas fa-angle-down" />
               </Link>
-              <ul className="submenu">
-                <li>
-                  <Link href="news">Blog </Link>
-                </li>
-                <li>
-                  <Link href="news-details">Blog Details</Link>
-                </li>
-              </ul>
+              <div className="submenu blog-mega-wrapper">
+                <BlogMegaMenu />
+              </div>
             </li>
             <li>
               <Link href="careers">Careers</Link>
-            </li>
-            <li>
-              <Link href="contact">Contact</Link>
             </li>
           </ul>
         </nav>
@@ -128,11 +118,11 @@ const MobileMenu = ({ single, menu }: MobileMenuProps) => {
   const singleMenu: MenuItem[] = menu
     ? menu
     : [
-        { id: 1, href: "about", title: "About" },
-        { id: 2, href: "services", title: "Services" },
-        { id: 3, href: "team", title: "Team" },
-        { id: 4, href: "blog", title: "Blog" },
-      ];
+      { id: 1, href: "about", title: "About" },
+      { id: 2, href: "services", title: "Services" },
+      { id: 3, href: "team", title: "Team" },
+      { id: 4, href: "blog", title: "Blog" },
+    ];
   return (
     <div className="mobile-menu fix mb-3 mean-container d-block d-xl-none">
       <div className="mean-bar">
@@ -163,9 +153,6 @@ const MobileMenu = ({ single, menu }: MobileMenuProps) => {
                 <li>
                   <Link href="about">About</Link>
                 </li>
-                <li>
-                  <Link href="service">Services</Link>
-                </li>
                 <li className="has-dropdown">
                   <a href="#" onClick={() => activeMenuSet("Blog")}>
                     Blog
@@ -189,9 +176,6 @@ const MobileMenu = ({ single, menu }: MobileMenuProps) => {
                 </li>
                 <li>
                   <Link href="careers">Careers</Link>
-                </li>
-                <li>
-                  <Link href="contact">Contact</Link>
                 </li>
               </Fragment>
             )}
@@ -272,11 +256,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }: SidebarProps) => {
                     </div>
                   </li>
                 </ul>
-                <div className="header-button mt-4">
-                  <Link href="contact" className="theme-btn text-center">
-                    Contact Us
-                  </Link>
-                </div>
+
                 <div className="social-icon d-flex align-items-center">
                   <a href="#">
                     <i className="fab fa-facebook-f" />
@@ -323,7 +303,7 @@ const Header1 = ({ single, menu }: Header1Props) => {
                 </Link>
                 <Link href="/">
                   <div className="logo-2">
-                    <Logo color="#101828" />
+                    <Logo color="#000" />
                   </div>
                 </Link>
               </div>

@@ -6,7 +6,7 @@ const page = () => {
   return (
     <NextLayout>
       <Breadcrumb pageName="Error 404" />
-      <div className="error-section fix section-padding">
+      <div className="error-section fix section-padding" style={{ paddingTop: "0px" }}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">

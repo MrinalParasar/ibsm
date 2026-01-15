@@ -8,8 +8,8 @@ interface BreadcrumbProps {
 const Breadcrumb = ({ pageName = "About Company", pageTitle }: BreadcrumbProps) => {
   return (
     <div
-      className="breadcrumb-wrapper section-padding bg-cover"
-      style={{ backgroundImage: 'url("assets/img/breadcrumb.jpg")' }}
+      className="breadcrumb-wrapper section-padding"
+      style={{ background: 'linear-gradient(180deg, #FFF9E6 0%, #FFFFFF 100%)' }}
     >
       <div className="container">
         <div className="page-heading">

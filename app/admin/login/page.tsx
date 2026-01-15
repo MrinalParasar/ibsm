@@ -2,6 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  Typography,
+  Box,
+  Button,
+  TextField,
+  Paper,
+  Alert,
+  CircularProgress,
+  Avatar,
+  Container,
+} from "@mui/material";
+import { LockOutlined as LockIcon } from "@mui/icons-material";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -47,174 +59,126 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #000000 0%, #000000 50%, #101828 100%)",
+        bgcolor: "#f8f9fa",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "20px",
+        p: 2,
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "450px",
-          background: "#121416",
-          borderRadius: "14px",
-          padding: "40px",
-          boxShadow: "0 4px 25px rgba(0, 0, 0, 0.3)",
-          border: "1px solid rgba(250, 192, 20, 0.1)",
-        }}
-      >
-        <div style={{ textAlign: "center", marginBottom: "30px" }}>
-          <h1
-            style={{
-              color: "#FAC014",
-              fontSize: "32px",
-              fontWeight: "700",
-              marginBottom: "10px",
+      <Container maxWidth="xs">
+        <Paper
+          elevation={0}
+          sx={{
+            p: 4,
+            bgcolor: "#ffffff",
+            borderRadius: 4,
+            border: "1px solid #eeeeee",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.05)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar
+            sx={{
+              m: 1,
+              bgcolor: "primary.main",
+              width: 56,
+              height: 56,
+              color: "white",
+              mb: 2,
+            }}
+          >
+            <LockIcon />
+          </Avatar>
+
+          <Typography
+            variant="h4"
+            sx={{
+              color: "primary.main",
+              fontWeight: 700,
+              mb: 1,
+              textAlign: "center",
             }}
           >
             Admin Login
-          </h1>
-          <p style={{ color: "#696969", fontSize: "14px" }}>
-            Sign in to access the admin panel
-          </p>
-        </div>
+          </Typography>
 
-        {error && (
-          <div
-            style={{
-              background: "rgba(255, 0, 0, 0.1)",
-              border: "1px solid rgba(255, 0, 0, 0.3)",
-              color: "#ff6b6b",
-              padding: "12px",
-              borderRadius: "8px",
-              marginBottom: "20px",
-              fontSize: "14px",
-            }}
+          <Typography
+            variant="body2"
+            sx={{ color: "text.secondary", mb: 4, textAlign: "center" }}
           >
-            {error}
-          </div>
-        )}
+            Sign in to access the IBSM administration panel
+          </Typography>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                color: "#fff",
-                marginBottom: "8px",
-                fontSize: "14px",
-                fontWeight: "500",
+          {error && (
+            <Alert
+              severity="error"
+              sx={{
+                width: "100%",
+                mb: 3,
+                bgcolor: "rgba(255, 0, 0, 0.05)",
+                color: "#ff6b6b",
+                border: "1px solid rgba(255, 0, 0, 0.1)",
               }}
             >
-              Email Address
-            </label>
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
+              {error}
+            </Alert>
+          )}
+
+          <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
+            <TextField
+              fullWidth
+              label="Email Address"
+              margin="normal"
               required
-              style={{
-                width: "100%",
-                padding: "14px 16px",
-                background: "#0D0D0D",
-                border: "1px solid #373737",
-                borderRadius: "8px",
-                color: "#fff",
-                fontSize: "16px",
-                outline: "none",
-                transition: "all 0.3s",
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = "#FAC014";
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = "#373737";
-              }}
+              type="email"
+              autoComplete="email"
+              autoFocus
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="admin@example.com"
             />
-          </div>
-
-          <div style={{ marginBottom: "25px" }}>
-            <label
-              style={{
-                display: "block",
-                color: "#fff",
-                marginBottom: "8px",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              value={formData.password}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
+            <TextField
+              fullWidth
+              label="Password"
+              margin="normal"
               required
-              style={{
-                width: "100%",
-                padding: "14px 16px",
-                background: "#0D0D0D",
-                border: "1px solid #373737",
-                borderRadius: "8px",
-                color: "#fff",
-                fontSize: "16px",
-                outline: "none",
-                transition: "all 0.3s",
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = "#FAC014";
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = "#373737";
-              }}
+              type="password"
+              autoComplete="current-password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               placeholder="Enter your password"
             />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              width: "100%",
-              padding: "16px",
-              background: "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)",
-              color: "#000",
-              border: "none",
-              borderRadius: "8px",
-              fontSize: "16px",
-              fontWeight: "700",
-              cursor: loading ? "not-allowed" : "pointer",
-              opacity: loading ? 0.7 : 1,
-              transition: "all 0.3s",
-              boxShadow: "0 4px 15px rgba(250, 192, 20, 0.3)",
-            }}
-            onMouseOver={(e) => {
-              if (!loading) {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 6px 20px rgba(250, 192, 20, 0.4)";
-              }
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 15px rgba(250, 192, 20, 0.3)";
-            }}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-
-      </div>
-    </div>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              size="large"
+              disabled={loading}
+              sx={{
+                mt: 4,
+                mb: 2,
+                py: 1.5,
+                fontWeight: 700,
+                fontSize: "1rem",
+                boxShadow: "0 4px 15px rgba(24, 0, 173, 0.3)",
+              }}
+            >
+              {loading ? (
+                <CircularProgress size={24} sx={{ color: "white" }} />
+              ) : (
+                "Sign In"
+              )}
+            </Button>
+          </Box>
+        </Paper>
+      </Container>
+    </Box>
   );
 }
 

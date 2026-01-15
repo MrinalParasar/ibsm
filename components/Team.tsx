@@ -6,7 +6,6 @@ const Team = () => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             Team Member
           </span>
           <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">

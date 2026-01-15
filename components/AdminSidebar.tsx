@@ -1,7 +1,27 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useAdmin } from "./AdminContext";
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  Box,
+  Divider,
+  Button,
+} from "@mui/material";
+import {
+  Dashboard as DashboardIcon,
+  Work as WorkIcon,
+  Newspaper as NewspaperIcon,
+  Email as EmailIcon,
+  Logout as LogoutIcon,
+} from "@mui/icons-material";
 
 interface AdminSidebarProps {
   user: {
@@ -13,28 +33,28 @@ interface AdminSidebarProps {
 
 export default function AdminSidebar({ user, onLogout }: AdminSidebarProps) {
   const pathname = usePathname();
-  const router = useRouter();
+  const { isSidebarCollapsed, toggleSidebar } = useAdmin();
 
   const menuItems = [
     {
       label: "Dashboard",
       path: "/admin",
-      icon: "fas fa-home",
+      icon: <DashboardIcon />,
     },
     {
       label: "Careers",
       path: "/admin/careers",
-      icon: "fas fa-briefcase",
+      icon: <WorkIcon />,
     },
     {
       label: "News",
       path: "/admin/news",
-      icon: "fas fa-newspaper",
+      icon: <NewspaperIcon />,
     },
     {
       label: "Form Submissions",
       path: "/admin/forms",
-      icon: "fas fa-envelope",
+      icon: <EmailIcon />,
     },
   ];
 
@@ -45,140 +65,129 @@ export default function AdminSidebar({ user, onLogout }: AdminSidebarProps) {
     return pathname?.startsWith(path);
   };
 
+  const sidebarWidth = isSidebarCollapsed ? 80 : 280;
+
   return (
-    <div
-      style={{
-        width: "280px",
-        height: "100vh",
-        background: "#121416",
-        borderRight: "1px solid rgba(250, 192, 20, 0.1)",
-        display: "flex",
-        flexDirection: "column",
-        position: "fixed",
-        left: 0,
-        top: 0,
-        overflowY: "auto",
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: sidebarWidth,
+        flexShrink: 0,
+        whiteSpace: 'nowrap',
+        boxSizing: 'border-box',
+        "& .MuiDrawer-paper": {
+          width: sidebarWidth,
+          transition: 'width 0.3s',
+          overflowX: 'hidden',
+          boxSizing: "border-box",
+        },
       }}
     >
       {/* Logo/Header */}
-      <div
-        style={{
-          padding: "30px 20px",
-          borderBottom: "1px solid rgba(250, 192, 20, 0.1)",
-        }}
-      >
-        <h2
-          style={{
-            color: "#FAC014",
-            fontSize: "24px",
-            fontWeight: "700",
-            marginBottom: "5px",
-          }}
-        >
-          IBSM Admin
-        </h2>
-        <p style={{ color: "#696969", fontSize: "12px" }}>
-          Admin Panel
-        </p>
-      </div>
+      <Box sx={{
+        px: isSidebarCollapsed ? 2 : 4,
+        py: isSidebarCollapsed ? 1 : 2,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: isSidebarCollapsed ? 'center' : 'flex-start',
+        minHeight: isSidebarCollapsed ? 60 : 80
+      }}>
+        {isSidebarCollapsed ? (
+          <Typography variant="h6" sx={{ color: "primary.main", fontWeight: 700 }}>IA</Typography>
+        ) : (
+          <>
+            <Typography variant="h5" sx={{ color: "primary.main", fontWeight: 700, mb: 0.5 }}>
+              IBSM Admin
+            </Typography>
+            <Typography variant="caption" sx={{ color: "text.secondary" }}>
+              Admin Panel
+            </Typography>
+          </>
+        )}
+      </Box>
+      <Divider sx={{ borderColor: "#eeeeee" }} />
 
-      {/* User Info */}
-      <div
-        style={{
-          padding: "20px",
-          borderBottom: "1px solid rgba(250, 192, 20, 0.1)",
-        }}
-      >
-        <p style={{ color: "#fff", fontSize: "14px", fontWeight: "600", marginBottom: "5px" }}>
-          {user.name}
-        </p>
-        <p style={{ color: "#696969", fontSize: "12px" }}>
-          {user.email}
-        </p>
-      </div>
+
 
       {/* Menu Items */}
-      <div style={{ flex: 1, padding: "20px 0" }}>
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            href={item.path}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              padding: "15px 20px",
-              color: isActive(item.path) ? "#FAC014" : "#696969",
-              textDecoration: "none",
-              background: isActive(item.path)
-                ? "rgba(250, 192, 20, 0.1)"
-                : "transparent",
-              borderLeft: isActive(item.path)
-                ? "3px solid #FAC014"
-                : "3px solid transparent",
-              transition: "all 0.3s",
-              fontSize: "14px",
-              fontWeight: isActive(item.path) ? "600" : "400",
-            }}
-            onMouseOver={(e) => {
-              if (!isActive(item.path)) {
-                e.currentTarget.style.color = "#FAC014";
-                e.currentTarget.style.background = "rgba(250, 192, 20, 0.05)";
-              }
-            }}
-            onMouseOut={(e) => {
-              if (!isActive(item.path)) {
-                e.currentTarget.style.color = "#696969";
-                e.currentTarget.style.background = "transparent";
-              }
-            }}
-          >
-            <i
-              className={item.icon}
-              style={{
-                marginRight: "12px",
-                width: "20px",
-                textAlign: "center",
-              }}
-            />
-            {item.label}
-          </Link>
-        ))}
-      </div>
+      <Box sx={{ flexGrow: 1, py: 2 }}>
+        <List disablePadding>
+          {menuItems.map((item) => (
+            <ListItem key={item.path} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                component={Link}
+                href={item.path}
+                selected={isActive(item.path)}
+                sx={{
+                  minHeight: 48,
+                  justifyContent: isSidebarCollapsed ? 'center' : 'initial',
+                  py: 1.5,
+                  px: 2.5,
+                  borderLeft: (!isSidebarCollapsed && isActive(item.path)) ? "3px solid #1800ad" : "3px solid transparent",
+                  bgcolor: isActive(item.path) ? "rgba(24, 0, 173, 0.08)" : "transparent",
+                  "&:hover": {
+                    bgcolor: "rgba(24, 0, 173, 0.04)",
+                    "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+                      color: "primary.main",
+                    },
+                  },
+                  "&.Mui-selected": {
+                    bgcolor: "rgba(24, 0, 173, 0.1)",
+                    "&:hover": {
+                      bgcolor: "rgba(24, 0, 173, 0.15)",
+                    },
+                  },
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: isSidebarCollapsed ? 0 : 3,
+                    justifyContent: 'center',
+                    color: isActive(item.path) ? "primary.main" : "text.secondary",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{
+                    fontSize: "14px",
+                    fontWeight: isActive(item.path) ? 600 : 400,
+                    color: isActive(item.path) ? "primary.main" : "text.secondary",
+                  }}
+                  sx={{ opacity: isSidebarCollapsed ? 0 : 1, display: isSidebarCollapsed ? 'none' : 'block' }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
 
       {/* Logout Button */}
-      <div style={{ padding: "20px", borderTop: "1px solid rgba(250, 192, 20, 0.1)" }}>
-        <button
+      <Box sx={{ p: 2.5 }}>
+        <Button
+          fullWidth={!isSidebarCollapsed}
+          variant="outlined"
+          color="error"
           onClick={onLogout}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "transparent",
-            color: "#ff6b6b",
-            border: "1px solid #ff6b6b",
-            borderRadius: "8px",
-            fontSize: "14px",
-            fontWeight: "600",
-            cursor: "pointer",
-            transition: "all 0.3s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px",
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.background = "#ff6b6b";
-            e.currentTarget.style.color = "#fff";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#ff6b6b";
+          startIcon={<LogoutIcon />}
+          sx={{
+            py: 1.5,
+            fontWeight: 600,
+            minWidth: isSidebarCollapsed ? 0 : 'auto',
+            px: isSidebarCollapsed ? 1 : 2,
+            "& .MuiButton-startIcon": { mr: isSidebarCollapsed ? 0 : 1 },
+            "&:hover": {
+              bgcolor: "error.main",
+              color: "white",
+            },
           }}
         >
-          <i className="fas fa-sign-out-alt" />
-          Logout
-        </button>
-      </div>
-    </div>
+          {!isSidebarCollapsed && "Logout"}
+        </Button>
+      </Box>
+    </Drawer>
   );
 }
 

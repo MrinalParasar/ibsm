@@ -59,23 +59,11 @@ const Footer1 = () => {
                 </div>
                 <div className="footer-content">
                   <p>
-                    Sed perspiciatis unde omnis natus doloremque laudantium
-                    totae
+                    At IBSM Global Security Solutions, we are dedicated to
+                    providing top-notch security services tailored to meet the
+                    unique needs of our clients.
                   </p>
-                  <div className="social-icon d-flex align-items-center">
-                    <a href="#">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-twitter" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-vimeo-v" />
-                    </a>
-                    <a href="#">
-                      <i className="fab fa-pinterest-p" />
-                    </a>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -131,9 +119,7 @@ const Footer1 = () => {
                       <i className="fas fa-envelope" />
                     </div>
                     <div className="content">
-                      <a href="mailto:info@ibrainstormmedia.com" className="link">
-                        info@ibrainstormmedia.com
-                      </a>
+
                       <a href="mailto:ajesh771@gmail.com" className="link">
                         ajesh771@gmail.com
                       </a>
@@ -155,54 +141,7 @@ const Footer1 = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".8s"
-            >
-              <div className="single-footer-widget">
-                <div className="widget-head">
-                  <h4>Recent News</h4>
-                </div>
-                <div className="recent-post-area">
-                  <div className="recent-post-items">
-                    <div
-                      className="thumb bg-cover"
-                      style={{
-                        backgroundImage: 'url("assets/img/news/pp1.png")',
-                      }}
-                    />
-                    <div className="content">
-                      <ul className="post-date">
-                        <li>Nov 25, 2024</li>
-                      </ul>
-                      <h6>
-                        <Link href="news-details">
-                          How achieve more <br /> your nine to five
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="recent-post-items mb-0">
-                    <div
-                      className="thumb bg-cover"
-                      style={{
-                        backgroundImage: 'url("assets/img/news/pp2.png")',
-                      }}
-                    />
-                    <div className="content">
-                      <ul className="post-date">
-                        <li>Nov 29, 2024</li>
-                      </ul>
-                      <h6>
-                        <Link href="news-details">
-                          Discover a better way of company.
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
         <div className="footer-bottom">
@@ -219,14 +158,7 @@ const Footer1 = () => {
                   <Link href="contact">Privacy</Link>
                 </li>
               </ul>
-              <a
-                href="#"
-                id="scrollUp"
-                className="scroll-icon wow fadeInUp"
-                data-wow-delay=".4s"
-              >
-                <i className="far fa-angle-double-up" />
-              </a>
+
               <p className="wow fadeInUp" data-wow-delay=".6s">
                 © <Link href="/">2024</Link> All Rights Reserved
               </p>

@@ -5,8 +5,9 @@
         border-radius: 10px;
         background-color: #F9FAFB;
         border-radius: 12px;
-        .accordion-header { 
-            .accordion-button { 
+
+        .accordion-header {
+            .accordion-button {
                 font-weight: 500;
                 color: $header-color;
                 letter-spacing: -0.2px;
@@ -19,7 +20,7 @@
                 font-size: 20px;
                 border: none;
 
-                @include breakpoint (max-sm){
+                @include breakpoint (max-sm) {
                     font-size: 18px;
                     padding: 18px 22px 0;
                 }
@@ -34,11 +35,12 @@
                     height: 30px;
                     line-height: 30px;
                     border-radius: 30px;
-                    box-shadow: (0px 10px 60px rgba(92, 48, 253, 0.20));
+                    box-shadow: (0px 10px 60px rgba(250, 192, 20, 0.20));
                     text-align: center;
                     color: $theme-color;
                     font-size: 14px;
                 }
+
                 &:not(.collapsed)::after {
                     content: "\f077";
                     background: transparent;
@@ -53,14 +55,14 @@
                     padding: 20px 30px;
                     color: $header-color;
                     border-radius: 12px;
-                    border: 1px solid rgba(16, 24, 40, 0.10);
+                    border: 1px solid rgba(0, 0, 0, 0.10);
                     background: #F9FAFB;
                 }
-              
+
             }
         }
 
-        .accordion-collapse { 
+        .accordion-collapse {
 
             .accordion-body {
                 padding-right: 80px;
@@ -70,11 +72,11 @@
                 background: #F9FAFB;
                 padding-bottom: 25px;
 
-                @include breakpoint (max-xxl){
+                @include breakpoint (max-xxl) {
                     padding-right: 50px;
                 }
 
-                @include breakpoint (max-lg){
+                @include breakpoint (max-lg) {
                     padding-right: 30px;
                 }
             }

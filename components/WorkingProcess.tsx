@@ -4,7 +4,6 @@ const WorkingProcess = () => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             Working Process
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -112,7 +111,6 @@ export const WorkingProcess2 = () => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             Working Process
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -127,8 +125,9 @@ export const WorkingProcess2 = () => {
                 <div
                   className="work-process-items wow fadeInUp"
                   data-wow-delay=".3s"
+                  style={{ background: "#ffffff", border: "1.2px solid rgba(0, 0, 0, 0.1)" }}
                 >
-                  <div className="digit-box">01</div>
+                  <div className="digit-box" style={{ background: "#ffffff", border: "2px solid #ffd966", color: "#ffd966" }}>01</div>
                   <h4>Risk Assessment</h4>
                   <p>
                     IBSM Security sets benchmarks in security with comprehensive risk assessment
@@ -138,8 +137,9 @@ export const WorkingProcess2 = () => {
                 <div
                   className="work-process-items wow fadeInUp"
                   data-wow-delay=".5s"
+                  style={{ background: "#ffffff", border: "1.2px solid rgba(0, 0, 0, 0.1)" }}
                 >
-                  <div className="digit-box">02</div>
+                  <div className="digit-box" style={{ background: "#ffffff", border: "2px solid #ffd966", color: "#ffd966" }}>02</div>
                   <h4>Advanced Surveillance</h4>
                   <p>
                     We implement cutting-edge technology and advanced surveillance systems for
@@ -149,8 +149,9 @@ export const WorkingProcess2 = () => {
                 <div
                   className="work-process-items wow fadeInUp"
                   data-wow-delay=".7s"
+                  style={{ background: "#ffffff", border: "1.2px solid rgba(0, 0, 0, 0.1)" }}
                 >
-                  <div className="digit-box">03</div>
+                  <div className="digit-box" style={{ background: "#ffffff", border: "2px solid #ffd966", color: "#ffd966" }}>03</div>
                   <h4>Personnel Deployment</h4>
                   <p>
                     Our highly trained security personnel are equipped with the latest skills
@@ -164,7 +165,15 @@ export const WorkingProcess2 = () => {
                 className="work-process-image wow fadeInUp"
                 data-wow-delay=".4s"
               >
-                <img src="assets/img/business-mens-grsl.jpg" alt="img" />
+                <img
+                  src="assets/img/working-process.png"
+                  alt="IBSM Security Operations"
+                  style={{
+                    borderRadius: "12px",
+                    border: "2px solid rgba(255, 217, 102, 0.3)",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)"
+                  }}
+                />
               </div>
             </div>
           </div>

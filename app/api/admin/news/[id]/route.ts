@@ -8,7 +8,7 @@ export async function GET(
 ) {
   try {
     const payload = await authenticateAdmin(request);
-    
+
     if (!payload) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -41,7 +41,7 @@ export async function PUT(
 ) {
   try {
     const payload = await authenticateAdmin(request);
-    
+
     if (!payload) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -52,13 +52,14 @@ export async function PUT(
     const { id } = await params;
     const body = await request.json();
     const updateData: any = {};
-    
+
     if (body.title !== undefined) updateData.title = body.title;
     if (body.slug !== undefined) updateData.slug = body.slug;
     if (body.category !== undefined) updateData.category = body.category;
     if (body.excerpt !== undefined) updateData.excerpt = body.excerpt;
     if (body.content !== undefined) updateData.content = body.content;
     if (body.featuredImage !== undefined) updateData.featuredImage = body.featuredImage;
+    if (body.featuredImageAlt !== undefined) updateData.featuredImageAlt = body.featuredImageAlt;
     if (body.postType !== undefined) updateData.postType = body.postType;
     if (body.videoUrl !== undefined) updateData.videoUrl = body.videoUrl;
     if (body.audioEmbed !== undefined) updateData.audioEmbed = body.audioEmbed;
@@ -71,6 +72,9 @@ export async function PUT(
     if (body.commentsCount !== undefined) updateData.commentsCount = body.commentsCount;
     if (body.tags !== undefined) updateData.tags = body.tags;
     if (body.isPopularFeed !== undefined) updateData.isPopularFeed = body.isPopularFeed;
+    if (body.isFeatured !== undefined) updateData.isFeatured = body.isFeatured;
+    if (body.isService !== undefined) updateData.isService = body.isService; // Added field
+    if (body.status !== undefined) updateData.status = body.status;
 
     const news = await updateNews(id, updateData);
     if (!news) {
@@ -93,7 +97,7 @@ export async function PUT(
     );
   } catch (error: any) {
     console.error('Update news error:', error);
-    
+
     if (error.message === 'News with this slug already exists') {
       return NextResponse.json(
         { error: error.message },
@@ -114,7 +118,7 @@ export async function DELETE(
 ) {
   try {
     const payload = await authenticateAdmin(request);
-    
+
     if (!payload) {
       return NextResponse.json(
         { error: 'Unauthorized' },

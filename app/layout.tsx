@@ -8,7 +8,15 @@ import "@css/nice-select.css";
 import "@css/swiper-bundle.min.css";
 import "./globals.css";
 import Preloader from "@/layouts/Preloader";
+import { Figtree } from "next/font/google";
 import type { Metadata } from "next";
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-figtree",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Next - Multi-Purpose React NextJS Template",
@@ -22,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${figtree.variable} font-sans`}>
         <Preloader />
         {children}
       </body>

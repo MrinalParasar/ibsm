@@ -11,15 +11,15 @@
             line-height: 140%;
             color: $header-color;
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 font-size: 25px;
             }
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 font-size: 23px;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 font-size: 20px;
             }
         }
@@ -31,16 +31,16 @@
             border-top: 1px solid $border-color;
             padding-top: 40px;
 
-            @include breakpoint (max-xl){
+            @include breakpoint (max-xl) {
                 flex-wrap: wrap;
                 gap: 25px;
             }
 
-            @include breakpoint (max-md){
-               padding-top: 30px;
+            @include breakpoint (max-md) {
+                padding-top: 30px;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 margin-top: 20px;
                 padding-top: 20px;
             }
@@ -94,16 +94,16 @@
     @include flex;
     gap: 65px;
     background-color: $white;
-    box-shadow: 0px 10px 60px rgba(92, 48, 253, 0.2);
+    box-shadow: 0px 10px 60px rgba(250, 192, 20, 0.2);
     padding: 20px;
     margin-bottom: 50px;
     border-radius: 16px;
 
-    @include breakpoint (max-xxxl){
-       gap: 30px;
+    @include breakpoint (max-xxxl) {
+        gap: 30px;
     }
 
-    @include breakpoint (max-md){
+    @include breakpoint (max-md) {
         flex-wrap: wrap;
         justify-content: center;
         gap: 25px;
@@ -113,7 +113,7 @@
 
     .testimonial-image {
         border-radius: 10px;
-        background-color: #EFEBFF;
+        background-color: #FFF9E6;
         position: relative;
         z-index: 1;
         padding: 0px 10px;
@@ -127,7 +127,7 @@
     .testimonial-content {
         flex-basis: 60%;
 
-        @include breakpoint (max-md){
+        @include breakpoint (max-md) {
             flex-basis: 100%;
         }
 
@@ -136,7 +136,7 @@
             gap: 15px;
             margin-bottom: 20px;
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 justify-content: center;
             }
 
@@ -166,15 +166,15 @@
             color: $header-color;
             line-height: 150%;
 
-            @include breakpoint (max-xxxl){
+            @include breakpoint (max-xxxl) {
                 font-size: 18px;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 font-size: 20px;
             }
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 font-size: 18px;
             }
         }
@@ -193,19 +193,20 @@
             .author-image {
                 .content {
                     h5 {
-                       color: $white;
+                        color: $white;
+
                         span {
-                           color: #696969;
+                            color: #696969;
                         }
                     }
-    
+
                 }
             }
-    
+
             p {
-               color: $white;
+                color: $white;
             }
-    
+
             .star {
                 color: $theme-color-2;
             }
@@ -214,30 +215,30 @@
 }
 
 .testimonial-section-5 {
-    .swiper-slide.swiper-slide-active{
+    .swiper-slide.swiper-slide-active {
         .testimonial-card-items {
             &.style-2 {
                 background-color: $white;
                 box-shadow: none;
-        
+
                 .testimonial-content {
                     .author-image {
                         .content {
                             h5 {
-                               color: $header-color;
+                                color: $header-color;
 
                                 span {
-                                   color: #696969;
+                                    color: #696969;
                                 }
                             }
-            
+
                         }
                     }
-            
+
                     p {
-                       color: $header-color;
+                        color: $header-color;
                     }
-            
+
                     .star {
                         color: $theme-color-2;
                     }
@@ -253,9 +254,9 @@
 
 .testimonial-wrapper-2 {
     .testimonial-content {
-        @include breakpoint (max-lg){
-           text-align: center;
-           margin: 0 auto;
+        @include breakpoint (max-lg) {
+            text-align: center;
+            margin: 0 auto;
         }
 
         .author-image {
@@ -267,12 +268,12 @@
             border-radius: 10px;
             margin-bottom: 30px;
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 text-align: center;
                 justify-content: center;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 margin-bottom: 20px;
                 padding: 14px 20px;
             }
@@ -287,11 +288,11 @@
                 h5 {
                     font-size: 22px;
 
-                    @include breakpoint (max-md){
+                    @include breakpoint (max-md) {
                         font-size: 19px;
                     }
 
-                    @include breakpoint (max-xs){
+                    @include breakpoint (max-xs) {
                         font-size: 16px;
                     }
 
@@ -299,7 +300,7 @@
                         font-weight: 500;
                         font-size: 16px;
 
-                        @include breakpoint (max-xs){
+                        @include breakpoint (max-xs) {
                             font-size: 14px;
                         }
                     }
@@ -312,19 +313,19 @@
             color: $white;
             line-height: 140%;
 
-            @include breakpoint (max-xl){
+            @include breakpoint (max-xl) {
                 font-size: 23px;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 font-size: 20px;
             }
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 font-size: 18px;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 font-size: 16px;
             }
         }
@@ -340,7 +341,7 @@
         max-width: 440px;
         position: relative;
 
-        @include breakpoint (max-lg){
+        @include breakpoint (max-lg) {
             text-align: center;
             margin: 0 auto;
         }
@@ -354,25 +355,25 @@
             left: -35%;
             bottom: 0;
 
-            @include breakpoint (max-xl){
+            @include breakpoint (max-xl) {
                 left: -30%;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 left: -35%;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 left: -35%;
                 bottom: 0;
             }
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 width: 300px;
                 left: -10%;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 left: -8%;
                 width: 260px;
             }
@@ -383,22 +384,22 @@
             right: -35%;
             top: 0;
 
-            @include breakpoint (max-xxl){
+            @include breakpoint (max-xxl) {
                 right: -25%;
                 top: 0;
             }
 
-            @include breakpoint (max-xl){
+            @include breakpoint (max-xl) {
                 right: -20%;
                 top: 0;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 right: -35%;
                 top: 0;
             }
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 width: 300px;
                 right: -10%;
             }
@@ -416,7 +417,7 @@
     border-radius: 10px;
     padding: 40px;
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         text-align: center;
     }
 
@@ -427,7 +428,7 @@
             gap: 15px;
             margin-bottom: 20px;
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 justify-content: center;
             }
 
@@ -471,7 +472,7 @@
         padding-bottom: 70px;
         margin-bottom: 70px;
 
-        @include breakpoint (max-xl){
+        @include breakpoint (max-xl) {
             flex-wrap: wrap;
             gap: 25px;
             justify-content: center
@@ -481,7 +482,7 @@
             @include flex;
             gap: 40px;
 
-            @include breakpoint (max-xl){
+            @include breakpoint (max-xl) {
                 flex-wrap: wrap;
                 gap: 25px;
                 justify-content: center
@@ -522,22 +523,22 @@
                     color: $white;
                     margin-bottom: 20px;
 
-                    @include breakpoint (max-lg){
+                    @include breakpoint (max-lg) {
                         font-size: 26px;
                     }
 
-                    @include breakpoint (max-md){
+                    @include breakpoint (max-md) {
                         font-size: 24px;
                     }
 
-                    @include breakpoint (max-sm){
+                    @include breakpoint (max-sm) {
                         font-size: 22px;
                     }
 
                     span {
                         font-size: 16px;
                         font-weight: 500;
-                       color: rgba(255, 255, 255, 0.55);
+                        color: rgba(255, 255, 255, 0.55);
                     }
                 }
 
@@ -547,19 +548,19 @@
                     font-weight: 400;
                     line-height: 1.6;
 
-                    @include breakpoint (max-xl){
+                    @include breakpoint (max-xl) {
                         font-size: 22px;
                     }
 
-                    @include breakpoint (max-lg){
+                    @include breakpoint (max-lg) {
                         font-size: 20px;
                     }
 
-                    @include breakpoint (max-md){
+                    @include breakpoint (max-md) {
                         font-size: 18px;
                     }
 
-                    @include breakpoint (max-sm){
+                    @include breakpoint (max-sm) {
                         font-size: 16px;
                     }
                 }

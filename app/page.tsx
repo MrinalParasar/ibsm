@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FunFactCounter from "@/components/FunFactCounter";
 import { TestimonialSlider1 } from "@/components/TestimonialSlider";
+import Services, { Service2 } from "@/components/Services";
+import AboutImageSlider from "@/components/AboutImageSlider";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
 
@@ -14,6 +16,39 @@ const page = () => {
     agreedToTerms: false,
   });
   const [heroFormStatus, setHeroFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  const [featuredNews, setFeaturedNews] = useState<any[]>([]);
+  const [features, setFeatures] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch('/api/news?type=featured&limit=3');
+        if (response.ok) {
+          const data = await response.json();
+          setFeaturedNews(data.news || []);
+        }
+      } catch (error) {
+        console.error("Failed to fetch featured news", error);
+      }
+    };
+
+    const fetchFeatures = async () => {
+      try {
+        const response = await fetch('/api/news?type=services&limit=3');
+        if (response.ok) {
+          const data = await response.json();
+          // The API returns { news: [...] } for type=services
+          setFeatures(data.news || []);
+        }
+      } catch (error) {
+        console.error("Failed to fetch features", error);
+      }
+    };
+
+    fetchNews();
+    fetchFeatures();
+  }, []);
+
 
   const handleHeroFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,85 +81,53 @@ const page = () => {
       setHeroFormStatus({ type: 'error', message: 'An error occurred. Please try again.' });
     }
   };
+  const truncateText = (text: string, limit: number) => {
+    if (!text) return "";
+    return text.length > limit ? text.substring(0, limit) + "..." : text;
+  };
+
   return (
     <NextLayout header={1}>
       <section
-        className="hero-section hero-1 bg-cover fix"
+        className="hero-section hero-1 fix"
         style={{
-          background:
-            "linear-gradient(135deg, #000000 0%, #000000 50%, #FAC014 100%)",
+          backgroundColor: "#fff",
         }}
       >
         <div className="container">
           <div className="row g-4 justify-content-between">
             <div className="col-lg-6">
-              <div className="hero-content">
-                <h1 className="text-white wow fadeInUp" data-wow-delay=".2s">
-                  Your <br />
-                  <span style={{ backgroundColor: "#FAC014", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block", marginBottom: "10px" }}>Safety</span> <br />
-                  <span style={{ backgroundColor: "#FAC014", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block" }}>& Security</span> <br />
-                  Our Responsibility
+              <div className="hero-content" style={{ paddingTop: "40px" }}>
+                <h1 className="text-black wow fadeInUp" data-wow-delay=".2s">
+                  Your <span style={{ backgroundColor: "#ffd966", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block", marginBottom: "8px" }}>Safety</span> & <br />
+                  <span style={{ backgroundColor: "#ffd966", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block" }}>Security</span> Our <br />
+                  Responsibility
                 </h1>
-                <p className="text-white wow fadeInUp" data-wow-delay=".4s">
-                  Welcome to IBSM Global Security Solutions, your trusted partner in
-                  safeguarding what matters most.
+                <p className="text-black wow fadeInUp" data-wow-delay=".4s" style={{ paddingTop: "15px" }}>
+                  Welcome to IBSM Global Security Solutions, <br />
+                  your trusted partner in safeguarding what matters most.
                 </p>
                 <div className="hero-button">
                   <Link
                     href="/"
-                    className="theme-btn hover-white wow fadeInUp"
-                    style={{
-                      background: "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)",
-                      color: "#000",
-                      border: "none",
-                      fontWeight: "700",
-                      boxShadow: "0 4px 15px rgba(250, 192, 20, 0.3)"
-                    }}
+                    className="theme-btn wow fadeInUp"
                     data-wow-delay=".4s"
                   >
                     Get Started Now <i className="far fa-arrow-right" />
                   </Link>
                   <Link
                     href="service"
-                    className="btn-link wow fadeInUp"
-                    style={{ color: "#FAC014", textDecoration: "none", border: "1px solid #FAC014", padding: "12px 25px", borderRadius: "14px", display: "inline-block" }}
+                    className="theme-btn wow fadeInUp"
+                    style={{ background: "transparent", border: "1px solid #000", color: "#000", boxShadow: "none" }}
                     data-wow-delay=".6s"
                   >
                     View Services <i className="far fa-arrow-right" />
                   </Link>
                 </div>
-                <div
-                  className="hero-client d-flex align-items-center gap-2 mt-50 wow fadeInUp"
-                  data-wow-delay=".8s"
-                >
-                  <div className="d-flex align-items-center me-2">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <img
-                        key={i}
-                        src={`/assets/img/team/0${i}.jpg`}
-                        alt="client"
-                        style={{
-                          width: "45px",
-                          height: "45px",
-                          borderRadius: "50%",
-                          border: "2px solid #FAC014",
-                          marginLeft: i === 1 ? "0" : "-15px",
-                          objectFit: "cover",
-                          position: "relative",
-                          zIndex: 6 - i,
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-white mb-0">
-                    Trusted by 1M+ people <br />
-                    around the globe
-                  </p>
-                </div>
               </div>
             </div>
             <div className="col-lg-5 wow fadeInUp" data-wow-delay=".4s">
-              <div className="hero-contact-box">
+              <div className="hero-contact-box" style={{ border: "1px solid #333" }}>
                 <h4>Get Consultations</h4>
                 <p>Ready to Register Our Security Services</p>
                 <form
@@ -137,8 +140,8 @@ const page = () => {
                         padding: "12px",
                         borderRadius: "8px",
                         marginBottom: "20px",
-                        background: heroFormStatus.type === 'success' 
-                          ? "rgba(76, 175, 80, 0.1)" 
+                        background: heroFormStatus.type === 'success'
+                          ? "rgba(76, 175, 80, 0.1)"
                           : "rgba(255, 0, 0, 0.1)",
                         border: `1px solid ${heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336'}`,
                         color: heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336',
@@ -217,81 +220,111 @@ const page = () => {
         </div>
       </section>
       {/* Service Section Start */}
-      <section className="service-section fix pt-80 pb-80 section-bg">
+      <section className="service-section fix pt-80 pb-80" style={{ backgroundColor: "#000" }}>
         <div className="container">
           <h4
             className="mb-5 text-white text-center wow fadeInUp"
             data-wow-delay=".3s"
           >
-            Preparing For Your Business Success With IT Solution
+            Ensuring Your Safety With Professional Security Solutions
           </h4>
           <div className="row g-4">
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>01</p>
-                  <h5>
-                    <Link href="service-details">
-                      Data Manage &amp; <br />
-                      Solutions Center
-                    </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
+            {features.length > 0 ? (
+              features.map((feature, index) => (
+                <div
+                  key={feature._id}
+                  className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                  data-wow-delay={`${0.3 + index * 0.2}s`}
+                >
+                  <div className="service-items">
+                    <div className="content">
+                      <p>{String(index + 1).padStart(2, '0')}</p>
+                      <h5>
+                        <Link href={`/blog/${feature.slug}`}>
+                          {truncateText(feature.title, 45)}
+                        </Link>
+                      </h5>
+                      <Link className="arrow-btn" href={`/blog/${feature.slug}`}>
+                        <i className="far fa-arrow-right" />
+                      </Link>
+                    </div>
+                    <div className="thumb">
+                      <img src={feature.featuredImage} alt={feature.title} style={{ maxWidth: "160px", borderRadius: "10px" }} />
+                    </div>
+                  </div>
                 </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/01.jpg" alt="img" />
+              ))
+            ) : (
+              // Fallback to hardcoded if no dynamic features
+              <>
+                <div
+                  className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                  data-wow-delay=".3s"
+                >
+                  <div className="service-items">
+                    <div className="content">
+                      <p>01</p>
+                      <h5>
+                        <Link href="/service-details?service=monitoring">
+                          24/7 Monitoring & <br />
+                          Control Center
+                        </Link>
+                      </h5>
+                      <Link className="arrow-btn" href="/service-details?service=monitoring">
+                        <i className="far fa-arrow-right" />
+                      </Link>
+                    </div>
+                    <div className="thumb">
+                      <img src="/assets/img/service/01.jpg" alt="img" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>02</p>
-                  <h5>
-                    <Link href="service-details">
-                      Preparing For <br />
-                      Cloud Services
-                    </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
+                <div
+                  className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                  data-wow-delay=".5s"
+                >
+                  <div className="service-items">
+                    <div className="content">
+                      <p>02</p>
+                      <h5>
+                        <Link href="/service-details?service=personnel">
+                          Highly Trained <br />
+                          Security Personnel
+                        </Link>
+                      </h5>
+                      <Link className="arrow-btn" href="/service-details?service=personnel">
+                        <i className="far fa-arrow-right" />
+                      </Link>
+                    </div>
+                    <div className="thumb">
+                      <img src="/assets/img/service/02.jpg" alt="img" />
+                    </div>
+                  </div>
                 </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/02.jpg" alt="img" />
+                <div
+                  className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                  data-wow-delay=".7s"
+                >
+                  <div className="service-items">
+                    <div className="content">
+                      <p>03</p>
+                      <h5>
+                        <Link href="/service-details?service=technology">
+                          Advanced Security <br />
+                          Technology Support
+                        </Link>
+                      </h5>
+                      <Link className="arrow-btn" href="/service-details?service=technology">
+                        <i className="far fa-arrow-right" />
+                      </Link>
+                    </div>
+                    <div className="thumb">
+                      <img src="/assets/img/service/03.jpg" alt="img" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".7s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>03</p>
-                  <h5>
-                    <Link href="service-details">
-                      Machine Learning <br />
-                      &amp; Development
-                    </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/03.jpg" alt="img" />
-                </div>
-              </div>
-            </div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -312,25 +345,14 @@ const page = () => {
                     </li>
                     <li>Awards Winning Company</li>
                   </ul>
-                  <div className="row g-4 align-items-center">
-                    <div className="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                      <div className="about-image">
-                        <img src="/assets/img/about/01.jpg" alt="about-img" />
-                      </div>
-                    </div>
-                    <div className="col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                      <div className="about-image">
-                        <img src="/assets/img/about/02.jpg" alt="about-img" />
-                      </div>
-                    </div>
-                  </div>
+                  <AboutImageSlider />
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="about-content">
                   <div className="section-title">
                     <span className="sub-content wow fadeInUp">
-                      <img src="/assets/img/bale.png" alt="img" />
+
                       About Us
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -354,20 +376,7 @@ const page = () => {
                     coupled with our dedication to serving our clients with integrity and
                     professionalism, has been the cornerstone of our success.
                   </p>
-                  <ul className="about-list wow fadeInUp" data-wow-delay=".3s">
-                    <li>
-                      <i className="fas fa-check" />
-                      Connect with leads with zero hassle.
-                    </li>
-                    <li>
-                      <i className="fas fa-check" />
-                      Take quick payments direct from meetings
-                    </li>
-                    <li>
-                      <i className="fas fa-check" />
-                      Start finding leads that get coverts quickly
-                    </li>
-                  </ul>
+
                   <div
                     className="about-author wow fadeInUp"
                     data-wow-delay=".5s"
@@ -382,7 +391,7 @@ const page = () => {
                       <img src="/assets/img/about/author.jpg" alt="author-img" />
                       <div className="content">
                         <h5>
-                          Lucas J. Swe / <span>CO Founder</span>
+                          Ajesh Kumar / <span>Founder & CEO</span>
                         </h5>
                       </div>
                     </div>
@@ -398,7 +407,7 @@ const page = () => {
         <div className="container">
           <div className="section-title text-center">
             <span className="sub-content wow fadeInUp">
-              <img src="/assets/img/bale.png" alt="img" />
+
               Popular Services
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -408,78 +417,74 @@ const page = () => {
           </div>
           <div className="row">
             <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+              className="col-xl-7 col-lg-7 col-md-12 wow fadeInUp"
               data-wow-delay=".2s"
             >
               <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-technical" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Security Guard & Bouncer Services
-                  </Link>
-                </h3>
-                <p>Professional Security Guard, Bouncer, Body Guard, and Escort Guard services.</p>
                 <div className="service-thumb">
-                  <img src="/assets/img/service/04.png" alt="service-img" />
+                  <img src="/assets/img/service/guard-service.png" alt="service-img" />
+                </div>
+                <div className="service-content">
+                  <h3>
+                    <Link href="service-details">
+                      Security Guard & Bouncer Services
+                    </Link>
+                  </h3>
+                  <p>Our professional security services provide highly trained personnel tailored to your specific needs. From discreet personal protection and specialized bouncer services for high-profile events to robust escort guard solutions, we ensure comprehensive safety and peace of mind through vigilant and reliable security management.</p>
                 </div>
               </div>
             </div>
             <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+              className="col-xl-5 col-lg-5 col-md-12 wow fadeInUp"
               data-wow-delay=".4s"
             >
               <div className="service-card-items active">
-                <div className="icon">
-                  <i className="flaticon-vector-design" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Specialized Security Solutions
-                  </Link>
-                </h3>
-                <p>Event, Tourist, Industrial, and Property security along with Cash Management.</p>
                 <div className="service-thumb">
-                  <img src="/assets/img/service/05.png" alt="service-img" />
+                  <img src="/assets/img/service/specialized-service.png" alt="service-img" />
+                </div>
+                <div className="service-content">
+                  <h3>
+                    <Link href="service-details">
+                      Specialized Security Solutions
+                    </Link>
+                  </h3>
+                  <p>Event, Tourist, Industrial, and Property security along with Cash Management.</p>
                 </div>
               </div>
             </div>
             <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+              className="col-xl-5 col-lg-5 col-md-12 wow fadeInUp"
               data-wow-delay=".6s"
             >
               <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-database" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Facility Management Services
-                  </Link>
-                </h3>
-                <p>Corporate Housekeeping, Pantry Boy, and Office Boy services for your facility.</p>
                 <div className="service-thumb">
-                  <img src="/assets/img/service/06.png" alt="service-img" />
+                  <img src="/assets/img/service/facility-service.png" alt="service-img" />
+                </div>
+                <div className="service-content">
+                  <h3>
+                    <Link href="service-details">
+                      Facility Management Services
+                    </Link>
+                  </h3>
+                  <p>Corporate Housekeeping, Pantry Boy, and Office Boy services for your facility.</p>
                 </div>
               </div>
             </div>
             <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+              className="col-xl-7 col-lg-7 col-md-12 wow fadeInUp"
               data-wow-delay=".8s"
             >
               <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-design-thinking" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Professional Manpower Services
-                  </Link>
-                </h3>
-                <p>Office Manpower, Temporary Staff, and Event Staff for your business needs.</p>
                 <div className="service-thumb">
-                  <img src="/assets/img/service/07.png" alt="service-img" />
+                  <img src="/assets/img/service/manpower-service.png" alt="service-img" />
+                </div>
+                <div className="service-content">
+                  <h3>
+                    <Link href="service-details">
+                      Professional Manpower Services
+                    </Link>
+                  </h3>
+                  <p>We offer comprehensive manpower solutions to streamline your business operations. Our services include providing skilled office personnel, temporary staffing for seasonal peaks, and specialized event staff. We bridge the talent gap by matching qualified individuals with your unique requirements, ensuring professional excellence in every role.</p>
                 </div>
               </div>
             </div>
@@ -489,10 +494,9 @@ const page = () => {
       {/* Cta Video Section Start */}
       <div
         className="cta-video-section fix bg-cover"
-        style={{ backgroundImage: 'url("/assets/img/cta/security-banner.png")' }}
       >
         <div className="container">
-          <div className="cta-video-wrapper" style={{ minHeight: "250px" }}>
+          <div className="cta-video-wrapper" style={{ minHeight: "0px" }}>
             {/* Video button removed for photo section */}
           </div>
         </div>
@@ -500,282 +504,36 @@ const page = () => {
           <div className="marquee-inner to-left">
             <ul className="marqee-list d-flex">
               <li className="marquee-item">
-                <span className="text-slider" style={{ fontSize: "70px" }}>IBSM Global Security</span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Security Guards </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Bouncer Services </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Escort Guards </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Facility Management</span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>IBSM Global Security</span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Security Guards </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Bouncer Services </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Escort Guards </span>
-                <span className="text-slider style-border" style={{ fontSize: "70px" }} />
-                <span className="text-slider" style={{ fontSize: "70px" }}>Facility Management</span>
+                <span className="text-slider">IBSM Global Security</span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Security Guards </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Bouncer Services </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Escort Guards </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Facility Management</span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">IBSM Global Security</span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Security Guards </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Bouncer Services </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Escort Guards </span>
+                <span className="text-slider style-border" />
+                <span className="text-slider">Facility Management</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      {/* Team Section Start */}
-      <section className="team-section fix section-padding">
-        <div className="container">
-          <div className="row g-4 align-items-center">
-            <div className="col-lg-6">
-              <div className="section-title">
-                <span className="sub-content wow fadeInUp">
-                  <img src="/assets/img/bale.png" alt="img" />
-                  Our Benchmarks
-                </span>
-                <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                  Setting Benchmarks in Security
-                </h2>
-              </div>
-              <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                IBSM Security sets benchmarks in security with comprehensive risk assessment,
-                advanced surveillance, and highly trained personnel, ensuring unparalleled
-                safety for clients and their assets.
-              </p>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/01.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Ajesh Kumar</Link>
-                  </h4>
-                  <p>CEO & Founder</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/02.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Sanjay Singh</Link>
-                  </h4>
-                  <p>Operations Head</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".2s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/03.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Vikram Rathore</Link>
-                  </h4>
-                  <p>Senior Manager</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/04.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Priya Singh</Link>
-                  </h4>
-                  <p>HR Manager</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".6s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/05.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Rajesh Sharma</Link>
-                  </h4>
-                  <p>Security Consultant</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 ps-xxl-5 wow fadeInUp"
-              data-wow-delay=".8s"
-            >
-              <Link href="team" className="theme-btn">
-                View More Members
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Funfact Section Start */}
-      <section className="funfact-section section-padding pt-0">
+      <section className="funfact-section section-padding">
         <div className="container">
           <div className="section-title text-center">
             <span className="sub-content wow fadeInUp">
-              <img src="/assets/img/bale.png" alt="img" />
+
               Company Fun Fact
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -786,28 +544,40 @@ const page = () => {
         </div>
       </section>
       {/* Popular Case Study Section Start */}
-      <section className="case-study-section fix section-padding theme-bg">
-        <div className="left-shape">
-          <img src="/assets/img/case-study/left-shape.png" alt="shape-img" />
-        </div>
-        <div className="right-shape">
-          <img src="/assets/img/case-study/right-shape.png" alt="shape-img" />
-        </div>
+      <section className="case-study-section fix section-padding" style={{ backgroundColor: "#0D0D0D" }}>
         <div className="container">
-          <div className="section-title-area">
-            <div className="section-title">
-              <span className="sub-content wow fadeInUp">
-                <img src="/assets/img/bale.png" alt="img" />
-                PSARA License
-              </span>
-              <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">
-                A PSARA Approved Company
-              </h2>
+          <div className="section-title-area mb-5">
+            <div className="row align-items-center">
+              <div className="col-lg-7">
+                <div className="section-title mb-0">
+                  <span className="sub-content wow fadeInUp" style={{ backgroundColor: "rgba(255, 217, 102, 0.1)", color: "#ffd966", boxShadow: "none" }}>
+
+                    PSARA License
+                  </span>
+                  <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">
+                    A PSARA Approved <br /> Security Company
+                  </h2>
+                </div>
+                <p className="text-white mt-4 wow fadeInUp" data-wow-delay=".5s" style={{ opacity: 0.8, fontSize: "18px" }}>
+                  IBSM Security is a PSARA-approved company offering premier security solutions. Our highly
+                  trained professionals provide reliable, top-notch protection for businesses and individuals,
+                  fully compliant with the Private Security Agencies (Regulation) Act.
+                </p>
+              </div>
+              <div className="col-lg-5 text-center text-lg-end">
+                <div className="psara-badge-container wow zoomIn" data-wow-delay=".4s">
+                  <div className="psara-badge">
+                    <div className="badge-inner">
+                      <div className="badge-content">
+                        <i className="fas fa-shield-check mb-2"></i>
+                        <span>PSARA</span>
+                        <strong>APPROVED</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-white wow fadeInUp" data-wow-delay=".5s">
-              "IBSM Security is a PSARA-approved company offering premier security solutions. Our highly
-              trained professionals provide reliable, top-notch protection for businesses and individuals."
-            </p>
           </div>
           <div className="row">
             <div
@@ -819,10 +589,10 @@ const page = () => {
                   <img src="/assets/img/case-study/01.jpg" alt="img" />
                 </div>
                 <div className="content">
-                  <p>IT Consulting</p>
+                  <p>Industrial Security</p>
                   <h3>
                     <Link href="case-study-details">
-                      How to achieve more with your nine to five
+                      Your Safety & Security <br /> Our Responsibility
                     </Link>
                   </h3>
                   <Link className="arrow-btn" href="case-study-details">
@@ -840,10 +610,10 @@ const page = () => {
                   <img src="/assets/img/case-study/02.jpg" alt="img" />
                 </div>
                 <div className="content">
-                  <p>Machine Learning</p>
+                  <p>Commercial Security</p>
                   <h3>
                     <Link href="case-study-details">
-                      Strategies for outstanding future results
+                      Comprehensive Protection For All Your Assets
                     </Link>
                   </h3>
                   <Link className="arrow-btn" href="case-study-details">
@@ -861,10 +631,10 @@ const page = () => {
                   <img src="/assets/img/case-study/03.jpg" alt="img" />
                 </div>
                 <div className="content">
-                  <p>Software Design</p>
+                  <p>Personal Security</p>
                   <h3>
                     <Link href="case-study-details">
-                      Discover a better way of system defining company goals.
+                      Expert Surveillance and Guarding Solutions
                     </Link>
                   </h3>
                   <Link className="arrow-btn" href="case-study-details">
@@ -898,7 +668,7 @@ const page = () => {
         <div className="container">
           <div className="section-title text-center">
             <span className="sub-content wow fadeInUp">
-              <img src="/assets/img/bale.png" alt="img" />
+
               News &amp; Blog
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -906,78 +676,37 @@ const page = () => {
             </h2>
           </div>
           <div className="row">
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      Revealing Images With Animations Gradients, Blend Modes
-                      Cool
+            {featuredNews.map((newsItem: any, index: number) => (
+              <div
+                key={index}
+                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.3 + index * 0.2}s`}
+              >
+                <div className="news-box-items">
+                  <div className="news-content">
+                    <p>{new Date(newsItem.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                    <h4>
+                      <Link href={`/blog/${newsItem.slug}`}>
+                        {truncateText(newsItem.title, 45)}
+                      </Link>
+                    </h4>
+                    <Link className="link-btn" href={`/blog/${newsItem.slug}`}>
+                      Read More
+                      <i className="far fa-arrow-right" />
                     </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
+                  </div>
+                  <div
+                    className="news-image bg-cover"
+                    style={{ backgroundImage: `url("${newsItem.featuredImage}")` }}
+                  />
                 </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/01.jpg")' }}
-                />
               </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      List of 5 ways Generating Real Time Audio Sentiment
-                      Analysis
-                    </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/02.jpg")' }}
-                />
+            ))}
+            {featuredNews.length === 0 && (
+              <div className="col-12 text-center">
+                <p>Loading news...</p>
               </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".7s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      Revealing Images With Animations Gradients, Blend Modes
-                      Cool
-                    </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/03.jpg")' }}
-                />
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

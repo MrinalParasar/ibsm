@@ -17,7 +17,7 @@
         padding-left: 30px;
         overflow: hidden;
 
-        @include breakpoint (max-lg){
+        @include breakpoint (max-lg) {
             padding-left: 0;
             padding: 20px 15px;
             padding-right: 0;
@@ -55,12 +55,12 @@
 .service-card-items {
     margin-top: 30px;
     padding: 40px 45px;
-    background: rgba(92, 48, 253, 0.07);
-    border: 1.2px solid rgba(16, 24, 40, 0.1);
+    background: rgba(250, 192, 20, 0.07);
+    border: 1.2px solid rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     @include transition;
 
-    @include breakpoint (max-xxl){
+    @include breakpoint (max-xxl) {
         text-align: center;
     }
 
@@ -72,7 +72,7 @@
     }
 
     h3 {
-        @include breakpoint (max-xl){
+        @include breakpoint (max-xl) {
             font-size: 20px;
         }
     }
@@ -98,27 +98,46 @@
     }
 
     &:hover {
-        background-color: $theme-color;
+        // background-color: $theme-color; // Removed per user request
 
-        .icon {
+        // .icon {
+        //     color: $white;
+        //     filter: grayscale(100%) brightness(300%);
+        // }
+
+        // h3 {
+        //     a {
+        //         color: $white;
+        //     }
+        // }
+
+        // .service-thumb {
+        //     .line-shape {
+        //         filter: grayscale(100%) brightness(300%);
+        //     }
+        // }
+
+        // .link-btn {
+        //     color: $white;
+        // }
+
+        .theme-btn {
+            background-color: #000;
             color: $white;
-            filter: grayscale(100%) brightness(300%);
-        }
+            border-color: #000;
 
-        h3 {
-            a {
+            i {
                 color: $white;
+                transition: transform 0.3s ease;
             }
         }
-        
-        .service-thumb {
-            .line-shape {
-                filter: grayscale(100%) brightness(300%);
-            }
-        }
+    }
 
-        .link-btn {
-            color: $white;
+    // Move hover effect outside or use parent selector if applicable. 
+    // Since we are inside .service-card-items block:
+    &:hover {
+        .theme-btn i {
+            transform: rotate(90deg);
         }
     }
 
@@ -135,7 +154,7 @@
                 color: $white;
             }
         }
-        
+
         .service-thumb {
             .line-shape {
                 filter: grayscale(100%) brightness(300%);
@@ -155,11 +174,11 @@
     border: 1.2px solid #EDEEF0;
     border-radius: 16px;
 
-    @include breakpoint (max-xxl){
+    @include breakpoint (max-xxl) {
         padding: 40px;
     }
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         padding: 30px;
     }
 
@@ -172,7 +191,7 @@
     .service-content {
         margin-top: 30px;
 
-        @include breakpoint (max-sm){
+        @include breakpoint (max-sm) {
             margin-top: 20px;
         }
 
@@ -189,19 +208,20 @@
         p {
             margin-bottom: 30px;
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 margin-bottom: 20px;
             }
         }
 
         .theme-btn {
-            background: rgba(135, 96, 253, 0.20);
+            background: rgba(250, 192, 20, 0.20);
             color: $theme-color;
-    
-            &::before,&::after {
+
+            &::before,
+            &::after {
                 background: $theme-color;
             }
-    
+
             &:hover {
                 color: $white;
             }
@@ -212,18 +232,18 @@
 .service-offer-section {
     padding: 247px 0 120px;
 
-    @include breakpoint (max-xl4){
+    @include breakpoint (max-xl4) {
         margin-top: -30px;
         padding: 0;
         padding-bottom: 120px;
     }
 
-    @include breakpoint (max-xl){
+    @include breakpoint (max-xl) {
         margin-top: -50px;
         padding-bottom: 100px;
     }
 
-    @include breakpoint (max-lg){
+    @include breakpoint (max-lg) {
         margin-top: -70px;
         padding-bottom: 80px;
     }
@@ -234,12 +254,12 @@
     @include flex;
     gap: 30px;
     border-radius: 10px;
-    border: 1.2px solid rgba(16, 24, 40, 0.10);
+    border: 1.2px solid rgba(0, 0, 0, 0.10);
     background: rgba(255, 255, 255, 0.10);
-    box-shadow: 0px 10px 60px 0px rgba(92, 48, 253, 0.10);
+    box-shadow: 0px 10px 60px 0px rgba(250, 192, 20, 0.10);
     padding: 30px 40px;
 
-    @include breakpoint (max-md){
+    @include breakpoint (max-md) {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
@@ -259,7 +279,7 @@
             height: 80px;
             transform: rotate(-30deg);
             border-radius: 20px;
-            background: linear-gradient(180deg, rgba(92, 48, 253, 0.10) 0%, rgba(92, 48, 253, 0.00) 100%);
+            background: linear-gradient(180deg, rgba(250, 192, 20, 0.10) 0%, rgba(250, 192, 20, 0.00) 100%);
         }
     }
 
@@ -268,7 +288,7 @@
         justify-content: space-between;
         width: 100%;
 
-        @include breakpoint (max-md){
+        @include breakpoint (max-md) {
             flex-wrap: wrap;
             justify-content: center;
             text-align: center;
@@ -278,7 +298,7 @@
         .content {
             h3 {
                 margin-bottom: 3px;
-                
+
                 a {
                     &:hover {
                         color: $theme-color;
@@ -309,8 +329,8 @@
     padding: 40px;
     @include transition;
 
-    @include breakpoint (max-sm){
-       padding: 30px 25px;
+    @include breakpoint (max-sm) {
+        padding: 30px 25px;
     }
 
     .content {
@@ -319,11 +339,11 @@
         h3 {
             margin-bottom: 10px;
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 font-size: 22px;
             }
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 font-size: 20px;
             }
 
@@ -339,7 +359,7 @@
         transition: all .3s ease-in-out;
     }
 
-   &:hover {
+    &:hover {
         background-color: $theme-color;
 
         .content {
@@ -352,13 +372,13 @@
             color: $white;
         }
 
-   }
+    }
 }
 
 .service-section-4 {
     .section-title {
         br {
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 display: none;
             }
         }
@@ -366,11 +386,11 @@
 }
 
 .service-video-section {
-    background-color: rgba(92, 48, 253, 0.10);
+    background-color: rgba(250, 192, 20, 0.10);
 }
 
 .service-video-wrapper {
-    .service-video-image{
+    .service-video-image {
         position: relative;
         margin-right: 30px;
 
@@ -390,7 +410,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
 
             .video-buttton {
                 width: 100px;
@@ -402,43 +422,45 @@
                 color: $theme-color;
                 display: inline-block;
                 font-size: 18px;
-    
+
                 @include breakpoint (max-xl) {
                     width: 90px;
                     height: 90px;
                     line-height: 90px;
                 }
-    
+
                 @include breakpoint (max-md) {
                     width: 80px;
                     height: 80px;
                     line-height: 80px;
                     font-size: 18px;
                 }
-    
+
                 @include breakpoint (max-sm) {
                     width: 70px;
                     height: 70px;
                     line-height: 70px;
                 }
             }
-    
+
             .ripple {
-                &::before,&::after {
+
+                &::before,
+                &::after {
                     width: 100px;
                     height: 100px;
                     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-    
+
                     @include breakpoint (max-xl) {
                         width: 90px;
                         height: 90px;
                     }
-        
+
                     @include breakpoint (max-md) {
                         width: 80px;
                         height: 80px;
                     }
-        
+
                     @include breakpoint (max-sm) {
                         width: 70px;
                         height: 70px;
@@ -458,7 +480,7 @@
             bottom: 8%;
             left: 15%;
 
-            @include breakpoint (max-md){
+            @include breakpoint (max-md) {
                 gap: 12px;
                 transform: rotate(0);
                 bottom: 0;
@@ -476,8 +498,8 @@
                 font-weight: 500;
                 letter-spacing: -0.8px;
 
-                @include breakpoint (max-md){
-                   font-size: 16px;
+                @include breakpoint (max-md) {
+                    font-size: 16px;
                 }
             }
         }
@@ -506,17 +528,17 @@
     max-width: 410px;
     transform: rotate(-7.773deg);
 
-    @include breakpoint (max-xl){
+    @include breakpoint (max-xl) {
         transform: rotate(0);
         margin: 30px auto 0;
         text-align: center;
     }
 
-    @include breakpoint (max-md){
-       height: 480px;
+    @include breakpoint (max-md) {
+        height: 480px;
     }
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         height: 400px;
     }
 
@@ -535,7 +557,7 @@
     justify-content: space-between;
     @include transition;
 
-    @include breakpoint (max-xxs){
+    @include breakpoint (max-xxs) {
         gap: 30px;
         flex-wrap: wrap;
     }
@@ -562,7 +584,7 @@
         @include flex;
         gap: 80px;
 
-        @include breakpoint (max-sm){
+        @include breakpoint (max-sm) {
             gap: 30px;
         }
 
@@ -583,7 +605,7 @@
 
                 &:hover {
                     background-size: 100% 2px;
-                    background-image: linear-gradient($white,$white);
+                    background-image: linear-gradient($white, $white);
                 }
             }
         }
@@ -595,27 +617,27 @@
 }
 
 .popular-service-box-items {
-   margin-top: 30px;
-   text-align: center;
-   background-color: $white;
-   @include transition;
-   padding: 40px 30px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: $white;
+    @include transition;
+    padding: 40px 30px;
 
-   .icon {
+    .icon {
         width: 110px;
         height: 110px;
         line-height: 126px;
         text-align: center;
         border-radius: 50%;
-        background-color: rgba(92, 48, 253, 0.10);
+        background-color: rgba(250, 192, 20, 0.10);
         font-size: 50px;
         color: $theme-color;
         margin: 0 auto;
         text-align: center;
         @include transition;
-   }
+    }
 
-   .content {
+    .content {
         margin-top: 20px;
 
         h3 {
@@ -631,20 +653,20 @@
         p {
             margin-bottom: 10px;
         }
-   }
+    }
 
-   &:hover {
-        box-shadow: (0px 10px 20px rgba(92, 48, 253, 0.20));
+    &:hover {
+        box-shadow: (0px 10px 20px rgba(250, 192, 20, 0.20));
         border-radius: 12px;
 
         .icon {
             background-color: $theme-color;
             color: $white;
         }
-   }
+    }
 
-   &.active {
-        box-shadow: (0px 10px 20px rgba(92, 48, 253, 0.20));
+    &.active {
+        box-shadow: (0px 10px 20px rgba(250, 192, 20, 0.20));
         border-radius: 12px;
 
         .icon {

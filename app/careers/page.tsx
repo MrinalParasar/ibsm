@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+import Pagination from "@/components/Pagination";
+import { Button } from "@/components/ui/stateful-button";
 
 interface Vacancy {
   _id: string;
@@ -31,6 +33,7 @@ const Careers = () => {
   const [cvUploading, setCvUploading] = useState(false);
   const [cvUrl, setCvUrl] = useState<string>("");
   const [careerFormStatus, setCareerFormStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     fetchCareers(currentPage);
@@ -84,9 +87,15 @@ const Careers = () => {
     }
   };
 
-  const handleCareerFormSubmit = async (e: React.FormEvent) => {
+  const handleCareerFormSubmit = async (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault();
     setCareerFormStatus({ type: null, message: '' });
+
+    if (!cvUrl && !cvFile) {
+      setCareerFormStatus({ type: 'error', message: 'Please upload your CV' });
+      // Throwing error to stop stateful button animation chain if caught (or just break it)
+      throw new Error("CV Missing");
+    }
 
     let finalCvUrl = cvUrl;
 
@@ -94,7 +103,8 @@ const Careers = () => {
     if (cvFile && !cvUrl) {
       const uploadedUrl = await handleCvUpload(cvFile);
       if (!uploadedUrl) {
-        return; // Stop submission if CV upload failed
+        setCareerFormStatus({ type: 'error', message: 'Failed to upload CV' });
+        throw new Error("Upload Failed");
       }
       finalCvUrl = uploadedUrl;
     }
@@ -126,10 +136,20 @@ const Careers = () => {
         setCvUrl("");
       } else {
         setCareerFormStatus({ type: 'error', message: data.error || 'Failed to submit application' });
+        throw new Error(data.error || 'Submission Failed');
       }
     } catch (error) {
       setCareerFormStatus({ type: 'error', message: 'An error occurred. Please try again.' });
+      throw error;
     }
+  };
+
+  const handleStatefulClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (formRef.current && !formRef.current.reportValidity()) {
+      throw new Error("Form Invalid");
+    }
+    await handleCareerFormSubmit(e);
   };
 
   return (
@@ -137,7 +157,20 @@ const Careers = () => {
       <Breadcrumb pageName="Careers" />
 
       {/* Why Join Us Section Start */}
-      <section className="about-section fix section-padding pb-0">
+      <section className="about-section fix section-padding pb-0" style={{ paddingTop: "0px" }}>
+        <style jsx global>{`
+          .contact-form-items .form-clt input:not(:placeholder-shown),
+          .contact-form-items .form-clt textarea:not(:placeholder-shown) {
+            background-color: #fff9e6 !important;
+            border: 1px solid #ffd966 !important;
+          }
+          .apply-now-btn:hover,
+          .service-card-items:hover .apply-now-btn {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #000 !important;
+          }
+        `}</style>
         <div className="container">
           <div className="about-wrapper style-2">
             <div className="row g-4 align-items-center">
@@ -145,7 +178,6 @@ const Careers = () => {
                 <div className="about-content ms-0">
                   <div className="section-title">
                     <span className="sub-content wow fadeInUp">
-                      <img src="/assets/img/bale.png" alt="img" />
                       Join Our Team
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
@@ -193,7 +225,6 @@ const Careers = () => {
         <div className="container">
           <div className="section-title text-center">
             <span className="sub-content">
-              <img src="/assets/img/bale.png" alt="img" />
               Current Openings
             </span>
             <h2>Explore New Opportunities</h2>
@@ -209,164 +240,55 @@ const Careers = () => {
               </div>
             ) : (
               vacancies.map((job, index) => (
-              <div
-                key={index}
-                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-                data-wow-delay={`${0.2 * (index % 3 + 1)}s`}
-              >
                 <div
-                  className="service-card-items style-2"
-                  style={{ height: "100%" }}
+                  key={index}
+                  className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                  data-wow-delay={`${0.2 * (index % 3 + 1)}s`}
                 >
-                  <div className="service-content">
-                    <span
-                      className="type-tag"
-                      style={{
-                        background: "#1800ad",
-                        color: "white",
-                        padding: "2px 8px",
-                        borderRadius: "4px",
-                        fontSize: "12px",
-                      }}
-                    >
-                      {job.type}
-                    </span>
-                    <h3 className="mt-2">
-                      <Link href="#">{job.title}</Link>
-                    </h3>
-                    <p style={{ fontSize: "14px", color: "#666" }}>
-                      <i className="fas fa-map-marker-alt me-2" /> {job.location}
-                    </p>
-                    <p className="mt-3">{job.description}</p>
-                    <Link href="#apply" className="theme-btn mt-4">
-                      Apply Now <i className="far fa-arrow-right" />
-                    </Link>
+                  <div
+                    className="service-card-items style-2"
+                    style={{ height: "100%" }}
+                  >
+                    <div className="service-content">
+                      <span
+                        className="type-tag"
+                        style={{
+                          background: "#fff",
+                          color: "#666",
+                          border: "1px solid #e0e0e0",
+                          padding: "0px 12px",
+                          borderRadius: "30px",
+                          fontSize: "12px",
+                          fontWeight: "500",
+                          display: "inline-block",
+                        }}
+                      >
+                        {job.type}
+                      </span>
+                      <h3 className="mt-2">
+                        <Link href="#">{job.title}</Link>
+                      </h3>
+                      <p style={{ fontSize: "14px", color: "#666" }}>
+                        <i className="fas fa-map-marker-alt me-2" /> {job.location}
+                      </p>
+                      <p className="mt-3">{job.description}</p>
+                      <Link href="#apply" className="theme-btn apply-now-btn mt-4" style={{ borderRadius: "30px", padding: "10px 25px", lineHeight: "1" }}>
+                        Apply Now <i className="far fa-arrow-right" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))
             )}
           </div>
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-                marginTop: "40px",
-                flexWrap: "wrap",
-              }}
-            >
-              <button
-                onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-                disabled={currentPage === 1}
-                style={{
-                  padding: "10px 20px",
-                  background: currentPage === 1 ? "#373737" : "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)",
-                  color: currentPage === 1 ? "#696969" : "#000",
-                  border: "none",
-                  borderRadius: "8px",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  cursor: currentPage === 1 ? "not-allowed" : "pointer",
-                  transition: "all 0.3s",
-                  opacity: currentPage === 1 ? 0.5 : 1,
-                }}
-              >
-                <i className="fas fa-chevron-left" style={{ marginRight: "5px" }} />
-                Previous
-              </button>
-
-              <div
-                style={{
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                }}
-              >
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                  if (
-                    page === 1 ||
-                    page === totalPages ||
-                    (page >= currentPage - 1 && page <= currentPage + 1)
-                  ) {
-                    return (
-                      <button
-                        key={page}
-                        onClick={() => setCurrentPage(page)}
-                        style={{
-                          padding: "10px 16px",
-                          background: currentPage === page
-                            ? "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)"
-                            : "#121416",
-                          color: currentPage === page ? "#000" : "#fff",
-                          border: currentPage === page ? "none" : "1px solid #373737",
-                          borderRadius: "8px",
-                          fontSize: "14px",
-                          fontWeight: currentPage === page ? "700" : "500",
-                          cursor: "pointer",
-                          transition: "all 0.3s",
-                          minWidth: "40px",
-                        }}
-                        onMouseOver={(e) => {
-                          if (currentPage !== page) {
-                            e.currentTarget.style.borderColor = "#FAC014";
-                            e.currentTarget.style.color = "#FAC014";
-                          }
-                        }}
-                        onMouseOut={(e) => {
-                          if (currentPage !== page) {
-                            e.currentTarget.style.borderColor = "#373737";
-                            e.currentTarget.style.color = "#fff";
-                          }
-                        }}
-                      >
-                        {page}
-                      </button>
-                    );
-                  } else if (
-                    page === currentPage - 2 ||
-                    page === currentPage + 2
-                  ) {
-                    return (
-                      <span
-                        key={page}
-                        style={{
-                          color: "#696969",
-                          padding: "0 5px",
-                        }}
-                      >
-                        ...
-                      </span>
-                    );
-                  }
-                  return null;
-                })}
-              </div>
-
-              <button
-                onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
-                disabled={currentPage === totalPages}
-                style={{
-                  padding: "10px 20px",
-                  background: currentPage === totalPages ? "#373737" : "linear-gradient(90deg, #FAD02B 0%, #FAC014 100%)",
-                  color: currentPage === totalPages ? "#696969" : "#000",
-                  border: "none",
-                  borderRadius: "8px",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  cursor: currentPage === totalPages ? "not-allowed" : "pointer",
-                  transition: "all 0.3s",
-                  opacity: currentPage === totalPages ? 0.5 : 1,
-                }}
-              >
-                Next
-                <i className="fas fa-chevron-right" style={{ marginLeft: "5px" }} />
-              </button>
-            </div>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
           )}
 
           {totalPages > 1 && (
@@ -398,7 +320,8 @@ const Careers = () => {
                     </p>
                   </div>
                   <form
-                    onSubmit={handleCareerFormSubmit}
+                    ref={formRef}
+                    onSubmit={(e) => e.preventDefault()}
                     className="contact-form-items"
                   >
                     {careerFormStatus.type && (
@@ -407,8 +330,8 @@ const Careers = () => {
                           padding: "12px",
                           borderRadius: "8px",
                           marginBottom: "20px",
-                          background: careerFormStatus.type === 'success' 
-                            ? "rgba(76, 175, 80, 0.1)" 
+                          background: careerFormStatus.type === 'success'
+                            ? "rgba(76, 175, 80, 0.1)"
                             : "rgba(255, 0, 0, 0.1)",
                           border: `1px solid ${careerFormStatus.type === 'success' ? '#4CAF50' : '#f44336'}`,
                           color: careerFormStatus.type === 'success' ? '#4CAF50' : '#f44336',
@@ -491,15 +414,49 @@ const Careers = () => {
                             placeholder="Briefly describe your experience"
                             value={careerFormData.experience}
                             onChange={(e) => setCareerFormData({ ...careerFormData, experience: e.target.value })}
-                            rows={5}
+                            rows={3} /* Shortened height */
                             required
                           />
                         </div>
                       </div>
                       <div className="col-lg-12">
                         <div className="form-clt">
-                          <label style={{ color: "#fff", marginBottom: "10px", display: "block", fontSize: "14px" }}>
-                            Attach CV (PDF, DOC, DOCX - Max 5MB)
+                          <label style={{ fontSize: "14px", color: "#888", marginBottom: "8px", display: "block" }}>
+                            Tip: Upload your resume here (PDF preferred)
+                          </label>
+                          <label
+                            htmlFor="career-cv"
+                            className="cv-upload-box"
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "40px",
+                              border: cvFile ? "2px solid #ffd966" : "2px dashed #444",
+                              borderRadius: "12px",
+                              background: cvFile ? "rgba(255, 217, 102, 0.05)" : "rgba(255, 255, 255, 0.02)",
+                              cursor: "pointer",
+                              transition: "all 0.3s ease",
+                              width: "100%",
+                              textAlign: "center"
+                            }}
+                            onMouseOver={(e) => {
+                              if (!cvFile) e.currentTarget.style.borderColor = "#ffd966";
+                              e.currentTarget.style.background = "rgba(255, 217, 102, 0.05)";
+                            }}
+                            onMouseOut={(e) => {
+                              if (!cvFile) e.currentTarget.style.borderColor = "#444";
+                              if (!cvFile) e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)";
+                            }}
+                          >
+                            <i className="fas fa-cloud-upload-alt" style={{ fontSize: "32px", marginBottom: "15px", color: "#ffd966" }} />
+                            <span style={{ color: "#fff", fontSize: "16px", fontWeight: "600", marginBottom: "5px" }}>
+                              {cvFile ? "Change File" : "Click to Upload CV"}
+                            </span>
+                            <span style={{ color: "#888", fontSize: "13px" }}>
+                              {cvFile ? cvFile.name : "Supported: PDF, DOC, DOCX (Max 5MB)"}
+                            </span>
                           </label>
                           <input
                             type="file"
@@ -516,18 +473,11 @@ const Careers = () => {
                                 setCvUrl("");
                               }
                             }}
-                            style={{
-                              width: "100%",
-                              padding: "12px",
-                              borderRadius: "5px",
-                              border: "1px solid #eee",
-                              background: "#fff",
-                              color: "#000",
-                            }}
+                            style={{ display: "none" }}
                           />
                           {cvFile && (
-                            <div style={{ marginTop: "10px", color: "#FAC014", fontSize: "13px" }}>
-                              <i className="fas fa-file" style={{ marginRight: "5px" }} />
+                            <div style={{ marginTop: "10px", color: "#000", fontSize: "13px" }}>
+                              <i className="fas fa-file" style={{ marginRight: "5px", color: "#000" }} />
                               {cvFile.name} {cvUploading && "(Uploading...)"}
                             </div>
                           )}
@@ -539,10 +489,28 @@ const Careers = () => {
                           )}
                         </div>
                       </div>
-                      <div className="col-lg-12 text-center">
-                        <button type="submit" className="theme-btn" disabled={cvUploading}>
+                      <div className="col-lg-12 text-center" style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button
+                          onClick={handleStatefulClick}
+                          disabled={
+                            cvUploading ||
+                            !careerFormData.name ||
+                            !careerFormData.email ||
+                            !careerFormData.phone ||
+                            !careerFormData.position ||
+                            !careerFormData.experience ||
+                            (!cvFile && !cvUrl)
+                          }
+                          style={{
+                            opacity: (cvUploading || !careerFormData.name || !careerFormData.email || !careerFormData.phone || !careerFormData.position || !careerFormData.experience || (!cvFile && !cvUrl)) ? 0.5 : 1,
+                            cursor: (cvUploading || !careerFormData.name || !careerFormData.email || !careerFormData.phone || !careerFormData.position || !careerFormData.experience || (!cvFile && !cvUrl)) ? 'not-allowed' : 'pointer',
+                            backgroundColor: "#ffd966",
+                            color: "black",
+                            border: "1px solid black"
+                          }}
+                        >
                           {cvUploading ? "Uploading CV..." : "Submit Application"}
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </form>

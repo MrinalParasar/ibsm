@@ -1,120 +1,55 @@
 //>>>>> Component Button Here <<<<<//
 .theme-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     vertical-align: middle;
     border: none;
     outline: none !important;
-    background: $theme-color;
-    color: $white;
+    background: linear-gradient(to bottom, #ffd966, #ffc107); // Gradient from theme yellow to darker yellow
+    color: $black;
     font-size: 16px;
     font-weight: 500;
-    padding: 22px 40px;
+    padding: 0.5rem 2rem; // px-8 py-2 equivalent
     @include transition;
     letter-spacing: 0;
-    border-radius: 14px;
+    border-radius: 9999px; // rounded-full
     position: relative;
     overflow: hidden;
     text-align: center;
-    line-height: 1;
+    line-height: 1.5;
     z-index: 9;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); // Reset for transition
+
+    &:hover {
+        color: $black; // black text on hover
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); // hover:shadow-xl
+        background: linear-gradient(to bottom, #ffc107, #ffd966); // Subtle gradient shift on hover? or just keep same? Tailwind just does hover:shadow-xl usually. Let's keep bg same or slightly shift if needed.
+    }
+
+    &:focus {
+        // focus:ring-2 focus:ring-blue-400 (using yellow-400 equivalent #facc15 or theme)
+        box-shadow: 0 0 0 2px #facc15;
+        outline: none;
+    }
 
     i {
         margin-left: 10px;
     }
 
+    // Removing the old circle animations as they conflict with the requested clean Tailwind look
     &::before,
     &::after {
-        position: absolute;
-        top: 50%;
-        content: "";
-        width: 20px;
-        height: 20px;
-        background-color: $header-color;
-        border-radius: 50%;
-        z-index: -1;
-    }
-
-    &::before {
-        left: -20px;
-        transform: translate(-50%, -50%);
-    }
-
-    &::after {
-        right: -20px;
-        transform: translate(50%, -50%);
-    }
-
-    &:hover {
-        color: $white;
-
-        &::before {
-            animation: criss-cross-left 0.8s both;
-            animation-direction: alternate;
-        }
-
-        &::after {
-            animation: criss-cross-right 0.8s both;
-            animation-direction: alternate;
-        }
-    }
-
-    &.bg-white {
-        background: $white;
-        color: $header-color;
-
-        &:hover {
-            color: $white;
-        }
-    }
-
-    &.hover-white {
-        @include transition;
-
-        &::before,
-        &::after {
-            background-color: $white;
-        }
-
-        &:hover {
-            color: $header-color;
-        }
-    }
-
-    &.bg-2 {
-        background: $theme-color-2;
-
-        &::before,
-        &::after {
-            background: $header-color;
-        }
-
-        &:hover {
-            color: $white;
-        }
+        display: none;
     }
 
     @include breakpoint (max-md) {
-        padding: 20px 32px;
+        padding: 0.5rem 1.5rem;
     }
 
     @include breakpoint (max-sm) {
-        padding: 18px 30px;
+        padding: 0.5rem 1.25rem;
         font-size: 14px;
-    }
-
-    &.white-border {
-        background-color: transparent;
-        border: 1px solid $white;
-        color: $white;
-
-        &::before,
-        &::after {
-            background-color: $white;
-        }
-
-        &:hover {
-            color: $header-color;
-        }
     }
 }
 

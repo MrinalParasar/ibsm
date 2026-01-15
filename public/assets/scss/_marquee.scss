@@ -2,12 +2,15 @@
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    margin-bottom: 50px;
+    margin-bottom: 0px; // Reduced from 20px
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .text-slider {
-    font-size: 150px;
-    height: 150px;
+    font-size: 30px; // Reduced from 50px
+    height: 30px; // Reduced from 50px
     line-height: 1;
     font-weight: 500;
     text-transform: capitalize;
@@ -29,30 +32,37 @@
         height: 71px;
         line-height: 0;
 
-        @include breakpoint (max-sm){
+        @include breakpoint (max-sm) {
             line-height: 70px;
         }
     }
 
-    @include breakpoint(max-sm){
-        font-size: 50px;
-        height: 70px;
-        line-height: 65px;
+    @include breakpoint(max-sm) {
+        font-size: 18px; // Reduced from 24px
+        height: 24px; // Reduced from 30px
+        line-height: 24px;
     }
 
     &.style-border {
         position: relative;
-        padding-left: 85px;
+        padding-left: 55px;
 
         &::before {
             position: absolute;
-            bottom: 30px;
+            top: 50%;
+            transform: translateY(-50%);
             left: 0;
             content: "";
-            width: 80px;
-            height: 14px;
-            background-color:  transparent;
+            width: 20px;
+            height: 3px;
+            background-color: transparent;
             border: 1px solid $white;
+
+            @include breakpoint(max-sm) {
+                bottom: 6px;
+                width: 15px;
+                height: 2px;
+            }
         }
     }
 }
@@ -61,6 +71,8 @@
     position: absolute;
     display: inline-flex;
     width: 200%;
+    align-items: center;
+    height: 100%;
 }
 
 .marquee-list {
@@ -76,6 +88,7 @@
 .marque-section-2 {
     background-color: $theme-color;
 }
+
 .marquee-inner.to-left {
     animation: marqueeLeft 25s linear infinite;
 }
@@ -84,6 +97,7 @@
     0% {
         left: 0;
     }
+
     100% {
         left: -100%;
     }
@@ -95,8 +109,9 @@
 
 @keyframes marqueeRight {
     0% {
-       right : 0;
+        right: 0;
     }
+
     100% {
         right: -100%;
     }

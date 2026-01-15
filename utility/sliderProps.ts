@@ -226,5 +226,22 @@ export const sliderProps: Record<string, SwiperOptions> = {
       disableOnInteraction: false,
     },
   },
+  aboutSlider: {
+    spaceBetween: 0,
+    speed: 1500,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".array-next",
+      prevEl: ".array-prev",
+    },
+    pagination: {
+      el: ".dot",
+      clickable: true,
+    },
+  },
 };
 

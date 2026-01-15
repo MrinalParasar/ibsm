@@ -6,7 +6,6 @@ const Pricing = () => {
       <div className="container">
         <div className="section-title text-center">
           <span className="sub-content wow fadeInUp">
-            <img src="assets/img/bale.png" alt="img" />
             Pricing Package
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
