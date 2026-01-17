@@ -2,8 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.breadcrumb-wrapper .page-heading .breadcrumb-items li.style-2 {
-    color: #000 !important;
+/* Global Overrides for Black Text/Icons */
+.breadcrumb-wrapper .page-heading .breadcrumb-items li.style-2,
+.breadcrumb-wrapper .page-heading .breadcrumb-items li.style-2 span,
+.breadcrumb-wrapper .page-heading .breadcrumb-items li.style-2 a {
+    color: #000000 !important;
     text-decoration: underline !important;
-    -webkit-text-fill-color: #000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+/* Override Section Sub-titles pill */
+.section-title .sub-content,
+.section-title .sub-content span,
+.section-title .sec-sub-text-2,
+.sec-sub-text-2 {
+    color: #000000 !important;
+}
+
+/* Feature and Service Icons/Text Override */
+.funfact-box-items:hover h6,
+.funfact-box-items.active h6,
+.work-process-items .digit-box,
+.service-card-items .icon,
+.service-popular-items .service-content .theme-btn,
+.service-box-items .icon {
+    color: #000000 !important;
+}
+
+/* Header Hover Overrides */
+.main-menu ul li a:hover,
+.main-menu ul li:hover>a {
+    color: #000000 !important;
 }
