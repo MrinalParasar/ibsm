@@ -99,25 +99,6 @@ const HeroForm: React.FC<HeroFormProps> = ({
                         </div>
                     </div>
                     <div className="col-lg-12">
-                        <div className="payment-save">
-                            <input
-                                type="checkbox"
-                                className="form-check-input"
-                                name="save-for-next"
-                                id="hero-saveForNext"
-                                checked={formData.agreedToTerms}
-                                onChange={(e) =>
-                                    setFormData({ ...formData, agreedToTerms: e.target.checked })
-                                }
-                                required
-                            />
-                            <p>
-                                I've Read and agreed to{" "}
-                                <Link href="/">Terms &amp; Conditions</Link>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="col-lg-12">
                         <button type="submit" className="theme-btn">
                             Get Started Now <i className="far fa-arrow-right" />
                         </button>
