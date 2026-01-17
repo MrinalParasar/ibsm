@@ -142,6 +142,12 @@ export default function AdminLoginPage() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="admin@example.com"
+              sx={{
+                "& .MuiInputBase-input": {
+                  color: "#000000 !important",
+                  WebkitTextFillColor: "#000000 !important",
+                },
+              }}
             />
             <TextField
               fullWidth
@@ -153,6 +159,12 @@ export default function AdminLoginPage() {
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               placeholder="Enter your password"
+              sx={{
+                "& .MuiInputBase-input": {
+                  color: "#000000 !important",
+                  WebkitTextFillColor: "#000000 !important",
+                },
+              }}
             />
             <Button
               type="submit"

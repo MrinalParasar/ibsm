@@ -209,9 +209,9 @@ const Sidebar = ({ sidebarToggle, close, menu, single }: SidebarProps) => {
                 <MobileMenu single={single} menu={menu} />
               </div>
               <p className="text d-none d-xl-block mb-5">
-                Nullam dignissim, ante scelerisque the is euismod fermentum odio
-                sem semper the is erat, a feugiat leo urna eget eros. Duis
-                Aenean a imperdiet risus.
+                At IBSM Global Security Solutions, we are dedicated to providing
+                top-notch security services tailored to meet the unique needs of
+                our clients.
               </p>
               <div className="offcanvas__contact">
                 <h4>Contact Info</h4>

@@ -96,7 +96,7 @@
     }
 }
 
-.team-card-items{
+.team-card-items {
     margin-top: 30px;
 
     .team-image {
@@ -110,7 +110,7 @@
             position: absolute;
             bottom: 0;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             padding: 10px 30px;
             background-color: $theme-color;
             opacity: 0;
@@ -118,10 +118,10 @@
             border-radius: 10px;
 
             ul {
-               @include flex;
-               gap: 20px;
+                @include flex;
+                gap: 20px;
 
-               li {
+                li {
                     transform: scaleX(0);
                     transition: all 0.5s ease-in-out;
 
@@ -131,7 +131,7 @@
                             font-size: 16px;
                         }
                     }
-               }
+                }
             }
         }
     }
@@ -154,7 +154,7 @@
         }
     }
 
-    &:hover{
+    &:hover {
         .team-image {
             .icon-list {
                 opacity: 1;
@@ -208,8 +208,8 @@
         position: relative;
         padding-top: 60px;
 
-        @include breakpoint (max-lg){
-          padding-top: 0;
+        @include breakpoint (max-lg) {
+            padding-top: 0;
         }
 
         &::before {
@@ -217,7 +217,7 @@
             background-color: #F9FAFB;
             height: 85%;
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 display: none;
             }
         }
@@ -233,14 +233,15 @@
             top: 25%;
             left: -8px;
 
-            @include breakpoint (max-xl){
-              left: -70px;
+            @include breakpoint (max-xl) {
+                left: -70px;
             }
 
-            @include breakpoint (max-lg){
+            @include breakpoint (max-lg) {
                 display: none;
             }
         }
+
         .details-iamge {
             height: 502px;
             position: relative;
@@ -255,8 +256,8 @@
                 font-size: 40px;
                 margin-bottom: 5px;
 
-                @include breakpoint (max-lg){
-                   font-size: 32px;
+                @include breakpoint (max-lg) {
+                    font-size: 32px;
                 }
             }
 
@@ -267,7 +268,7 @@
             .list {
                 margin-top: 30px;
 
-                @include breakpoint (max-lg){
+                @include breakpoint (max-lg) {
                     margin-top: 20px;
                 }
 
@@ -275,7 +276,8 @@
                     font-size: 18px;
                     font-weight: 500;
 
-                    a,span {
+                    a,
+                    span {
                         color: $text-color;
                         font-weight: normal;
                     }
@@ -286,10 +288,10 @@
                 gap: 15px;
                 margin-top: 40px;
 
-                @include breakpoint (max-lg){
+                @include breakpoint (max-lg) {
                     margin-top: 30px;
                 }
-    
+
                 a {
                     width: 40px;
                     height: 40px;
@@ -298,19 +300,19 @@
                     border-radius: 50%;
                     text-align: center;
                     color: $white;
-    
+
                     &.color-1 {
                         background-color: rgb(70, 97, 197);
                     }
-    
+
                     &.color-2 {
                         background-color: rgb(29, 161, 242);
                     }
-    
+
                     &.color-3 {
                         background-color: rgb(255, 46, 46);
                     }
-    
+
                     &.color-4 {
                         background-color: rgb(0, 115, 176);
                     }
@@ -327,7 +329,7 @@
             font-size: 36px;
             margin-bottom: 20px;
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 font-size: 28px;
             }
         }
@@ -339,9 +341,10 @@
             .progress-wrap {
                 .pro-items {
 
-                    &:not(:last-child){
+                    &:not(:last-child) {
                         margin-bottom: 20px;
                     }
+
                     .pro-head {
                         display: flex;
                         align-items: center;
@@ -351,12 +354,13 @@
                         .title {
                             font-size: 16px;
                         }
-                        
+
                         .point {
                             font-size: 14px;
                             color: $text-color;
                         }
                     }
+
                     .progress {
                         background: $bg-color;
                         justify-content: flex-start;
@@ -367,7 +371,7 @@
                         height: 6px;
                         width: 100%;
                     }
-                    
+
                     .progress-value {
                         animation: load 3s normal forwards;
                         border-radius: 0;
@@ -375,23 +379,43 @@
                         height: 6px;
                         width: 0;
                     }
-                    .style-two{
+
+                    .style-two {
                         animation: load2 3s normal forwards;
                     }
-                    .style-three{
+
+                    .style-three {
                         animation: load3 3s normal forwards;
                     }
+
                     @keyframes load {
-                        0% { width: 0; }
-                        100% { width: 90%; }
+                        0% {
+                            width: 0;
+                        }
+
+                        100% {
+                            width: 90%;
+                        }
                     }
+
                     @keyframes load2 {
-                        0% { width: 0; }
-                        100% { width: 50%; }
+                        0% {
+                            width: 0;
+                        }
+
+                        100% {
+                            width: 50%;
+                        }
                     }
+
                     @keyframes load3 {
-                        0% { width: 0; }
-                        100% { width: 80%; }
+                        0% {
+                            width: 0;
+                        }
+
+                        100% {
+                            width: 80%;
+                        }
                     }
                 }
             }
@@ -416,11 +440,11 @@
     background-color: #F9FAFB;
     padding: 70px;
 
-    @include breakpoint (max-md){
+    @include breakpoint (max-md) {
         padding: 60px 40px;
     }
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         padding: 50px 30px;
     }
 
@@ -434,7 +458,9 @@
     }
 
     .form-clt {
-        input,textarea {
+
+        input,
+        textarea {
             padding: 18px 30px;
             border: none;
             outline: none;
@@ -444,15 +470,15 @@
             font-weight: 500;
             color: $text-color;
 
-            @include breakpoint (max-sm){
-               padding: 12px 20px;
+            @include breakpoint (max-sm) {
+                padding: 12px 20px;
             }
         }
 
         textarea {
             padding: 18px 30px 110px;
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 padding: 12px 20px 90px;
             }
         }

@@ -43,7 +43,7 @@
 					}
 
 					&:hover {
-						color: $theme-color !important;
+						color: $black !important;
 					}
 
 				}
@@ -110,8 +110,8 @@
 
 						&:hover {
 							>a {
-								background: $theme-color;
-								color: $white !important;
+								background: $black;
+								color: $black !important;
 
 								&::after {
 									color: $theme-color;
@@ -131,7 +131,7 @@
 					}
 
 					.submenu.blog-mega-wrapper {
-						min-width: 600px !important;
+						min-width: 500px !important;
 						padding: 20px !important;
 						display: flex;
 						gap: 0;
@@ -152,7 +152,7 @@
 
 							.blog-mega-item {
 								flex: 1;
-								min-width: 180px;
+								min-width: 160px;
 
 								.blog-mega-link {
 									display: block;
@@ -197,17 +197,21 @@
 
 								&:hover {
 									.blog-mega-title {
-										color: $theme-color !important;
+										color: $black !important;
 									}
 								}
 							}
 
 							.blog-mega-footer {
-								width: 100%;
-								border-top: 1px solid #eee;
-								padding-top: 15px;
-								margin-top: 5px;
-								text-align: right;
+								// width: 100%;
+								// flex-basis: 100%;
+								border-left: 1px solid #eee;
+								padding-left: 20px;
+								margin-left: 10px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								/* text-align: right; */
 
 								.view-all-btn {
 									display: inline-flex;
@@ -215,10 +219,14 @@
 									gap: 8px;
 									font-size: 14px;
 									font-weight: 600;
-									color: $theme-color;
+									color: $black;
 									padding: 0 !important;
 									border: none !important;
 									width: auto !important;
+									min-width: max-content;
+									white-space: nowrap !important;
+									flex-direction: row !important;
+									flex-wrap: nowrap !important;
 
 									i {
 										font-size: 12px;
@@ -226,7 +234,7 @@
 
 									&:hover {
 										background: transparent !important;
-										color: darken($theme-color, 10%);
+										color: $black !important;
 									}
 								}
 							}
@@ -244,7 +252,7 @@
 								-ms-transform: translateY(-50%);
 								-o-transform: translateY(-50%);
 								transform: translateY(-50%);
-								color: $theme-color;
+								color: $black;
 							}
 						}
 					}
@@ -252,7 +260,7 @@
 			}
 
 			.blog-mega-wrapper {
-				min-width: 600px !important;
+				min-width: 500px !important;
 				padding: 20px !important;
 				display: flex;
 				gap: 0;
@@ -273,7 +281,7 @@
 
 				.blog-mega-item {
 					flex: 1;
-					min-width: 180px;
+					min-width: 160px;
 
 					.blog-mega-link {
 						display: block;
@@ -316,7 +324,7 @@
 
 					&:hover {
 						.blog-mega-title {
-							color: $theme-color;
+							color: $black !important;
 						}
 					}
 				}
@@ -345,7 +353,7 @@
 
 						&:hover {
 							background: transparent !important;
-							color: darken($theme-color, 10%);
+							color: $black !important;
 						}
 					}
 				}
@@ -451,10 +459,10 @@
 
 			&:hover {
 				>a {
-					color: $theme-color;
+					color: $black;
 
 					&::after {
-						color: $theme-color;
+						color: $black;
 					}
 				}
 
@@ -583,7 +591,7 @@
 				height: 18px;
 				border-radius: 18px;
 				background-color: $theme-color;
-				color: $white;
+				color: $black;
 				font-size: 12px;
 				text-align: center;
 				font-weight: 500;
@@ -602,7 +610,7 @@
 		}
 	}
 }
-}
+
 
 .sidebar__toggle {
 	cursor: pointer;
@@ -639,9 +647,19 @@
 						color: $white;
 
 						&:hover {
-							color: $theme-color !important;
+							color: $black !important;
 						}
 
+					}
+
+					.blog-mega-link {
+						&:hover {
+							color: $black !important;
+
+							.blog-mega-title {
+								color: $black !important;
+							}
+						}
 					}
 
 					.submenu {
@@ -651,7 +669,7 @@
 
 								&:hover {
 									color: #000 !important;
-									background: $theme-color;
+									background: $black;
 								}
 							}
 						}
@@ -850,7 +868,7 @@
 						color: $white;
 
 						&:hover {
-							color: $theme-color !important;
+							color: $black !important;
 						}
 
 					}
@@ -980,7 +998,7 @@
 							color: $header-color;
 
 							&:hover {
-								color: $theme-color !important;
+								color: $black !important;
 							}
 
 						}
@@ -1225,6 +1243,7 @@
 
 				&.style-2 {
 					text-decoration: underline;
+					color: $black !important;
 				}
 			}
 		}
@@ -1261,4 +1280,11 @@
 			@include imgw;
 		}
 	}
+}
+
+// Force override for blog mega menu hover in header-1 to prevent yellow text
+.header-1 .header-main .main-menu ul li a.blog-mega-link:hover,
+.header-1 .header-main .main-menu ul li a.blog-mega-link:hover .blog-mega-title,
+.header-1 .header-main .main-menu ul li a.blog-mega-link:hover * {
+	color: $black !important;
 }

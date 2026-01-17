@@ -9,7 +9,7 @@ const Breadcrumb = ({ pageName = "About Company", pageTitle }: BreadcrumbProps) 
   return (
     <div
       className="breadcrumb-wrapper section-padding"
-      style={{ background: 'linear-gradient(180deg, #FFF9E6 0%, #FFFFFF 100%)' }}
+      style={{ background: '#ffffff' }}
     >
       <div className="container">
         <div className="page-heading">

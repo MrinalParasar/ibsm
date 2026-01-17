@@ -138,7 +138,7 @@
             blockquote,
             .wp-block-quote {
                 background-color: $theme-color;
-                color: $white;
+                color: $black;
                 font-size: 26px;
                 line-height: 1.4;
                 font-family: $heading-font;
@@ -150,7 +150,7 @@
                 z-index: 1;
 
                 a {
-                    color: $white;
+                    color: $black;
 
                     &:hover {
                         color: $text-color;
@@ -251,7 +251,7 @@
                 h2 {
                     margin-top: -2px;
                     font-size: 30px;
-                    color: var(--white);
+                    color: $black;
                 }
 
                 .post-meta {
@@ -259,7 +259,7 @@
 
                     span,
                     i {
-                        color: $white;
+                        color: $black;
                     }
                 }
             }
@@ -286,10 +286,10 @@
                 border-radius: 5px;
 
                 h4 {
-                    color: $white;
+                    color: $black;
 
                     span {
-                        color: $white;
+                        color: $black;
                         text-transform: uppercase;
                         font-size: 15px;
                     }
@@ -320,7 +320,7 @@
                     display: inline-block;
                     background-color: $theme-color;
                     text-align: center;
-                    color: $white;
+                    color: $black;
 
                     @include breakpoint (max-md) {
                         width: 70px;
@@ -378,7 +378,7 @@
 
                 a {
                     &:hover {
-                        color: $theme-color;
+                        color: $text-color;
                     }
                 }
             }
@@ -399,7 +399,7 @@
 
             .post-cat {
                 a {
-                    color: $white;
+                    color: $black;
                     display: inline-block;
                     background-color: $theme-color;
                     padding: 14px 18px 12px;
@@ -529,7 +529,7 @@
 
                     a {
                         &:hover {
-                            color: $theme-color;
+                            color: $text-color;
                         }
                     }
 
@@ -544,7 +544,7 @@
                     font-weight: 700;
 
                     &:hover {
-                        color: $theme-color;
+                        color: $text-color;
                     }
 
                     @media (max-width: 767px) {
@@ -593,7 +593,7 @@
                         text-transform: capitalize;
 
                         &:hover {
-                            color: $theme-color;
+                            color: $black;
                         }
                     }
                 }
@@ -662,7 +662,7 @@
 
                     &:hover {
                         background-color: $theme-color;
-                        color: $white;
+                        color: $black;
                     }
                 }
             }
@@ -694,7 +694,7 @@
             font-size: 18px;
             height: 100%;
             background-color: $theme-color;
-            color: $white;
+            color: $black;
             text-align: center;
             transition: all .3s ease-in-out;
 
@@ -741,14 +741,14 @@
 
                 a {
                     &:hover {
-                        color: $theme-color;
+                        color: $text-color;
                     }
                 }
             }
 
             .post-date {
                 margin-top: 10px;
-                color: $theme-color;
+                color: $black;
                 font-weight: 600;
                 font-size: 15px;
                 text-transform: capitalize;
@@ -784,7 +784,7 @@
                 @include transition;
 
                 &:hover {
-                    color: $theme-color;
+                    color: $black;
                 }
 
                 i {

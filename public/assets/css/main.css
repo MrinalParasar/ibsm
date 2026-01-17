@@ -2888,6 +2888,7 @@ input.main-search-input::placeholder {
 .hero-1 {
   padding: 120px 0;
   position: relative;
+  background: linear-gradient(90deg, #FFFFFF 60%, #FFFDE7 100%);
 }
 
 .hero-1 .hero-content {

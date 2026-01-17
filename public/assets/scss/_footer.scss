@@ -4,7 +4,7 @@
     padding: 80px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
-    @include breakpoint (max-xl){
+    @include breakpoint (max-xl) {
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
@@ -15,11 +15,11 @@
         @include flex;
         gap: 65px;
 
-        @include breakpoint (max-xl){
-           justify-content: center;
+        @include breakpoint (max-xl) {
+            justify-content: center;
         }
 
-        @include breakpoint (max-lg){
+        @include breakpoint (max-lg) {
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -41,20 +41,20 @@
     position: relative;
     z-index: 9;
 
-    @include breakpoint(max-xl){
+    @include breakpoint(max-xl) {
         padding: 70px 0 100px;
     }
 
-    @include breakpoint(max-lg){
+    @include breakpoint(max-lg) {
         padding: 50px 0 80px;
         margin-bottom: -50px;
     }
 
-    @include breakpoint(max-lg){
+    @include breakpoint(max-lg) {
         margin-bottom: -30px;
     }
 
-    @include breakpoint(max-sm){
+    @include breakpoint(max-sm) {
         margin-bottom: -50px;
     }
 
@@ -65,7 +65,7 @@
         .widget-head {
             margin-bottom: 30px;
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 margin-bottom: 20px;
             }
 
@@ -90,7 +90,7 @@
                     line-height: 40px;
                     border-radius: 50%;
                     display: inline-block;
-                    background-color: #2B3852;                
+                    background-color: #2B3852;
                     color: $white;
                     @include transition;
 
@@ -146,13 +146,13 @@
                 display: flex;
                 gap: 20px;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     margin-bottom: 20px;
                 }
 
                 .icon {
-                   color: $theme-color;
-                   font-size: 18px;
+                    color: $theme-color;
+                    font-size: 18px;
                 }
 
                 .content {
@@ -180,7 +180,7 @@
 
             li {
                 text-transform: capitalize;
-                background-image: linear-gradient($theme-color,$theme-color);
+                background-image: linear-gradient($theme-color, $theme-color);
                 background-position: 0 95%;
                 background-repeat: no-repeat;
                 background-size: 0% 1px;
@@ -199,7 +199,7 @@
                     @include transition;
                 }
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     margin-bottom: 15px;
                 }
 
@@ -236,11 +236,12 @@
                     width: 70px;
                     height: 70px;
                     border-radius: 50%;
-                   
+
                 }
 
                 .content {
                     flex-basis: 50%;
+
                     .post-date {
                         margin-bottom: 10px;
 
@@ -262,7 +263,7 @@
                     }
                 }
             }
-       }
+        }
     }
 }
 
@@ -270,20 +271,20 @@
     position: relative;
     z-index: 9;
 
-    @include breakpoint (max-sm){
+    @include breakpoint (max-sm) {
         padding: 20px 0;
         text-align: center;
     }
-    
-    .footer-wrapper {
-       padding-bottom: 80px;
 
-       @include breakpoint (max-lg){
+    .footer-wrapper {
+        padding-bottom: 80px;
+
+        @include breakpoint (max-lg) {
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center !important;
             margin-top: 30px;
-       }
+        }
 
         p {
             color: #ffffffb3;
@@ -292,12 +293,12 @@
                 color: #ffffffb3;
             }
         }
-    
+
         .footer-menu {
             @include flex;
             gap: 20px;
 
-            @include breakpoint (max-sm){
+            @include breakpoint (max-sm) {
                 flex-wrap: wrap;
                 gap: 15px;
                 justify-content: center;
@@ -306,7 +307,7 @@
             li {
                 a {
                     color: #ffffffb3;
-                    background-image: linear-gradient($theme-color,$theme-color);
+                    background-image: linear-gradient($theme-color, $theme-color);
                     background-position: 0 95%;
                     background-repeat: no-repeat;
                     background-size: 0% 2px;
@@ -379,7 +380,7 @@
         bottom: 25%;
         left: 5%;
 
-        @include breakpoint (max-xl4){
+        @include breakpoint (max-xl4) {
             display: none;
         }
     }
@@ -389,7 +390,7 @@
         top: 10%;
         right: 3%;
 
-        @include breakpoint (max-xl4){
+        @include breakpoint (max-xl4) {
             display: none;
         }
     }

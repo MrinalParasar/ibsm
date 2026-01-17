@@ -17,11 +17,11 @@ const BlogMegaMenu = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                // Fetch latest 3 blogs
-                const response = await fetch("/api/news?page=1&limit=3");
+                // Fetch latest 2 blogs
+                const response = await fetch("/api/news?page=1&limit=2");
                 if (response.ok) {
                     const data = await response.json();
-                    setBlogs(data.news?.slice(0, 3) || []);
+                    setBlogs(data.news?.slice(0, 2) || []);
                 }
             } catch (error) {
                 console.error("Failed to fetch blogs for mega menu:", error);
@@ -65,7 +65,7 @@ const BlogMegaMenu = () => {
             ))}
             <div className="blog-mega-footer">
                 <Link href="/news" className="view-all-btn">
-                    View All News <i className="fas fa-arrow-right" />
+                    View All <i className="fas fa-arrow-right" />
                 </Link>
             </div>
         </div>

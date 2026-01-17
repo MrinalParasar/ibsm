@@ -7,6 +7,7 @@ import Services, { Service2 } from "@/components/Services";
 import AboutImageSlider from "@/components/AboutImageSlider";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+import HeroForm from "@/components/HeroForm";
 
 const page = () => {
   const [heroFormData, setHeroFormData] = useState({
@@ -90,19 +91,24 @@ const page = () => {
     <NextLayout header={1}>
       <section
         className="hero-section hero-1 fix"
-        style={{
-          backgroundColor: "#fff",
-        }}
       >
         <div className="container">
           <div className="row g-4 justify-content-between">
             <div className="col-lg-6">
-              <div className="hero-content" style={{ paddingTop: "40px" }}>
+              <div className="hero-content">
                 <h1 className="text-black wow fadeInUp" data-wow-delay=".2s">
                   Your <span style={{ backgroundColor: "#ffd966", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block", marginBottom: "8px" }}>Safety</span> & <br />
                   <span style={{ backgroundColor: "#ffd966", color: "#000", padding: "0 10px", borderRadius: "4px", display: "inline-block" }}>Security</span> Our <br />
                   Responsibility
                 </h1>
+                <div className="d-block d-lg-none py-4">
+                  <HeroForm
+                    formData={heroFormData}
+                    setFormData={setHeroFormData}
+                    formStatus={heroFormStatus}
+                    onSubmit={handleHeroFormSubmit}
+                  />
+                </div>
                 <p className="text-black wow fadeInUp" data-wow-delay=".4s" style={{ paddingTop: "15px" }}>
                   Welcome to IBSM Global Security Solutions, <br />
                   your trusted partner in safeguarding what matters most.
@@ -126,95 +132,13 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-5 wow fadeInUp" data-wow-delay=".4s">
-              <div className="hero-contact-box" style={{ border: "1px solid #333" }}>
-                <h4>Get Consultations</h4>
-                <p>Ready to Register Our Security Services</p>
-                <form
-                  onSubmit={handleHeroFormSubmit}
-                  className="contact-form-item"
-                >
-                  {heroFormStatus.type && (
-                    <div
-                      style={{
-                        padding: "12px",
-                        borderRadius: "8px",
-                        marginBottom: "20px",
-                        background: heroFormStatus.type === 'success'
-                          ? "rgba(76, 175, 80, 0.1)"
-                          : "rgba(255, 0, 0, 0.1)",
-                        border: `1px solid ${heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336'}`,
-                        color: heroFormStatus.type === 'success' ? '#4CAF50' : '#f44336',
-                        fontSize: "14px",
-                      }}
-                    >
-                      {heroFormStatus.message}
-                    </div>
-                  )}
-                  <div className="row g-4">
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="text"
-                          name="name"
-                          id="hero-name"
-                          placeholder="Your Name"
-                          value={heroFormData.name}
-                          onChange={(e) => setHeroFormData({ ...heroFormData, name: e.target.value })}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="email"
-                          name="email"
-                          id="hero-email"
-                          placeholder="Email Address"
-                          value={heroFormData.email}
-                          onChange={(e) => setHeroFormData({ ...heroFormData, email: e.target.value })}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="tel"
-                          name="phone"
-                          id="hero-phone"
-                          placeholder="Phone Number"
-                          value={heroFormData.phone}
-                          onChange={(e) => setHeroFormData({ ...heroFormData, phone: e.target.value })}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="payment-save">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          name="save-for-next"
-                          id="hero-saveForNext"
-                          checked={heroFormData.agreedToTerms}
-                          onChange={(e) => setHeroFormData({ ...heroFormData, agreedToTerms: e.target.checked })}
-                          required
-                        />
-                        <p>
-                          I've Read and agreed to{" "}
-                          <Link href="/">Terms &amp; Conditions</Link>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <button type="submit" className="theme-btn">
-                        Get Started Now <i className="far fa-arrow-right" />
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            <div className="col-lg-5 wow fadeInUp d-none d-lg-block" data-wow-delay=".4s">
+              <HeroForm
+                formData={heroFormData}
+                setFormData={setHeroFormData}
+                formStatus={heroFormStatus}
+                onSubmit={handleHeroFormSubmit}
+              />
             </div>
           </div>
         </div>
@@ -226,7 +150,7 @@ const page = () => {
             className="mb-5 text-white text-center wow fadeInUp"
             data-wow-delay=".3s"
           >
-            Ensuring Your Safety With Professional Security Solutions
+            Ensuring Your Safety With \u003cbr /\u003e Professional Security Solutions
           </h4>
           <div className="row g-4">
             {features.length > 0 ? (

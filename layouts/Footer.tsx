@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "../components/Logo";
+import { hardcodedNews } from "@/lib/data/hardcoded-news";
 
 interface FooterProps {
   footer?: number;
@@ -141,24 +142,55 @@ const Footer1 = () => {
                 </div>
               </div>
             </div>
+            <div
+              className="col-xl-3 col-lg-4 col-md-6 ps-lg-2 wow fadeInUp"
+              data-wow-delay=".8s"
+            >
+              <div className="single-footer-widget">
+                <div className="widget-head">
+                  <h4>Recent Blog</h4>
+                </div>
+                <div className="recent-post-area">
+                  {hardcodedNews.slice(0, 2).map((news) => (
+                    <div className="recent-post-items" key={news._id}>
+                      <div
+                        className="thumb bg-cover"
+                        style={{
+                          backgroundImage: `url("${news.featuredImage}")`,
+                        }}
+                      />
+                      <div className="content">
+                        <ul className="post-date">
+                          <li>
+                            {new Date(news.publishDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric",
+                              }
+                            )}
+                          </li>
+                        </ul>
+                        <h6>
+                          <Link href={`/news/${news.slug}`}>
+                            {news.title.length > 35
+                              ? news.title.substring(0, 35) + "..."
+                              : news.title}
+                          </Link>
+                        </h6>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
         <div className="footer-bottom">
           <div className="container">
-            <div className="footer-wrapper d-flex align-items-center justify-content-between">
-              <ul className="footer-menu wow fadeInUp" data-wow-delay=".2s">
-                <li>
-                  <Link href="faq">FAQs</Link>
-                </li>
-                <li>
-                  <Link href="about">Company</Link>
-                </li>
-                <li>
-                  <Link href="contact">Privacy</Link>
-                </li>
-              </ul>
-
+            <div className="footer-wrapper d-flex align-items-center justify-content-center">
               <p className="wow fadeInUp" data-wow-delay=".6s">
                 © <Link href="/">2024</Link> All Rights Reserved
               </p>

@@ -30,7 +30,7 @@
             a {
 
                 &:hover {
-                    color: $theme-color;
+                    color: $header-color;
                 }
             }
         }
@@ -67,7 +67,7 @@
     .icon {
         margin-bottom: 20px;
         @include transition;
-        color: $theme-color;
+        color: $header-color;
         font-size: 60px;
     }
 
@@ -200,7 +200,7 @@
 
             a {
                 &:hover {
-                    color: $theme-color;
+                    color: $header-color;
                 }
             }
         }
@@ -215,7 +215,7 @@
 
         .theme-btn {
             background: rgba(250, 192, 20, 0.20);
-            color: $theme-color;
+            color: $header-color;
 
             &::before,
             &::after {
@@ -301,7 +301,7 @@
 
                 a {
                     &:hover {
-                        color: $theme-color;
+                        color: $header-color;
                     }
                 }
             }
@@ -419,7 +419,7 @@
                 text-align: center;
                 border-radius: 50%;
                 background-color: $white;
-                color: $theme-color;
+                color: $black;
                 display: inline-block;
                 font-size: 18px;
 
@@ -493,7 +493,7 @@
             }
 
             li {
-                color: $white;
+                color: $black;
                 font-size: 20px;
                 font-weight: 500;
                 letter-spacing: -0.8px;
@@ -569,7 +569,7 @@
         text-align: center;
         border-radius: 50%;
         background-color: $theme-color;
-        color: $white;
+        color: $black;
         display: inline-block;
         transform: rotate(-45deg);
 
@@ -631,7 +631,7 @@
         border-radius: 50%;
         background-color: rgba(250, 192, 20, 0.10);
         font-size: 50px;
-        color: $theme-color;
+        color: $header-color;
         margin: 0 auto;
         text-align: center;
         @include transition;
@@ -645,7 +645,7 @@
 
             a {
                 &:hover {
-                    color: $theme-color;
+                    color: $header-color;
                 }
             }
         }
@@ -661,7 +661,7 @@
 
         .icon {
             background-color: $theme-color;
-            color: $white;
+            color: $black;
         }
     }
 
@@ -671,7 +671,7 @@
 
         .icon {
             background-color: $theme-color;
-            color: $white;
+            color: $black;
         }
     }
 }
